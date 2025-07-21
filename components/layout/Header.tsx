@@ -67,6 +67,11 @@ const Header: React.FC = () => {
 
           {/* Desktop Auth Buttons */}
           <div className="hidden md:flex items-center space-x-4">
+            <Link href="/pricing">
+              <Button variant="outline" size="sm">
+                Pricing
+              </Button>
+            </Link>
             <Link href="/auth/signin">
               <Button variant="ghost" size="sm">
                 Sign In
@@ -104,6 +109,11 @@ const Header: React.FC = () => {
               ))}
               
               <div className="flex flex-col space-y-3 pt-4 border-t border-neutral-200">
+                <Link href="/pricing" onClick={() => setIsMenuOpen(false)}>
+                  <Button variant="outline" size="sm" className="w-full">
+                    Pricing
+                  </Button>
+                </Link>
                 <Link href="/auth/signin" onClick={() => setIsMenuOpen(false)}>
                   <Button variant="ghost" size="sm" className="w-full">
                     Sign In

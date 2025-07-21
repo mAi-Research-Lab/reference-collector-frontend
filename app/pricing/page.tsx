@@ -26,10 +26,7 @@ export default function PricingPage() {
         'Up to 1,000 references',
         'Basic citation styles',
         'Local storage',
-        'Desktop application',
-        'Basic search and organization',
-        'Export to common formats',
-        'Community support',
+
       ],
     },
     {
@@ -47,12 +44,7 @@ export default function PricingPage() {
         'Cloud sync across devices',
         'Advanced search and filters',
         'Custom tags and folders',
-        'PDF annotation and highlighting',
-        'Collaboration with up to 3 people',
-        'Priority email support',
-        'Advanced export options',
-        'Web browser extension',
-        'Mobile app access',
+
       ],
     },
     {
@@ -72,12 +64,8 @@ export default function PricingPage() {
         'Advanced analytics and reporting',
         'API access',
         'Custom integrations',
-        'Dedicated account manager',
-        '24/7 phone support',
-        'Custom training sessions',
-        'On-premise deployment options',
-        'Advanced security features',
-        'Data export and migration tools',
+
+
       ],
     },
   ];
@@ -109,29 +97,22 @@ export default function PricingPage() {
     <div className="min-h-screen">
       <Header />
       
-      {/* Hero Section */}
-      <section className="bg-gradient-to-br from-white to-neutral-50 py-20">
+      {/* Hero + Pricing Cards (Merged) */}
+      <section className="bg-gradient-to-br from-white to-neutral-50 py-10">
         <div className="container">
-          <div className="max-w-3xl mx-auto text-center">
-            <h1 className="text-4xl md:text-5xl font-bold text-neutral-900 mb-6">
+          <div className="max-w-3xl mx-auto text-center mb-12">
+            <h1 className="text-4xl md:text-5xl font-bold text-neutral-900 mb-4">
               Choose Your <span className="text-primary-500">RefCite</span> Plan
             </h1>
-            <p className="text-xl text-neutral-600 mb-8">
+            <p className="text-xl text-neutral-600 mb-4">
               Start free and upgrade as your research grows. 
               All plans include our core reference management features.
             </p>
-            
-            <div className="flex items-center justify-center gap-2 text-sm text-neutral-500 mb-8">
+            <div className="flex items-center justify-center gap-2 text-sm text-neutral-500 mb-4">
               <Star className="w-4 h-4 text-yellow-400 fill-current" />
               <span>30-day money-back guarantee</span>
             </div>
           </div>
-        </div>
-      </section>
-
-      {/* Pricing Cards */}
-      <section className="py-20 bg-white">
-        <div className="container">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
             {plans.map((plan) => (
               <div
@@ -140,49 +121,46 @@ export default function PricingPage() {
                   plan.recommended 
                     ? 'ring-2 ring-primary-500 scale-105' 
                     : ''
-                }`}
+                } group`}
               >
                 {plan.recommended && (
-                  <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
-                    <span className="bg-primary-500 text-white px-4 py-1 rounded-full text-sm font-medium">
+                  <div className="absolute -top-3 left-1/2 transform -translate-x-1/2">
+                    <span className="bg-primary-500 text-white px-3 py-0.5 rounded-full text-xs font-medium shadow-md">
                       Most Popular
                     </span>
                   </div>
                 )}
-                
                 <div className="text-center mb-8">
-                  <h3 className="text-2xl font-bold text-neutral-900 mb-2">
+                  <h3 className="text-xl font-semibold text-neutral-900 mb-1">
                     {plan.name}
                   </h3>
-                  <p className="text-neutral-600 mb-6">
+                  <p className="text-sm text-neutral-500 mb-4">
                     {plan.description}
                   </p>
-                  
-                  <div className="mb-6">
+                  <div className="mb-4">
                     {plan.price === 'contact' ? (
-                      <div className="text-3xl font-bold text-neutral-900">
+                      <div className="text-2xl font-bold text-neutral-900">
                         Contact Us
                       </div>
                     ) : (
                       <>
-                        <div className="text-4xl font-bold text-neutral-900">
+                        <div className="text-3xl font-bold text-neutral-900">
                           ${plan.price}
-                          <span className="text-lg text-neutral-500 font-normal">
+                          <span className="text-base text-neutral-400 font-normal">
                             /{plan.billing === 'monthly' ? 'mo' : 'year'}
                           </span>
                         </div>
                         {plan.price > 0 && (
-                          <div className="text-sm text-neutral-500 mt-1">
+                          <div className="text-xs text-neutral-400 mt-0.5">
                             Billed {plan.billing}
                           </div>
                         )}
                       </>
                     )}
                   </div>
-
                   {plan.type === 'enterprise' ? (
                     <Link href="/contact">
-                      <Button className="w-full" size="lg">
+                      <Button className="w-full" size="sm">
                         <Mail className="w-4 h-4 mr-2" />
                         Contact Sales
                       </Button>
@@ -192,22 +170,21 @@ export default function PricingPage() {
                       <Button 
                         variant={plan.recommended ? 'primary' : 'outline'} 
                         className="w-full" 
-                        size="lg"
+                        size="sm"
                       >
                         {plan.price === 0 ? 'Get Started Free' : 'Start Free Trial'}
                       </Button>
                     </Link>
                   )}
                 </div>
-
                 <div className="space-y-4">
-                  <div className="text-sm font-semibold text-neutral-900 mb-3">
+                  <div className="text-xs font-semibold text-neutral-900 mb-2">
                     What's included:
                   </div>
                   {plan.features.map((feature, index) => (
-                    <div key={index} className="flex items-start gap-3">
+                    <div key={index} className="flex items-start gap-2">
                       <Check className="w-4 h-4 text-green-500 mt-0.5 flex-shrink-0" />
-                      <span className="text-sm text-neutral-600">{feature}</span>
+                      <span className="text-xs text-neutral-600">{feature}</span>
                     </div>
                   ))}
                 </div>
@@ -218,37 +195,37 @@ export default function PricingPage() {
       </section>
 
       {/* FAQ Section */}
-      <section className="py-20 bg-neutral-50">
+      <section className="py-16 bg-neutral-50">
         <div className="container">
           <div className="max-w-3xl mx-auto">
-            <div className="text-center mb-16">
-              <h2 className="text-3xl md:text-4xl font-bold text-neutral-900 mb-4">
+            <div className="text-center mb-12">
+              <h2 className="text-2xl md:text-3xl font-bold text-neutral-900 mb-2">
                 Frequently Asked Questions
               </h2>
-              <p className="text-lg text-neutral-600">
+              <p className="text-base text-neutral-600">
                 Got questions? We've got answers.
               </p>
             </div>
 
-            <div className="space-y-6">
+            <div className="space-y-4">
               {faqs.map((faq, index) => (
-                <div key={index} className="card">
-                  <h3 className="text-lg font-semibold text-neutral-900 mb-3">
+                <div key={index} className="card p-4 md:p-5">
+                  <h3 className="text-base font-semibold text-neutral-900 mb-2">
                     {faq.question}
                   </h3>
-                  <p className="text-neutral-600">
+                  <p className="text-sm text-neutral-600">
                     {faq.answer}
                   </p>
                 </div>
               ))}
             </div>
 
-            <div className="text-center mt-12">
-              <p className="text-neutral-600 mb-4">
+            <div className="text-center mt-10">
+              <p className="text-neutral-600 mb-3">
                 Still have questions?
               </p>
               <Link href="/contact">
-                <Button variant="outline">
+                <Button variant="outline" size="sm">
                   Contact Support
                 </Button>
               </Link>
