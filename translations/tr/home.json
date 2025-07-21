@@ -1,0 +1,123 @@
+{
+  "hero": {
+    "title": "Modern Referans",
+    "titleHighlight": "Yönetimi",
+    "description": "Araştırmacılar, öğrenciler ve akademisyenler için güçlü, sezgisel referans yönetimi. Basitlik ve verimlilik, yeniden tanımlandı.",
+    "trustIndicators": {
+      "freeForIndividuals": "Bireyler için ücretsiz",
+      "noCreditCardRequired": "Kredi kartı gerektirmez",
+      "worksOffline": "Çevrimdışı çalışır"
+    },
+    "statistics": {
+      "activeUsers": "Aktif Kullanıcı",
+      "universities": "Üniversite",
+      "referencesManaged": "Yönetilen Referans"
+    }
+  },
+  "features": {
+    "title": "Referans yönetimi için ihtiyacınız olan her şey",
+    "description": "RefCite, geleneksel referans yöneticilerinin gücünü modern, sezgisel tasarım ve kusursuz işbirliği özellikleriyle birleştirir.",
+    "items": {
+      "smartOrganization": {
+        "title": "Akıllı Organizasyon",
+        "description": "Akıllı etiketleme, kategorilendirme ve makine öğrenmesi destekli metadata çıkarma ile referanslarınızı otomatik olarak düzenleyin. Önemli makaleleri bir daha kaybetmeyin."
+      },
+      "powerfulSearch": {
+        "title": "Güçlü Arama",
+        "description": "Gelişmiş arama, tam metin indeksleme ve akıllı filtrelerle herhangi bir referansı anında bulun. Yazar, başlık, anahtar kelimeler veya PDF'lerin içeriğine göre arama yapın."
+      },
+      "teamCollaboration": {
+        "title": "Takım İşbirliği",
+        "description": "Kütüphaneleri paylaşın, grup koleksiyonları oluşturun ve meslektaşlarınızla gerçek zamanlı işbirliği yapın. Araştırma ekipleri, bölümler ve akademik kurumlar için mükemmel."
+      },
+      "quickCitation": {
+        "title": "Hızlı Alıntılama",
+        "description": "APA, MLA, Chicago ve dergiye özel formatlar dahil 500'den fazla stilde mükemmel biçimlendirilmiş alıntılar oluşturun. Tek tıkla bibliyografya oluşturma."
+      }
+    }
+  },
+  "whyChoose": {
+    "title": "Neden RefCite'ı Seçmelisiniz?",
+    "description": "Araştırmacılar tarafından, araştırmacılar için geliştirildi. RefCite, akademik topluluğun karşılaştığı gerçek zorlukları yenilikçi çözümlerle ele alır.",
+    "items": {
+      "noVendorLockIn": {
+        "title": "Satıcı Bağımlılığı Yok",
+        "description": "Verileriniz size aittir. Kütüphanenizi istediğiniz zaman BibTeX, RIS ve EndNote dahil birden fazla formatta dışa aktarın. İşinizi kaybetmeden araçlar arasında geçiş yapın."
+      },
+      "lightningFast": {
+        "title": "Yıldırım Hızında Performans",
+        "description": "Yerel öncelikli mimari ile hız için optimize edilmiştir. Çevrimdışıyken bile binlerce referans arasında anında arama yapın. Modern web teknolojileriyle geliştirilmiştir."
+      },
+      "academicFirst": {
+        "title": "Akademik Odaklı Tasarım",
+        "description": "Her özellik akademik iş akışları göz önünde bulundurularak tasarlanmıştır. Tez yazımından sistematik incelemelere kadar RefCite, araştırma metodolojinize uyum sağlar."
+      }
+    },
+    "trustedInstitutions": {
+      "title": "Önde Gelen Kurumlar Tarafından Güvenilir",
+      "quote": "RefCite, araştırma bölümümüzün alıntıları nasıl yönettiğini dönüştürdü. İşbirliği özellikleri tam olarak ihtiyacımız olan şeydi.",
+      "author": "Dr. Sarah Williams, Araştırma Direktörü"
+    }
+  },
+  "download": {
+    "title": "Tüm platformlarda mevcut",
+    "description": "Tercih ettiğiniz işletim sistemi için RefCite'ı indirin ve referanslarınızı yönetmeye bugün başlayın.",
+    "platforms": {
+      "windows": "Windows",
+      "macos": "macOS",
+      "linux": "Linux"
+    },
+    "features": {
+      "desktopApp": "Masaüstü uygulaması",
+      "officeIntegration": "Office entegrasyonu",
+      "offlineSync": "Çevrimdışı senkronizasyon",
+      "nativeDesign": "Yerel tasarım",
+      "quickLook": "Hızlı Bakış",
+      "spotlightSearch": "Spotlight arama",
+      "appImageFormat": "AppImage formatı",
+      "commandLineTools": "Komut satırı araçları",
+      "packageManagers": "Paket yöneticileri"
+    },
+    "requirements": "Sistem gereksinimleri: Windows 10+, macOS 10.14+, veya Ubuntu 18.04+",
+    "version": "Sürüm",
+    "downloadFor": "İndir:"
+  },
+  "testimonials": {
+    "title": "Dünya çapında araştırmacılar tarafından güvenilir",
+    "description": "Kullanıcılarımızın RefCite hakkında söylediklerini görün",
+    "items": {
+      "drSarahJohnson": {
+        "quote": "RefCite araştırmalarımı nasıl yönettiğimi tamamen dönüştürdü. AI destekli organizasyon ve kusursuz işbirliği özellikleri bana sayısız saat kazandırdı. Arayüz sezgisel ve alıntı doğruluğu eşsiz.",
+        "name": "Dr. Sarah Johnson",
+        "role": "Araştırma Bilimci",
+        "institution": "MIT",
+        "field": "Hesaplamalı Biyoloji"
+      },
+      "profMichaelChen": {
+        "quote": "Tüm araştırma ekibimiz RefCite'ı benimsedi ve bu oyun değiştirici oldu. Gerçek zamanlı işbirliği ve gelişmiş arama yetenekleri literatür incelemelerini çok daha verimli hale getiriyor. Yaptığımız en iyi yatırım.",
+        "name": "Prof. Michael Chen",
+        "role": "Üniversite Profesörü",
+        "institution": "Stanford Üniversitesi",
+        "field": "Makine Öğrenmesi"
+      },
+      "emmaRodriguez": {
+        "quote": "Doktora öğrencisi olarak, cihazlar arasında sorunsuz çalışan ve beni yavaşlatmayan araçlara ihtiyacım var. RefCite her iki konuda da başarılı. Çevrimdışı senkronizasyon saha çalışması için mükemmel ve alıntı stilleri kapsamlı.",
+        "name": "Emma Rodriguez",
+        "role": "Doktora Öğrencisi",
+        "institution": "Oxford Üniversitesi",
+        "field": "Çevre Bilimi"
+      },
+      "drJamesThompson": {
+        "quote": "RefCite'ı tüm kütüphane sistemimizde uyguladık. Kurumsal özellikler ve yönetici kontrolleri mükemmel. Öğrenciler kullanıcı deneyimini seviyor ve öğretim üyeleri gelişmiş özellikleri takdir ediyor.",
+        "name": "Dr. James Thompson",
+        "role": "Kütüphaneci ve Araştırma Koordinatörü",
+        "institution": "Cambridge Üniversitesi",
+        "field": "Bilgi Bilimi"
+      }
+    }
+  },
+  "cta": {
+    "title": "Başlamaya hazır mısınız?",
+    "description": "Referanslarını yönetmek için RefCite'a güvenen binlerce araştırmacıya katılın."
+  }
+} 

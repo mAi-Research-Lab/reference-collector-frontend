@@ -4,10 +4,13 @@ import React, { useState } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { Menu, X, FileText } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
 import Button from '@/components/ui/Button';
+import LanguageSwitcher from '@/components/ui/LanguageSwitcher';
 import type { NavItem } from '@/types';
 
 const Header: React.FC = () => {
+  const { t } = useTranslation();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const pathname = usePathname();
   const isHomePage = pathname === '/';
@@ -33,11 +36,11 @@ const Header: React.FC = () => {
   };
 
   const navigationItems: NavItem[] = [
-    { href: '#home', label: 'Home' },
-    { href: '#features', label: 'Features' },
-    { href: '#download', label: 'Download' },
-    { href: '#about', label: 'About' },
-    { href: '#contact', label: 'Contact' },
+    { href: '#home', label: t('navigation.home') },
+    { href: '#features', label: t('navigation.features') },
+    { href: '#download', label: t('navigation.download') },
+    { href: '#about', label: t('navigation.about') },
+    { href: '#contact', label: t('navigation.contact') },
   ];
 
   return (
@@ -49,7 +52,7 @@ const Header: React.FC = () => {
             <div className="w-8 h-8 bg-primary-500 rounded-lg flex items-center justify-center">
               <FileText className="w-5 h-5 text-white" />
             </div>
-            <span className="text-xl font-bold text-neutral-900">RefCite</span>
+            <span className="text-xl font-bold text-neutral-900">{t('brand')}</span>
           </Link>
 
           {/* Desktop Navigation */}
@@ -65,21 +68,22 @@ const Header: React.FC = () => {
             ))}
           </nav>
 
-          {/* Desktop Auth Buttons */}
+          {/* Desktop Auth Buttons & Language Switcher */}
           <div className="hidden md:flex items-center space-x-4">
+            <LanguageSwitcher />
             <Link href="/pricing">
               <Button variant="outline" size="sm">
-                Pricing
+                {t('navigation.pricing')}
               </Button>
             </Link>
             <Link href="/auth/signin">
               <Button variant="ghost" size="sm">
-                Sign In
+                {t('navigation.signin')}
               </Button>
             </Link>
             <Link href="/auth/signup">
               <Button variant="primary" size="sm">
-                Get Started
+                {t('navigation.signup')}
               </Button>
             </Link>
           </div>
@@ -109,19 +113,22 @@ const Header: React.FC = () => {
               ))}
               
               <div className="flex flex-col space-y-3 pt-4 border-t border-neutral-200">
+                <div className="px-4">
+                  <LanguageSwitcher />
+                </div>
                 <Link href="/pricing" onClick={() => setIsMenuOpen(false)}>
                   <Button variant="outline" size="sm" className="w-full">
-                    Pricing
+                    {t('navigation.pricing')}
                   </Button>
                 </Link>
                 <Link href="/auth/signin" onClick={() => setIsMenuOpen(false)}>
                   <Button variant="ghost" size="sm" className="w-full">
-                    Sign In
+                    {t('navigation.signin')}
                   </Button>
                 </Link>
                 <Link href="/auth/signup" onClick={() => setIsMenuOpen(false)}>
                   <Button variant="primary" size="sm" className="w-full">
-                    Get Started
+                    {t('navigation.signup')}
                   </Button>
                 </Link>
               </div>

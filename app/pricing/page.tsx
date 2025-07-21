@@ -1,95 +1,90 @@
+'use client';
+
 import React from 'react';
 import Link from 'next/link';
 import { Check, Mail, Star } from 'lucide-react';
-import { Metadata } from 'next';
+import { useTranslation } from 'react-i18next';
 import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
 import Button from '@/components/ui/Button';
 import type { PricingPlan } from '@/types';
 
-export const metadata: Metadata = {
-  title: 'Pricing - RefCite',
-  description: 'Choose the perfect RefCite plan for your research needs. Free for individuals, flexible pricing for teams and institutions.',
-};
-
 export default function PricingPage() {
+  const { t } = useTranslation(['pricing', 'common']);
+
   const plans: PricingPlan[] = [
     {
       id: 'free',
-      name: 'Free',
-      description: 'Perfect for individual researchers and students',
+      name: t('plans.free.name', { ns: 'pricing' }),
+      description: t('plans.free.description', { ns: 'pricing' }),
       price: 0,
       currency: 'USD',
       billing: 'monthly',
       type: 'individual',
       features: [
-        'Up to 1,000 references',
-        'Basic citation styles',
-        'Local storage',
-
+        t('plans.free.features.references', { ns: 'pricing' }),
+        t('plans.free.features.citationStyles', { ns: 'pricing' }),
+        t('plans.free.features.storage', { ns: 'pricing' }),
       ],
     },
     {
       id: 'individual',
-      name: 'Individual Pro',
-      description: 'For power users who need advanced features',
+      name: t('plans.individual.name', { ns: 'pricing' }),
+      description: t('plans.individual.description', { ns: 'pricing' }),
       price: 9.99,
       currency: 'USD',
       billing: 'monthly',
       type: 'individual',
       recommended: true,
       features: [
-        'Unlimited references',
-        'All citation styles (500+)',
-        'Cloud sync across devices',
-        'Advanced search and filters',
-        'Custom tags and folders',
-
+        t('plans.individual.features.unlimitedReferences', { ns: 'pricing' }),
+        t('plans.individual.features.allCitationStyles', { ns: 'pricing' }),
+        t('plans.individual.features.cloudSync', { ns: 'pricing' }),
+        t('plans.individual.features.advancedSearch', { ns: 'pricing' }),
+        t('plans.individual.features.customTags', { ns: 'pricing' }),
       ],
     },
     {
       id: 'enterprise',
-      name: 'Enterprise',
-      description: 'For institutions, libraries, and large teams',
+      name: t('plans.enterprise.name', { ns: 'pricing' }),
+      description: t('plans.enterprise.description', { ns: 'pricing' }),
       price: 'contact',
       currency: 'USD',
       billing: 'annually',
       type: 'enterprise',
       features: [
-        'Everything in Individual Pro',
-        'Unlimited team members',
-        'Advanced admin controls',
-        'Single Sign-On (SSO)',
-        'Custom branding',
-        'Advanced analytics and reporting',
-        'API access',
-        'Custom integrations',
-
-
+        t('plans.enterprise.features.everythingInPro', { ns: 'pricing' }),
+        t('plans.enterprise.features.unlimitedTeam', { ns: 'pricing' }),
+        t('plans.enterprise.features.adminControls', { ns: 'pricing' }),
+        t('plans.enterprise.features.sso', { ns: 'pricing' }),
+        t('plans.enterprise.features.customBranding', { ns: 'pricing' }),
+        t('plans.enterprise.features.analytics', { ns: 'pricing' }),
+        t('plans.enterprise.features.apiAccess', { ns: 'pricing' }),
+        t('plans.enterprise.features.customIntegrations', { ns: 'pricing' }),
       ],
     },
   ];
 
   const faqs = [
     {
-      question: 'Can I upgrade or downgrade my plan at any time?',
-      answer: 'Yes, you can change your plan at any time. Upgrades take effect immediately, and downgrades take effect at the end of your current billing period.',
+      question: t('faq.items.upgradeDowngrade.question', { ns: 'pricing' }),
+      answer: t('faq.items.upgradeDowngrade.answer', { ns: 'pricing' }),
     },
     {
-      question: 'What happens to my data if I cancel?',
-      answer: 'Your data remains accessible in read-only mode for 30 days after cancellation. You can export all your data during this period.',
+      question: t('faq.items.dataAfterCancel.question', { ns: 'pricing' }),
+      answer: t('faq.items.dataAfterCancel.answer', { ns: 'pricing' }),
     },
     {
-      question: 'Do you offer student discounts?',
-      answer: 'Students can use our free plan, which includes all essential features. For advanced features, we offer a 50% student discount on Individual Pro plans.',
+      question: t('faq.items.studentDiscount.question', { ns: 'pricing' }),
+      answer: t('faq.items.studentDiscount.answer', { ns: 'pricing' }),
     },
     {
-      question: 'Is there a limit to how many devices I can use?',
-      answer: 'Individual plans can be used on up to 5 devices. Enterprise plans have no device limits.',
+      question: t('faq.items.deviceLimit.question', { ns: 'pricing' }),
+      answer: t('faq.items.deviceLimit.answer', { ns: 'pricing' }),
     },
     {
-      question: 'Do you offer refunds?',
-      answer: 'We offer a 30-day money-back guarantee for all paid plans. Contact support for refund requests.',
+      question: t('faq.items.refunds.question', { ns: 'pricing' }),
+      answer: t('faq.items.refunds.answer', { ns: 'pricing' }),
     },
   ];
 
@@ -102,15 +97,14 @@ export default function PricingPage() {
         <div className="container">
           <div className="max-w-3xl mx-auto text-center mb-12">
             <h1 className="text-4xl md:text-5xl font-bold text-neutral-900 mb-4">
-              Choose Your <span className="text-primary-500">RefCite</span> Plan
+              {t('hero.title', { ns: 'pricing' })} <span className="text-primary-500">{t('hero.titleHighlight', { ns: 'pricing' })}</span> {t('hero.titleEnd', { ns: 'pricing' })}
             </h1>
             <p className="text-xl text-neutral-600 mb-4">
-              Start free and upgrade as your research grows. 
-              All plans include our core reference management features.
+              {t('hero.description', { ns: 'pricing' })}
             </p>
             <div className="flex items-center justify-center gap-2 text-sm text-neutral-500 mb-4">
               <Star className="w-4 h-4 text-yellow-400 fill-current" />
-              <span>30-day money-back guarantee</span>
+              <span>{t('hero.moneyBackGuarantee', { ns: 'pricing' })}</span>
             </div>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
@@ -126,7 +120,7 @@ export default function PricingPage() {
                 {plan.recommended && (
                   <div className="absolute -top-3 left-1/2 transform -translate-x-1/2">
                     <span className="bg-primary-500 text-white px-3 py-0.5 rounded-full text-xs font-medium shadow-md">
-                      Most Popular
+                      {t('plans.individual.mostPopular', { ns: 'pricing' })}
                     </span>
                   </div>
                 )}
@@ -140,7 +134,7 @@ export default function PricingPage() {
                   <div className="mb-4">
                     {plan.price === 'contact' ? (
                       <div className="text-2xl font-bold text-neutral-900">
-                        Contact Us
+                        {t('plans.enterprise.contactUs', { ns: 'pricing' })}
                       </div>
                     ) : (
                       <>
@@ -152,7 +146,7 @@ export default function PricingPage() {
                         </div>
                         {plan.price > 0 && (
                           <div className="text-xs text-neutral-400 mt-0.5">
-                            Billed {plan.billing}
+                            {t('plans.billed', { ns: 'pricing' })} {plan.billing}
                           </div>
                         )}
                       </>
@@ -162,7 +156,7 @@ export default function PricingPage() {
                     <Link href="/contact">
                       <Button className="w-full" size="sm">
                         <Mail className="w-4 h-4 mr-2" />
-                        Contact Sales
+                        {t('plans.contactSales', { ns: 'pricing' })}
                       </Button>
                     </Link>
                   ) : (
@@ -172,14 +166,14 @@ export default function PricingPage() {
                         className="w-full" 
                         size="sm"
                       >
-                        {plan.price === 0 ? 'Get Started Free' : 'Start Free Trial'}
+                        {plan.price === 0 ? t('plans.getStartedFree', { ns: 'pricing' }) : t('plans.startFreeTrial', { ns: 'pricing' })}
                       </Button>
                     </Link>
                   )}
                 </div>
                 <div className="space-y-4">
                   <div className="text-xs font-semibold text-neutral-900 mb-2">
-                    What's included:
+                    {t('plans.whatsIncluded', { ns: 'pricing' })}
                   </div>
                   {plan.features.map((feature, index) => (
                     <div key={index} className="flex items-start gap-2">
@@ -200,10 +194,10 @@ export default function PricingPage() {
           <div className="max-w-3xl mx-auto">
             <div className="text-center mb-12">
               <h2 className="text-2xl md:text-3xl font-bold text-neutral-900 mb-2">
-                Frequently Asked Questions
+                {t('faq.title', { ns: 'pricing' })}
               </h2>
               <p className="text-base text-neutral-600">
-                Got questions? We've got answers.
+                {t('faq.description', { ns: 'pricing' })}
               </p>
             </div>
 
@@ -222,11 +216,11 @@ export default function PricingPage() {
 
             <div className="text-center mt-10">
               <p className="text-neutral-600 mb-3">
-                Still have questions?
+                {t('faq.stillHaveQuestions', { ns: 'pricing' })}
               </p>
               <Link href="/contact">
                 <Button variant="outline" size="sm">
-                  Contact Support
+                  {t('buttons.contactSupport', { ns: 'common' })}
                 </Button>
               </Link>
             </div>
@@ -239,15 +233,15 @@ export default function PricingPage() {
         <div className="container">
           <div className="max-w-2xl mx-auto text-center text-white">
             <h2 className="text-3xl md:text-4xl font-bold mb-4">
-              Ready to transform your research?
+              {t('cta.title', { ns: 'pricing' })}
             </h2>
             <p className="text-lg text-primary-100 mb-8">
-              Join thousands of researchers who trust RefCite to organize their references.
+              {t('cta.description', { ns: 'pricing' })}
             </p>
             
             <Link href="/auth/signup">
               <Button variant="secondary" size="lg">
-                Start Your Free Trial
+                {t('cta.startFreeTrial', { ns: 'pricing' })}
               </Button>
             </Link>
           </div>

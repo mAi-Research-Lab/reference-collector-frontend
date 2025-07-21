@@ -1,0 +1,123 @@
+{
+  "hero": {
+    "title": "Modern Reference",
+    "titleHighlight": "Management",
+    "description": "Powerful, intuitive reference management for researchers, students, and academics. Simplicity and efficiency, redefined.",
+    "trustIndicators": {
+      "freeForIndividuals": "Free for individuals",
+      "noCreditCardRequired": "No credit card required",
+      "worksOffline": "Works offline"
+    },
+    "statistics": {
+      "activeUsers": "Active Users",
+      "universities": "Universities",
+      "referencesManaged": "References Managed"
+    }
+  },
+  "features": {
+    "title": "Everything you need to manage references",
+    "description": "RefCite combines the power of traditional reference managers with modern, intuitive design and seamless collaboration features.",
+    "items": {
+      "smartOrganization": {
+        "title": "Smart Organization",
+        "description": "Automatically organize your references with intelligent tagging, categorization, and machine learning-powered metadata extraction. Never lose track of important papers again."
+      },
+      "powerfulSearch": {
+        "title": "Powerful Search",
+        "description": "Find any reference instantly with advanced search, full-text indexing, and smart filters. Search by author, title, keywords, or even content within PDFs."
+      },
+      "teamCollaboration": {
+        "title": "Team Collaboration",
+        "description": "Share libraries, create group collections, and collaborate with colleagues in real-time. Perfect for research teams, departments, and academic institutions."
+      },
+      "quickCitation": {
+        "title": "Quick Citation",
+        "description": "Generate perfectly formatted citations in over 500 styles including APA, MLA, Chicago, and journal-specific formats. One-click bibliography creation."
+      }
+    }
+  },
+  "whyChoose": {
+    "title": "Why Choose RefCite?",
+    "description": "Built by researchers, for researchers. RefCite addresses the real challenges faced by the academic community with innovative solutions.",
+    "items": {
+      "noVendorLockIn": {
+        "title": "No Vendor Lock-in",
+        "description": "Your data belongs to you. Export your library at any time in multiple formats including BibTeX, RIS, and EndNote. Switch between tools without losing your work."
+      },
+      "lightningFast": {
+        "title": "Lightning Fast Performance",
+        "description": "Optimized for speed with local-first architecture. Search through thousands of references instantly, even when offline. Built with modern web technologies."
+      },
+      "academicFirst": {
+        "title": "Academic-First Design",
+        "description": "Every feature is designed with academic workflows in mind. From dissertation writing to systematic reviews, RefCite adapts to your research methodology."
+      }
+    },
+    "trustedInstitutions": {
+      "title": "Trusted by Leading Institutions",
+      "quote": "RefCite has transformed how our research department manages citations. The collaboration features are exactly what we needed.",
+      "author": "Dr. Sarah Williams, Research Director"
+    }
+  },
+  "download": {
+    "title": "Available on all platforms",
+    "description": "Download RefCite for your preferred operating system and start managing your references today.",
+    "platforms": {
+      "windows": "Windows",
+      "macos": "macOS",
+      "linux": "Linux"
+    },
+    "features": {
+      "desktopApp": "Desktop app",
+      "officeIntegration": "Office integration",
+      "offlineSync": "Offline sync",
+      "nativeDesign": "Native design",
+      "quickLook": "Quick Look",
+      "spotlightSearch": "Spotlight search",
+      "appImageFormat": "AppImage format",
+      "commandLineTools": "Command line tools",
+      "packageManagers": "Package managers"
+    },
+    "requirements": "System requirements: Windows 10+, macOS 10.14+, or Ubuntu 18.04+",
+    "version": "Version",
+    "downloadFor": "Download for"
+  },
+  "testimonials": {
+    "title": "Trusted by researchers worldwide",
+    "description": "See what our users have to say about RefCite",
+    "items": {
+      "drSarahJohnson": {
+        "quote": "RefCite has completely transformed how I manage my research. The AI-powered organization and seamless collaboration features have saved me countless hours. The interface is intuitive and the citation accuracy is unmatched.",
+        "name": "Dr. Sarah Johnson",
+        "role": "Research Scientist",
+        "institution": "MIT",
+        "field": "Computational Biology"
+      },
+      "profMichaelChen": {
+        "quote": "Our entire research team has adopted RefCite, and it's been game-changing. The real-time collaboration and advanced search capabilities make literature reviews so much more efficient. Best investment we've made.",
+        "name": "Prof. Michael Chen",
+        "role": "University Professor",
+        "institution": "Stanford University",
+        "field": "Machine Learning"
+      },
+      "emmaRodriguez": {
+        "quote": "As a PhD student, I need tools that work seamlessly across devices and don't slow me down. RefCite delivers on both fronts. The offline sync is perfect for fieldwork, and the citation styles are comprehensive.",
+        "name": "Emma Rodriguez",
+        "role": "PhD Student",
+        "institution": "University of Oxford",
+        "field": "Environmental Science"
+      },
+      "drJamesThompson": {
+        "quote": "We've implemented RefCite across our entire library system. The institutional features and admin controls are excellent. Students love the user experience, and faculty appreciate the advanced features.",
+        "name": "Dr. James Thompson",
+        "role": "Librarian & Research Coordinator",
+        "institution": "University of Cambridge",
+        "field": "Information Science"
+      }
+    }
+  },
+  "cta": {
+    "title": "Ready to get started?",
+    "description": "Join thousands of researchers who trust RefCite to manage their references."
+  }
+} 

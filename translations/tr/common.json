@@ -1,0 +1,59 @@
+{
+  "brand": "RefCite",
+  "navigation": {
+    "home": "Ana Sayfa",
+    "features": "Özellikler",
+    "download": "İndir",
+    "about": "Hakkında",
+    "contact": "İletişim",
+    "pricing": "Fiyatlandırma",
+    "signin": "Giriş Yap",
+    "signup": "Başla"
+  },
+  "buttons": {
+    "download": "İndir",
+    "downloadFree": "Ücretsiz İndir",
+    "getStarted": "Başla",
+    "getStartedOnline": "Online Başla",
+    "startFreeTrial": "Ücretsiz Deneme Başlat",
+    "contactSales": "Satış Ekibiyle İletişim",
+    "contactSupport": "Destek Al",
+    "learnMore": "Daha Fazla Bilgi",
+    "viewPricing": "Fiyatları Görüntüle",
+    "signIn": "Giriş Yap",
+    "signUp": "Kayıt Ol",
+    "continue": "Devam Et",
+    "cancel": "İptal",
+    "save": "Kaydet",
+    "close": "Kapat"
+  },
+  "footer": {
+    "description": "RefCite, araştırmacılar, öğrenciler ve akademisyenler için tasarlanmış modern bir referans yönetim uygulamasıdır.",
+    "product": "Ürün",
+    "company": "Şirket",
+    "support": "Destek",
+    "legal": "Yasal",
+    "privacyPolicy": "Gizlilik Politikası",
+    "termsOfService": "Kullanım Şartları",
+    "cookiePolicy": "Çerez Politikası",
+    "copyright": "© 2024 RefCite. Tüm hakları saklıdır."
+  },
+  "language": {
+    "english": "English",
+    "turkish": "Türkçe",
+    "switchLanguage": "Dil Değiştir"
+  },
+  "common": {
+    "loading": "Yükleniyor...",
+    "error": "Hata",
+    "success": "Başarılı",
+    "warning": "Uyarı",
+    "info": "Bilgi",
+    "required": "Zorunlu",
+    "optional": "İsteğe Bağlı",
+    "email": "E-posta",
+    "password": "Şifre",
+    "name": "İsim",
+    "username": "Kullanıcı Adı"
+  }
+} 

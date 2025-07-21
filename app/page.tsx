@@ -1,3 +1,5 @@
+'use client';
+
 import React from 'react';
 import Link from 'next/link';
 import { 
@@ -11,6 +13,7 @@ import {
   Star,
   Quote
 } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
 import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
 import Button from '@/components/ui/Button';
@@ -19,61 +22,63 @@ import ScrollReveal from '@/components/ui/ScrollReveal';
 import HeroSection from '@/components/layout/HeroSection';
 
 export default function HomePage() {
+  const { t } = useTranslation(['home', 'common']);
+
   const features = [
     {
       icon: FileText,
-      title: 'Smart Organization',
-      description: 'Automatically organize your references with intelligent tagging, categorization, and machine learning-powered metadata extraction. Never lose track of important papers again.',
+      title: t('features.items.smartOrganization.title', { ns: 'home' }),
+      description: t('features.items.smartOrganization.description', { ns: 'home' }),
     },
     {
       icon: Search,
-      title: 'Powerful Search',
-      description: 'Find any reference instantly with advanced search, full-text indexing, and smart filters. Search by author, title, keywords, or even content within PDFs.',
+      title: t('features.items.powerfulSearch.title', { ns: 'home' }),
+      description: t('features.items.powerfulSearch.description', { ns: 'home' }),
     },
     {
       icon: Users,
-      title: 'Team Collaboration',
-      description: 'Share libraries, create group collections, and collaborate with colleagues in real-time. Perfect for research teams, departments, and academic institutions.',
+      title: t('features.items.teamCollaboration.title', { ns: 'home' }),
+      description: t('features.items.teamCollaboration.description', { ns: 'home' }),
     },
     {
       icon: Zap,
-      title: 'Quick Citation',
-      description: 'Generate perfectly formatted citations in over 500 styles including APA, MLA, Chicago, and journal-specific formats. One-click bibliography creation.',
+      title: t('features.items.quickCitation.title', { ns: 'home' }),
+      description: t('features.items.quickCitation.description', { ns: 'home' }),
     },
   ];
 
   const testimonials = [
     {
-      name: 'Dr. Sarah Johnson',
-      role: 'Research Scientist',
-      institution: 'MIT',
-      quote: 'RefCite has completely transformed how I manage my research. The AI-powered organization and seamless collaboration features have saved me countless hours. The interface is intuitive and the citation accuracy is unmatched.',
+      name: t('testimonials.items.drSarahJohnson.name', { ns: 'home' }),
+      role: t('testimonials.items.drSarahJohnson.role', { ns: 'home' }),
+      institution: t('testimonials.items.drSarahJohnson.institution', { ns: 'home' }),
+      quote: t('testimonials.items.drSarahJohnson.quote', { ns: 'home' }),
       rating: 5,
-      researchField: 'Computational Biology'
+      researchField: t('testimonials.items.drSarahJohnson.field', { ns: 'home' })
     },
     {
-      name: 'Prof. Michael Chen',
-      role: 'University Professor',
-      institution: 'Stanford University',
-      quote: 'Our entire research team has adopted RefCite, and it\'s been game-changing. The real-time collaboration and advanced search capabilities make literature reviews so much more efficient. Best investment we\'ve made.',
+      name: t('testimonials.items.profMichaelChen.name', { ns: 'home' }),
+      role: t('testimonials.items.profMichaelChen.role', { ns: 'home' }),
+      institution: t('testimonials.items.profMichaelChen.institution', { ns: 'home' }),
+      quote: t('testimonials.items.profMichaelChen.quote', { ns: 'home' }),
       rating: 5,
-      researchField: 'Machine Learning'
+      researchField: t('testimonials.items.profMichaelChen.field', { ns: 'home' })
     },
     {
-      name: 'Emma Rodriguez',
-      role: 'PhD Student',
-      institution: 'University of Oxford',
-      quote: 'As a PhD student, I need tools that work seamlessly across devices and don\'t slow me down. RefCite delivers on both fronts. The offline sync is perfect for fieldwork, and the citation styles are comprehensive.',
+      name: t('testimonials.items.emmaRodriguez.name', { ns: 'home' }),
+      role: t('testimonials.items.emmaRodriguez.role', { ns: 'home' }),
+      institution: t('testimonials.items.emmaRodriguez.institution', { ns: 'home' }),
+      quote: t('testimonials.items.emmaRodriguez.quote', { ns: 'home' }),
       rating: 5,
-      researchField: 'Environmental Science'
+      researchField: t('testimonials.items.emmaRodriguez.field', { ns: 'home' })
     },
     {
-      name: 'Dr. James Thompson',
-      role: 'Librarian & Research Coordinator',
-      institution: 'University of Cambridge',
-      quote: 'We\'ve implemented RefCite across our entire library system. The institutional features and admin controls are excellent. Students love the user experience, and faculty appreciate the advanced features.',
+      name: t('testimonials.items.drJamesThompson.name', { ns: 'home' }),
+      role: t('testimonials.items.drJamesThompson.role', { ns: 'home' }),
+      institution: t('testimonials.items.drJamesThompson.institution', { ns: 'home' }),
+      quote: t('testimonials.items.drJamesThompson.quote', { ns: 'home' }),
       rating: 5,
-      researchField: 'Information Science'
+      researchField: t('testimonials.items.drJamesThompson.field', { ns: 'home' })
     },
   ];
 
@@ -83,21 +88,33 @@ export default function HomePage() {
       size: '125 MB', 
       version: 'v2.1.0',
       requirements: 'Windows 10 or later',
-      features: ['Desktop app', 'Office integration', 'Offline sync']
+      features: [
+        t('download.platforms.windows.features.desktopApp', { ns: 'home' }),
+        t('download.platforms.windows.features.officeIntegration', { ns: 'home' }),
+        t('download.platforms.windows.features.offlineSync', { ns: 'home' })
+      ]
     },
     { 
       platform: 'macOS', 
       size: '98 MB', 
       version: 'v2.1.0',
       requirements: 'macOS 10.14 or later',
-      features: ['Native design', 'Quick Look', 'Spotlight search']
+      features: [
+        t('download.platforms.macos.features.nativeDesign', { ns: 'home' }),
+        t('download.platforms.macos.features.quickLook', { ns: 'home' }),
+        t('download.platforms.macos.features.spotlightSearch', { ns: 'home' })
+      ]
     },
     { 
       platform: 'Linux', 
       size: '112 MB', 
       version: 'v2.1.0',
       requirements: 'Ubuntu 18.04+ or equivalent',
-      features: ['AppImage format', 'Command line tools', 'Package managers']
+      features: [
+        t('download.platforms.linux.features.appImageFormat', { ns: 'home' }),
+        t('download.platforms.linux.features.commandLineTools', { ns: 'home' }),
+        t('download.platforms.linux.features.packageManagers', { ns: 'home' })
+      ]
     },
   ];
 
@@ -113,10 +130,10 @@ export default function HomePage() {
           <ScrollReveal>
             <div className="text-center mb-16 max-w-4xl mx-auto">
               <h2 className="text-3xl md:text-4xl font-bold text-neutral-900 mb-4">
-                Everything you need to manage references
+                {t('features.title', { ns: 'home' })}
               </h2>
               <p className="text-lg text-neutral-600 max-w-3xl mx-auto">
-                RefCite combines the power of traditional reference managers with modern, intuitive design and seamless collaboration features.
+                {t('features.description', { ns: 'home' })}
               </p>
             </div>
           </ScrollReveal>
@@ -147,11 +164,10 @@ export default function HomePage() {
           <ScrollReveal>
             <div className="text-center mb-16">
               <h2 className="text-3xl md:text-4xl font-bold text-neutral-900 mb-4">
-                Why Choose RefCite?
+                {t('whyChoose.title', { ns: 'home' })}
               </h2>
               <p className="text-lg text-neutral-600 max-w-2xl mx-auto">
-                Built by researchers, for researchers. RefCite addresses the real challenges 
-                faced by the academic community with innovative solutions.
+                {t('whyChoose.description', { ns: 'home' })}
               </p>
             </div>
           </ScrollReveal>
@@ -165,11 +181,10 @@ export default function HomePage() {
                   </div>
                   <div>
                     <h3 className="text-2xl font-semibold text-neutral-900 mb-2">
-                      No Vendor Lock-in
+                      {t('whyChoose.items.noVendorLockIn.title', { ns: 'home' })}
                     </h3>
                     <p className="text-neutral-600">
-                      Your data belongs to you. Export your library at any time in multiple formats 
-                      including BibTeX, RIS, and EndNote. Switch between tools without losing your work.
+                      {t('whyChoose.items.noVendorLockIn.description', { ns: 'home' })}
                     </p>
                   </div>
                 </div>
@@ -180,11 +195,10 @@ export default function HomePage() {
                   </div>
                   <div>
                     <h3 className="text-2xl font-semibold text-neutral-900 mb-2">
-                      Lightning Fast Performance
+                      {t('whyChoose.items.lightningFast.title', { ns: 'home' })}
                     </h3>
                     <p className="text-neutral-600">
-                      Optimized for speed with local-first architecture. Search through thousands 
-                      of references instantly, even when offline. Built with modern web technologies.
+                      {t('whyChoose.items.lightningFast.description', { ns: 'home' })}
                     </p>
                   </div>
                 </div>
@@ -195,11 +209,10 @@ export default function HomePage() {
                   </div>
                   <div>
                     <h3 className="text-2xl font-semibold text-neutral-900 mb-2">
-                      Academic-First Design
+                      {t('whyChoose.items.academicFirst.title', { ns: 'home' })}
                     </h3>
                     <p className="text-neutral-600">
-                      Every feature is designed with academic workflows in mind. From dissertation 
-                      writing to systematic reviews, RefCite adapts to your research methodology.
+                      {t('whyChoose.items.academicFirst.description', { ns: 'home' })}
                     </p>
                   </div>
                 </div>
@@ -209,7 +222,7 @@ export default function HomePage() {
             <ScrollReveal direction="right">
               <div className="bg-white rounded-2xl p-8 shadow-medium">
                 <h3 className="text-2xl font-bold text-neutral-900 mb-6">
-                  Trusted by Leading Institutions
+                  {t('whyChoose.trustedInstitutions.title', { ns: 'home' })}
                 </h3>
                 <div className="space-y-4">
                   <div className="flex items-center gap-3">
@@ -239,11 +252,10 @@ export default function HomePage() {
                 </div>
                 <div className="mt-6 p-4 bg-neutral-50 rounded-lg">
                   <p className="text-sm text-neutral-600 italic">
-                    "RefCite has transformed how our research department manages citations. 
-                    The collaboration features are exactly what we needed."
+                    "{t('whyChoose.trustedInstitutions.quote', { ns: 'home' })}"
                   </p>
                   <p className="text-sm font-medium text-neutral-900 mt-2">
-                    — Dr. Sarah Williams, Research Director
+                    — {t('whyChoose.trustedInstitutions.author', { ns: 'home' })}
                   </p>
                 </div>
               </div>
@@ -258,11 +270,10 @@ export default function HomePage() {
           <div className="max-w-4xl mx-auto text-center">
             <ScrollReveal>
               <h2 className="text-3xl md:text-4xl font-bold text-neutral-900 mb-4">
-                Available on all platforms
+                {t('download.title', { ns: 'home' })}
               </h2>
               <p className="text-lg text-neutral-600 mb-12">
-                Download RefCite for your preferred operating system and start managing 
-                your references today.
+                {t('download.description', { ns: 'home' })}
               </p>
             </ScrollReveal>
 
@@ -273,12 +284,12 @@ export default function HomePage() {
                     <h3 className="text-2xl font-semibold text-neutral-900 mb-2">
                       {option.platform}
                     </h3>
-                    <p className="text-neutral-600 mb-1">Version {option.version}</p>
+                    <p className="text-neutral-600 mb-1">{t('download.version', { ns: 'home' })} {option.version}</p>
                     <p className="text-sm text-neutral-500 mb-4">{option.size}</p>
                     <p className="text-xs text-neutral-400 mb-4">{option.requirements}</p>
                     
                     <div className="mb-6">
-                      <div className="text-sm font-medium text-neutral-700 mb-2">Features:</div>
+                      <div className="text-sm font-medium text-neutral-700 mb-2">{t('download.features', { ns: 'home' })}</div>
                       <div className="space-y-1">
                         {option.features.map((feature, idx) => (
                           <div key={idx} className="flex items-center justify-center gap-2 text-xs text-neutral-600">
@@ -291,7 +302,7 @@ export default function HomePage() {
                     
                     <Button className="w-full">
                       <Download className="w-4 h-4 mr-2" />
-                      Download for {option.platform}
+                      {t('download.downloadFor', { ns: 'home' })} {option.platform}
                     </Button>
                   </div>
                 </ScrollReveal>
@@ -300,7 +311,7 @@ export default function HomePage() {
 
             <ScrollReveal delay={450}>
               <p className="text-sm text-neutral-500">
-                System requirements: Windows 10+, macOS 10.14+, or Ubuntu 18.04+
+                {t('download.requirements', { ns: 'home' })}
               </p>
             </ScrollReveal>
           </div>
@@ -313,10 +324,10 @@ export default function HomePage() {
           <ScrollReveal>
             <div className="text-center mb-16">
               <h2 className="text-3xl md:text-4xl font-bold text-neutral-900 mb-4">
-                Trusted by researchers worldwide
+                {t('testimonials.title', { ns: 'home' })}
               </h2>
               <p className="text-lg text-neutral-600">
-                See what our users have to say about RefCite
+                {t('testimonials.description', { ns: 'home' })}
               </p>
             </div>
           </ScrollReveal>
@@ -366,21 +377,21 @@ export default function HomePage() {
           <ScrollReveal>
             <div className="max-w-2xl mx-auto text-center text-white">
               <h2 className="text-3xl md:text-4xl font-bold mb-4">
-                Ready to get started?
+                {t('cta.title', { ns: 'home' })}
               </h2>
               <p className="text-lg text-primary-100 mb-8">
-                Join thousands of researchers who trust RefCite to manage their references.
+                {t('cta.description', { ns: 'home' })}
               </p>
               
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <Link href="/auth/signup">
                   <Button variant="secondary" size="lg" className="w-full sm:w-auto">
-                    Start Free Trial
+                    {t('buttons.startFreeTrial', { ns: 'common' })}
                   </Button>
                 </Link>
                 <Link href="/pricing">
                   <Button variant="outline" size="lg" className="w-full sm:w-auto text-white border-white hover:bg-white hover:text-primary-500">
-                    View Pricing
+                    {t('buttons.viewPricing', { ns: 'common' })}
                   </Button>
                 </Link>
               </div>
