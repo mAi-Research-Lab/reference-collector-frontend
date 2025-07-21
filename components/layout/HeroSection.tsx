@@ -15,7 +15,7 @@ const HeroSection: React.FC = () => {
       </div>
       <div className="container relative z-10">
         <div className="max-w-3xl mx-auto text-center flex flex-col items-center justify-center">
-          <h1 className="text-5xl md:text-7xl font-extrabold text-neutral-900 mb-8 drop-shadow-sm">
+          <h1 className="text-5xl md:text-6xl font-extrabold text-neutral-900 mb-8 drop-shadow-sm">
             Modern Reference
             <span className="text-primary-500"> Management</span>
           </h1>

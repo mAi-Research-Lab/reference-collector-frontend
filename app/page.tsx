@@ -112,7 +112,7 @@ export default function HomePage() {
         <div className="container max-w-7xl mx-auto">
           <ScrollReveal>
             <div className="text-center mb-16 max-w-4xl mx-auto">
-              <h2 className="text-3xl md:text-5xl font-bold text-neutral-900 mb-4">
+              <h2 className="text-3xl md:text-4xl font-bold text-neutral-900 mb-4">
                 Everything you need to manage references
               </h2>
               <p className="text-lg text-neutral-600 max-w-3xl mx-auto">
@@ -128,7 +128,7 @@ export default function HomePage() {
                   <div className="w-16 h-16 bg-primary-50 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:bg-primary-100 transition-colors duration-200">
                     <feature.icon className="w-8 h-8 text-primary-500" />
                   </div>
-                  <h3 className="text-xl font-semibold text-neutral-900 mb-3">
+                  <h3 className="text-2xl font-semibold text-neutral-900 mb-3">
                     {feature.title}
                   </h3>
                   <p className="text-neutral-600">
@@ -164,7 +164,7 @@ export default function HomePage() {
                     <CheckCircle className="w-6 h-6 text-white" />
                   </div>
                   <div>
-                    <h3 className="text-xl font-semibold text-neutral-900 mb-2">
+                    <h3 className="text-2xl font-semibold text-neutral-900 mb-2">
                       No Vendor Lock-in
                     </h3>
                     <p className="text-neutral-600">
@@ -179,7 +179,7 @@ export default function HomePage() {
                     <Zap className="w-6 h-6 text-white" />
                   </div>
                   <div>
-                    <h3 className="text-xl font-semibold text-neutral-900 mb-2">
+                    <h3 className="text-2xl font-semibold text-neutral-900 mb-2">
                       Lightning Fast Performance
                     </h3>
                     <p className="text-neutral-600">
@@ -194,7 +194,7 @@ export default function HomePage() {
                     <Users className="w-6 h-6 text-white" />
                   </div>
                   <div>
-                    <h3 className="text-xl font-semibold text-neutral-900 mb-2">
+                    <h3 className="text-2xl font-semibold text-neutral-900 mb-2">
                       Academic-First Design
                     </h3>
                     <p className="text-neutral-600">
@@ -270,7 +270,7 @@ export default function HomePage() {
               {downloadOptions.map((option, index) => (
                 <ScrollReveal key={index} delay={index * 150} direction="up">
                   <div className="card text-center hover:shadow-medium transition-shadow duration-300">
-                    <h3 className="text-xl font-semibold text-neutral-900 mb-2">
+                    <h3 className="text-2xl font-semibold text-neutral-900 mb-2">
                       {option.platform}
                     </h3>
                     <p className="text-neutral-600 mb-1">Version {option.version}</p>
