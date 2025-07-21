@@ -16,6 +16,7 @@ import Footer from '@/components/layout/Footer';
 import Button from '@/components/ui/Button';
 import ScrollToTop from '@/components/ui/ScrollToTop';
 import ScrollReveal from '@/components/ui/ScrollReveal';
+import HeroSection from '@/components/layout/HeroSection';
 
 export default function HomePage() {
   const features = [
@@ -104,73 +105,7 @@ export default function HomePage() {
     <div className="min-h-screen">
       <Header />
       
-      {/* Hero Section */}
-      <section id="home" className="bg-gradient-to-br from-white to-neutral-50 py-20">
-        <div className="container">
-          <div className="max-w-4xl mx-auto text-center">
-            <h1 className="text-5xl md:text-6xl font-bold text-neutral-900 mb-6">
-              Modern Reference
-              <span className="text-primary-500"> Management</span>
-            </h1>
-            <p className="text-xl text-neutral-600 mb-8 max-w-2xl mx-auto">
-              RefCite is a powerful, intuitive reference management application 
-              designed for researchers, students, and academics who value simplicity and efficiency.
-            </p>
-            
-            <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
-              <Link href="/download">
-                <Button size="lg" className="w-full sm:w-auto">
-                  <Download className="w-5 h-5 mr-2" />
-                  Download Free
-                </Button>
-              </Link>
-              <Link href="/auth/signup">
-                <Button variant="outline" size="lg" className="w-full sm:w-auto">
-                  Get Started Online
-                  <ArrowRight className="w-5 h-5 ml-2" />
-                </Button>
-              </Link>
-              <Link href="/pricing">
-                <Button variant="ghost" size="lg" className="w-full sm:w-auto">
-                  View Pricing Plans
-                </Button>
-              </Link>
-            </div>
-
-            {/* Trust Indicators */}
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-6 text-sm text-neutral-500 mb-8">
-              <div className="flex items-center gap-2">
-                <CheckCircle className="w-4 h-4 text-green-500" />
-                Free for individuals
-              </div>
-              <div className="flex items-center gap-2">
-                <CheckCircle className="w-4 h-4 text-green-500" />
-                No credit card required
-              </div>
-              <div className="flex items-center gap-2">
-                <CheckCircle className="w-4 h-4 text-green-500" />
-                Works offline
-              </div>
-            </div>
-
-            {/* Statistics */}
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-2xl mx-auto">
-              <div className="text-center">
-                <div className="text-3xl font-bold text-primary-500 mb-2">50K+</div>
-                <div className="text-neutral-600">Active Users</div>
-              </div>
-              <div className="text-center">
-                <div className="text-3xl font-bold text-primary-500 mb-2">200+</div>
-                <div className="text-neutral-600">Universities</div>
-              </div>
-              <div className="text-center">
-                <div className="text-3xl font-bold text-primary-500 mb-2">10M+</div>
-                <div className="text-neutral-600">References Managed</div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+      <HeroSection />
 
       {/* Features Section */}
       <section id="features" className="py-20 bg-white">
