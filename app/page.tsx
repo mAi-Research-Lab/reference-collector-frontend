@@ -1,6 +1,6 @@
 'use client';
 
-import React from 'react';
+import React, { useEffect } from 'react';
 import Link from 'next/link';
 import { 
   FileText, 
@@ -20,9 +20,16 @@ import Button from '@/components/ui/Button';
 import ScrollToTop from '@/components/ui/ScrollToTop';
 import ScrollReveal from '@/components/ui/ScrollReveal';
 import HeroSection from '@/components/layout/HeroSection';
+import { setDocumentTitle } from '@/lib/utils';
 
 export default function HomePage() {
-  const { t } = useTranslation(['home', 'common']);
+  const { t, i18n } = useTranslation(['home', 'common']);
+
+  // Tab title'ı dil değiştiğinde güncelle
+  useEffect(() => {
+    const title = t('hero.title', { ns: 'home' }) + ' ' + t('hero.titleHighlight', { ns: 'home' });
+    setDocumentTitle(title);
+  }, [t, i18n.language]);
 
   const features = [
     {
@@ -376,7 +383,7 @@ export default function HomePage() {
         <div className="container">
           <ScrollReveal>
             <div className="max-w-2xl mx-auto text-center text-white">
-              <h2 className="text-3xl md:text-4xl font-bold mb-4">
+              <h2 className="text-3xl md:text-4xl font-bold mb-4 text-white">
                 {t('cta.title', { ns: 'home' })}
               </h2>
               <p className="text-lg text-primary-100 mb-8">

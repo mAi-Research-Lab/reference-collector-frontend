@@ -23,7 +23,8 @@ const enCommon = {
     "contactSales": "Contact Sales",
     "contactSupport": "Contact Support",
     "learnMore": "Learn More",
-    "viewPricing": "View Pricing"
+    "viewPricing": "View Pricing",
+    "sendMessage": "Send Message"
   },
   "footer": {
     "description": "RefCite is a modern reference management application designed for researchers, students, and academics.",
@@ -44,6 +45,49 @@ const enCommon = {
     "termsOfService": "Terms of Service",
     "cookiePolicy": "Cookie Policy",
     "copyright": "© 2024 RefCite. All rights reserved."
+  },
+  "common": {
+    "loading": "Loading...",
+    "error": "Error",
+    "success": "Success",
+    "warning": "Warning",
+    "info": "Information",
+    "required": "Required",
+    "optional": "Optional",
+    "email": "Email",
+    "password": "Password",
+    "name": "Name",
+    "username": "Username"
+  },
+  "contact": {
+    "title": "Get in Touch",
+    "subtitle": "Have questions? We'd love to hear from you.",
+    "description": "Send us a message and we'll respond as soon as possible.",
+    "form": {
+      "nameLabel": "Full Name",
+      "namePlaceholder": "Enter your full name",
+      "emailLabel": "Email Address",
+      "emailPlaceholder": "Enter your email address",
+      "subjectLabel": "Subject",
+      "subjectPlaceholder": "What's this about?",
+      "messageLabel": "Message",
+      "messagePlaceholder": "Tell us more about your question or feedback...",
+      "sendButton": "Send Message"
+    },
+    "info": {
+      "title": "Other ways to reach us",
+      "email": "Email us directly",
+      "emailAddress": "hello@refcite.com",
+      "support": "Need help?",
+      "supportAddress": "support@refcite.com",
+      "sales": "Sales inquiries",
+      "salesAddress": "sales@refcite.com"
+    },
+    "success": {
+      "title": "Message sent!",
+      "description": "Thank you for contacting us. We'll get back to you as soon as possible.",
+      "backToHome": "Back to Home"
+    }
   }
 };
 
@@ -57,7 +101,7 @@ const trCommon = {
     "contact": "İletişim",
     "pricing": "Fiyatlandırma",
     "signin": "Giriş Yap",
-    "signup": "Başla"
+    "signup": "Kayıt Ol"
   },
   "buttons": {
     "download": "İndir",
@@ -68,7 +112,8 @@ const trCommon = {
     "contactSales": "Satış Ekibiyle İletişim",
     "contactSupport": "Destek Al",
     "learnMore": "Daha Fazla Bilgi",
-    "viewPricing": "Fiyatları Görüntüle"
+    "viewPricing": "Fiyatları Görüntüle",
+    "sendMessage": "Mesaj Gönder"
   },
   "footer": {
     "description": "RefCite, araştırmacılar, öğrenciler ve akademisyenler için tasarlanmış modern bir referans yönetim uygulamasıdır.",
@@ -89,6 +134,49 @@ const trCommon = {
     "termsOfService": "Kullanım Şartları",
     "cookiePolicy": "Çerez Politikası",
     "copyright": "© 2024 RefCite. Tüm hakları saklıdır."
+  },
+  "common": {
+    "loading": "Yükleniyor...",
+    "error": "Hata",
+    "success": "Başarılı",
+    "warning": "Uyarı",
+    "info": "Bilgi",
+    "required": "Zorunlu",
+    "optional": "İsteğe Bağlı",
+    "email": "E-posta",
+    "password": "Şifre",
+    "name": "İsim",
+    "username": "Kullanıcı Adı"
+  },
+  "contact": {
+    "title": "İletişime Geçin",
+    "subtitle": "Sorularınız mı var? Sizden haber almaktan memnuniyet duyarız.",
+    "description": "Bize bir mesaj gönderin, en kısa sürede size geri döneceğiz.",
+    "form": {
+      "nameLabel": "Ad Soyad",
+      "namePlaceholder": "Ad soyadınızı girin",
+      "emailLabel": "E-posta Adresi",
+      "emailPlaceholder": "E-posta adresinizi girin",
+      "subjectLabel": "Konu",
+      "subjectPlaceholder": "Bu ne hakkında?",
+      "messageLabel": "Mesaj",
+      "messagePlaceholder": "Sorunuz veya geri bildiriminiz hakkında daha fazla bilgi verin...",
+      "sendButton": "Mesaj Gönder"
+    },
+    "info": {
+      "title": "Bize ulaşmanın diğer yolları",
+      "email": "Doğrudan e-posta gönderin",
+      "emailAddress": "hello@refcite.com",
+      "support": "Yardıma mı ihtiyacınız var?",
+      "supportAddress": "support@refcite.com",
+      "sales": "Satış sorguları",
+      "salesAddress": "sales@refcite.com"
+    },
+    "success": {
+      "title": "Mesaj gönderildi!",
+      "description": "Bizimle iletişime geçtiğiniz için teşekkür ederiz. En kısa sürede size geri döneceğiz.",
+      "backToHome": "Ana Sayfaya Dön"
+    }
   }
 };
 
@@ -570,7 +658,35 @@ const enAuth = {
     "signInLink": "Sign in",
     "orContinueWith": "Or continue with",
     "signUpWithGoogle": "Sign up with Google",
-    "signUpWithGitHub": "Sign up with GitHub"
+    "signUpWithGitHub": "Sign up with GitHub",
+    "benefits": {
+      "title": "What Can You Do with RefCite?",
+      "unlimitedReferences": {
+        "title": "Unlimited References",
+        "description": "Add as many articles and sources as you want"
+      },
+      "automaticCitation": {
+        "title": "Automatic Citation",
+        "description": "Auto-format in 500+ different citation styles"
+      },
+      "teamCollaboration": {
+        "title": "Team Collaboration",
+        "description": "Easily share with your research team"
+      },
+      "signinPrompt": "Sign in now and access your references"
+    }
+  },
+  "forgotPassword": {
+    "title": "Reset your password",
+    "subtitle": "Enter your email address and we'll send you a link to reset your password",
+    "emailLabel": "Email address",
+    "emailPlaceholder": "Enter your email",
+    "sendResetLinkButton": "Send reset link",
+    "backToSignIn": "Back to sign in",
+    "checkEmail": "Check your email",
+    "resetLinkSent": "We've sent a password reset link to your email address. Please check your inbox and follow the instructions to reset your password.",
+    "didntReceiveEmail": "Didn't receive the email?",
+    "resendLink": "Resend link"
   }
 };
 
@@ -613,7 +729,35 @@ const trAuth = {
     "signInLink": "Giriş yap",
     "orContinueWith": "Veya devam edin:",
     "signUpWithGoogle": "Google ile kayıt ol",
-    "signUpWithGitHub": "GitHub ile kayıt ol"
+    "signUpWithGitHub": "GitHub ile kayıt ol",
+    "benefits": {
+      "title": "RefCite ile Neler Yapabilirsiniz?",
+      "unlimitedReferences": {
+        "title": "Sınırsız Referans",
+        "description": "Dilediğiniz kadar makale ve kaynak ekleyin"
+      },
+      "automaticCitation": {
+        "title": "Otomatik Alıntı",
+        "description": "500+ farklı alıntı stilinde otomatik format"
+      },
+      "teamCollaboration": {
+        "title": "Takım İşbirliği",
+        "description": "Araştırma ekibinizle kolayca paylaşın"
+      },
+      "signinPrompt": "Hemen giriş yapın ve referanslarınıza erişin"
+    }
+  },
+  "forgotPassword": {
+    "title": "Şifrenizi sıfırlayın",
+    "subtitle": "E-posta adresinizi girin, şifrenizi sıfırlamak için size bir bağlantı gönderelim",
+    "emailLabel": "E-posta adresi",
+    "emailPlaceholder": "E-posta adresinizi girin",
+    "sendResetLinkButton": "Sıfırlama bağlantısı gönder",
+    "backToSignIn": "Giriş sayfasına dön",
+    "checkEmail": "E-postanızı kontrol edin",
+    "resetLinkSent": "E-posta adresinize şifre sıfırlama bağlantısı gönderdik. Lütfen gelen kutunuzu kontrol edin ve şifrenizi sıfırlamak için talimatları izleyin.",
+    "didntReceiveEmail": "E-postayı almadınız mı?",
+    "resendLink": "Tekrar gönder"
   }
 };
 

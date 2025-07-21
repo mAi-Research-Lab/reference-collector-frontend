@@ -1,16 +1,23 @@
 'use client';
 
-import React from 'react';
+import React, { useEffect } from 'react';
 import Link from 'next/link';
 import { Check, Mail, Star } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
 import Button from '@/components/ui/Button';
+import { setDocumentTitle } from '@/lib/utils';
 import type { PricingPlan } from '@/types';
 
 export default function PricingPage() {
-  const { t } = useTranslation(['pricing', 'common']);
+  const { t, i18n } = useTranslation(['pricing', 'common']);
+
+  // Tab title'ı dil değiştiğinde güncelle
+  useEffect(() => {
+    const title = t('hero.titleHighlight', { ns: 'pricing' }) + ' ' + t('hero.titleEnd', { ns: 'pricing' });
+    setDocumentTitle(title);
+  }, [t, i18n.language]);
 
   const plans: PricingPlan[] = [
     {

@@ -14,6 +14,7 @@ const Header: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const pathname = usePathname();
   const isHomePage = pathname === '/';
+  const isAuthPage = pathname.startsWith('/auth/');
 
   const handleNavigation = (href: string) => {
     if (isHomePage && href.startsWith('#')) {
@@ -35,12 +36,14 @@ const Header: React.FC = () => {
     setIsMenuOpen(false);
   };
 
-  const navigationItems: NavItem[] = [
+  // Navigation itemları sayfa tipine göre
+  const navigationItems: NavItem[] = isAuthPage ? [] : isHomePage ? [
     { href: '#home', label: t('navigation.home') },
     { href: '#features', label: t('navigation.features') },
     { href: '#download', label: t('navigation.download') },
     { href: '#about', label: t('navigation.about') },
-    { href: '#contact', label: t('navigation.contact') },
+  ] : [
+    { href: '/', label: t('navigation.home') },
   ];
 
   return (
@@ -56,36 +59,71 @@ const Header: React.FC = () => {
           </Link>
 
           {/* Desktop Navigation */}
-          <nav className="hidden md:flex items-center space-x-8">
-            {navigationItems.map((item) => (
-              <button
-                key={item.href}
-                onClick={() => handleNavigation(item.href)}
-                className="text-neutral-600 hover:text-neutral-900 transition-colors duration-200"
-              >
-                {item.label}
-              </button>
-            ))}
-          </nav>
+          {!isAuthPage && (
+            <nav className="hidden md:flex items-center space-x-8">
+              {navigationItems.map((item) => (
+                item.href.startsWith('#') ? (
+                  <button
+                    key={item.href}
+                    onClick={() => handleNavigation(item.href)}
+                    className="text-neutral-600 hover:text-neutral-900 transition-colors duration-200"
+                  >
+                    {item.label}
+                  </button>
+                ) : (
+                  <Link
+                    key={item.href}
+                    href={item.href}
+                    className="text-neutral-600 hover:text-neutral-900 transition-colors duration-200"
+                  >
+                    {item.label}
+                  </Link>
+                )
+              ))}
+            </nav>
+          )}
 
           {/* Desktop Auth Buttons & Language Switcher */}
           <div className="hidden md:flex items-center space-x-4">
             <LanguageSwitcher />
-            <Link href="/pricing">
-              <Button variant="outline" size="sm">
-                {t('navigation.pricing')}
-              </Button>
-            </Link>
-            <Link href="/auth/signin">
-              <Button variant="ghost" size="sm">
-                {t('navigation.signin')}
-              </Button>
-            </Link>
-            <Link href="/auth/signup">
-              <Button variant="primary" size="sm">
-                {t('navigation.signup')}
-              </Button>
-            </Link>
+            {isAuthPage ? (
+              // Auth sayfalarında sadece auth butonları
+              <>
+                {pathname !== '/auth/signin' && (
+                  <Link href="/auth/signin">
+                    <Button variant="ghost" size="sm">
+                      {t('navigation.signin')}
+                    </Button>
+                  </Link>
+                )}
+                {pathname !== '/auth/signup' && (
+                  <Link href="/auth/signup">
+                    <Button variant="primary" size="sm">
+                      {t('navigation.signup')}
+                    </Button>
+                  </Link>
+                )}
+              </>
+            ) : (
+              // Diğer sayfalarda tüm butonlar
+              <>
+                <Link href="/pricing">
+                  <Button variant="outline" size="sm">
+                    {t('navigation.pricing')}
+                  </Button>
+                </Link>
+                <Link href="/auth/signin">
+                  <Button variant="ghost" size="sm">
+                    {t('navigation.signin')}
+                  </Button>
+                </Link>
+                <Link href="/auth/signup">
+                  <Button variant="primary" size="sm">
+                    {t('navigation.signup')}
+                  </Button>
+                </Link>
+              </>
+            )}
           </div>
 
           {/* Mobile Menu Button */}
@@ -102,35 +140,70 @@ const Header: React.FC = () => {
         {isMenuOpen && (
           <div className="md:hidden py-4 border-t border-neutral-200">
             <nav className="flex flex-col space-y-4">
-              {navigationItems.map((item) => (
-                <button
-                  key={item.href}
-                  onClick={() => handleNavigation(item.href)}
-                  className="text-neutral-600 hover:text-neutral-900 transition-colors duration-200 py-2 text-left"
-                >
-                  {item.label}
-                </button>
+              {/* Navigation items (sadece auth olmayan sayfalarda) */}
+              {!isAuthPage && navigationItems.map((item) => (
+                item.href.startsWith('#') ? (
+                  <button
+                    key={item.href}
+                    onClick={() => handleNavigation(item.href)}
+                    className="text-neutral-600 hover:text-neutral-900 transition-colors duration-200 py-2 text-left"
+                  >
+                    {item.label}
+                  </button>
+                ) : (
+                  <Link
+                    key={item.href}
+                    href={item.href}
+                    onClick={() => setIsMenuOpen(false)}
+                    className="text-neutral-600 hover:text-neutral-900 transition-colors duration-200 py-2 text-left"
+                  >
+                    {item.label}
+                  </Link>
+                )
               ))}
               
-              <div className="flex flex-col space-y-3 pt-4 border-t border-neutral-200">
+              <div className={`flex flex-col space-y-3 ${!isAuthPage ? 'pt-4 border-t border-neutral-200' : ''}`}>
                 <div className="px-4">
                   <LanguageSwitcher />
                 </div>
-                <Link href="/pricing" onClick={() => setIsMenuOpen(false)}>
-                  <Button variant="outline" size="sm" className="w-full">
-                    {t('navigation.pricing')}
-                  </Button>
-                </Link>
-                <Link href="/auth/signin" onClick={() => setIsMenuOpen(false)}>
-                  <Button variant="ghost" size="sm" className="w-full">
-                    {t('navigation.signin')}
-                  </Button>
-                </Link>
-                <Link href="/auth/signup" onClick={() => setIsMenuOpen(false)}>
-                  <Button variant="primary" size="sm" className="w-full">
-                    {t('navigation.signup')}
-                  </Button>
-                </Link>
+                {isAuthPage ? (
+                  // Auth sayfalarında sadece auth butonları
+                  <>
+                    {pathname !== '/auth/signin' && (
+                      <Link href="/auth/signin" onClick={() => setIsMenuOpen(false)}>
+                        <Button variant="ghost" size="sm" className="w-full">
+                          {t('navigation.signin')}
+                        </Button>
+                      </Link>
+                    )}
+                    {pathname !== '/auth/signup' && (
+                      <Link href="/auth/signup" onClick={() => setIsMenuOpen(false)}>
+                        <Button variant="primary" size="sm" className="w-full">
+                          {t('navigation.signup')}
+                        </Button>
+                      </Link>
+                    )}
+                  </>
+                ) : (
+                  // Diğer sayfalarda tüm butonlar
+                  <>
+                    <Link href="/pricing" onClick={() => setIsMenuOpen(false)}>
+                      <Button variant="outline" size="sm" className="w-full">
+                        {t('navigation.pricing')}
+                      </Button>
+                    </Link>
+                    <Link href="/auth/signin" onClick={() => setIsMenuOpen(false)}>
+                      <Button variant="ghost" size="sm" className="w-full">
+                        {t('navigation.signin')}
+                      </Button>
+                    </Link>
+                    <Link href="/auth/signup" onClick={() => setIsMenuOpen(false)}>
+                      <Button variant="primary" size="sm" className="w-full">
+                        {t('navigation.signup')}
+                      </Button>
+                    </Link>
+                  </>
+                )}
               </div>
             </nav>
           </div>

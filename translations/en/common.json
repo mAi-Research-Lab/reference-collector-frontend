@@ -25,7 +25,8 @@
     "continue": "Continue",
     "cancel": "Cancel",
     "save": "Save",
-    "close": "Close"
+    "close": "Close",
+    "sendMessage": "Send Message"
   },
   "footer": {
     "description": "RefCite is a modern reference management application designed for researchers, students, and academics.",
@@ -55,5 +56,35 @@
     "password": "Password",
     "name": "Name",
     "username": "Username"
+  },
+  "contact": {
+    "title": "Get in Touch",
+    "subtitle": "Have questions? We'd love to hear from you.",
+    "description": "Send us a message and we'll respond as soon as possible.",
+    "form": {
+      "nameLabel": "Full Name",
+      "namePlaceholder": "Enter your full name",
+      "emailLabel": "Email Address",
+      "emailPlaceholder": "Enter your email address",
+      "subjectLabel": "Subject",
+      "subjectPlaceholder": "What's this about?",
+      "messageLabel": "Message",
+      "messagePlaceholder": "Tell us more about your question or feedback...",
+      "sendButton": "Send Message"
+    },
+    "info": {
+      "title": "Other ways to reach us",
+      "email": "Email us directly",
+      "emailAddress": "hello@refcite.com",
+      "support": "Need help?",
+      "supportAddress": "support@refcite.com",
+      "sales": "Sales inquiries",
+      "salesAddress": "sales@refcite.com"
+    },
+    "success": {
+      "title": "Message sent!",
+      "description": "Thank you for contacting us. We'll get back to you as soon as possible.",
+      "backToHome": "Back to Home"
+    }
   }
 } 

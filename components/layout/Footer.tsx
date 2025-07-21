@@ -10,7 +10,7 @@ export default function Footer() {
   return (
     <footer className="bg-neutral-900 text-white">
       <div className="container py-12">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {/* Brand Column */}
           <div className="lg:col-span-2">
             <Link href="/" className="text-2xl font-bold mb-4 block">
@@ -63,45 +63,13 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Company Column */}
-          <div>
-            <h3 className="text-lg font-semibold mb-4">{t('footer.company')}</h3>
-            <ul className="space-y-3">
-              <li>
-                <Link href="/about" className="text-neutral-300 hover:text-white transition-colors">
-                  {t('footer.about')}
-                </Link>
-              </li>
-              <li>
-                <Link href="/blog" className="text-neutral-300 hover:text-white transition-colors">
-                  {t('footer.blog')}
-                </Link>
-              </li>
-              <li>
-                <Link href="/careers" className="text-neutral-300 hover:text-white transition-colors">
-                  {t('footer.careers')}
-                </Link>
-              </li>
-            </ul>
-          </div>
-
           {/* Support Column */}
           <div>
             <h3 className="text-lg font-semibold mb-4">{t('footer.support')}</h3>
             <ul className="space-y-3">
               <li>
-                <Link href="/help" className="text-neutral-300 hover:text-white transition-colors">
-                  {t('footer.help')}
-                </Link>
-              </li>
-              <li>
                 <Link href="/contact" className="text-neutral-300 hover:text-white transition-colors">
                   {t('footer.contact')}
-                </Link>
-              </li>
-              <li>
-                <Link href="/docs" className="text-neutral-300 hover:text-white transition-colors">
-                  {t('footer.documentation')}
                 </Link>
               </li>
             </ul>
@@ -110,21 +78,10 @@ export default function Footer() {
 
         {/* Bottom Section */}
         <div className="border-t border-neutral-800 mt-12 pt-8">
-          <div className="flex flex-col md:flex-row justify-between items-center">
+          <div className="flex flex-col md:flex-row justify-center items-center">
             <p className="text-neutral-400 text-sm">
               {t('footer.copyright')}
             </p>
-            <div className="flex space-x-6 mt-4 md:mt-0">
-              <Link href="/privacy" className="text-neutral-400 hover:text-white transition-colors text-sm">
-                {t('footer.privacyPolicy')}
-              </Link>
-              <Link href="/terms" className="text-neutral-400 hover:text-white transition-colors text-sm">
-                {t('footer.termsOfService')}
-              </Link>
-              <Link href="/cookies" className="text-neutral-400 hover:text-white transition-colors text-sm">
-                {t('footer.cookiePolicy')}
-              </Link>
-            </div>
           </div>
         </div>
       </div>

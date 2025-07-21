@@ -6,6 +6,26 @@ export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
 }
 
+// Page title yönetimi için utility fonksiyonlar
+export function setDocumentTitle(title: string, brandName: string = 'RefCite') {
+  if (typeof document !== 'undefined') {
+    document.title = `${title} | ${brandName}`;
+  }
+}
+
+export function getPageTitle(key: string, t: any): string {
+  const titles: Record<string, string> = {
+    home: t('hero.title') + ' ' + t('hero.titleHighlight'),
+    pricing: t('hero.title') + ' ' + t('hero.titleHighlight') + ' ' + t('hero.titleEnd'),
+    signin: t('signin.title'),
+    signup: t('signup.title'),
+    contact: t('contact.title'),
+    forgotPassword: t('forgotPassword.title')
+  };
+
+  return titles[key] || 'RefCite';
+}
+
 // Format currency
 export function formatCurrency(amount: number, currency = 'USD'): string {
   return new Intl.NumberFormat('en-US', {
