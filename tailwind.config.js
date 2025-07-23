@@ -8,18 +8,18 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        // Zotero-inspired color palette
+        // Custom green color palette
         primary: {
-          50: '#fef2f2',
-          100: '#fee2e2',
-          200: '#fecaca',
-          300: '#fca5a5',
-          400: '#f87171',
-          500: '#ef4444', // Main red
-          600: '#dc2626',
-          700: '#b91c1c',
-          800: '#991b1b',
-          900: '#7f1d1d',
+          50: '#f6fbf4',
+          100: '#e9f5e3',
+          200: '#d4eac9',
+          300: '#b6d9a4',
+          400: '#94c177',
+          500: '#A0C878', // Main green
+          600: '#7fb05c',
+          700: '#6a954a',
+          800: '#57773d',
+          900: '#496235',
         },
         neutral: {
           50: '#fafafa',

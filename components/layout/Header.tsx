@@ -15,6 +15,8 @@ const Header: React.FC = () => {
   const pathname = usePathname();
   const isHomePage = pathname === '/';
   const isAuthPage = pathname.startsWith('/auth/');
+  const isContactPage = pathname === '/contact';
+  const isPricingPage = pathname === '/pricing';
 
   const handleNavigation = (href: string) => {
     if (isHomePage && href.startsWith('#')) {
@@ -37,7 +39,7 @@ const Header: React.FC = () => {
   };
 
   // Navigation itemları sayfa tipine göre
-  const navigationItems: NavItem[] = isAuthPage ? [] : isHomePage ? [
+  const navigationItems: NavItem[] = isAuthPage ? [] : isContactPage ? [] : isPricingPage ? [] : isHomePage ? [
     { href: '#home', label: t('navigation.home') },
     { href: '#features', label: t('navigation.features') },
     { href: '#download', label: t('navigation.download') },
@@ -49,86 +51,99 @@ const Header: React.FC = () => {
   return (
     <header className="bg-white border-b border-neutral-200 sticky top-0 z-50">
       <div className="container">
-        <div className="flex items-center justify-between h-16">
+        <div className="relative flex items-center h-16">
           {/* Logo */}
-          <Link href="/" className="flex items-center space-x-2">
-            <div className="w-8 h-8 bg-primary-500 rounded-lg flex items-center justify-center">
-              <FileText className="w-5 h-5 text-white" />
-            </div>
-            <span className="text-xl font-bold text-neutral-900">{t('brand')}</span>
-          </Link>
+          <div className="flex-shrink-0">
+            <Link href="/" className="flex items-center space-x-2">
+              <div className="w-8 h-8 bg-primary-500 rounded-lg flex items-center justify-center">
+                <FileText className="w-5 h-5 text-white" />
+              </div>
+              <span className="text-xl font-bold text-neutral-900">{t('brand')}</span>
+            </Link>
+          </div>
 
-          {/* Desktop Navigation */}
+          {/* Desktop Navigation - Centered */}
           {!isAuthPage && (
-            <nav className="hidden md:flex items-center space-x-8">
-              {navigationItems.map((item) => (
-                item.href.startsWith('#') ? (
-                  <button
-                    key={item.href}
-                    onClick={() => handleNavigation(item.href)}
-                    className="text-neutral-600 hover:text-neutral-900 transition-colors duration-200"
-                  >
-                    {item.label}
-                  </button>
-                ) : (
-                  <Link
-                    key={item.href}
-                    href={item.href}
-                    className="text-neutral-600 hover:text-neutral-900 transition-colors duration-200"
-                  >
-                    {item.label}
-                  </Link>
-                )
-              ))}
+            <nav className="hidden md:flex items-center justify-center absolute left-1/2 transform -translate-x-1/2">
+              <div className="flex items-center space-x-8">
+                {navigationItems.map((item) => (
+                  item.href.startsWith('#') ? (
+                    <button
+                      key={item.href}
+                      onClick={() => handleNavigation(item.href)}
+                      className="text-neutral-600 hover:text-neutral-900 transition-colors duration-200"
+                    >
+                      {item.label}
+                    </button>
+                  ) : (
+                    <Link
+                      key={item.href}
+                      href={item.href}
+                      className="text-neutral-600 hover:text-neutral-900 transition-colors duration-200"
+                    >
+                      {item.label}
+                    </Link>
+                  )
+                ))}
+              </div>
             </nav>
           )}
 
-          {/* Desktop Auth Buttons & Language Switcher */}
-          <div className="hidden md:flex items-center space-x-4">
-            <LanguageSwitcher />
-            {isAuthPage ? (
-              // Auth sayfalarında sadece auth butonları
-              <>
-                {pathname !== '/auth/signin' && (
-                  <Link href="/auth/signin">
-                    <Button variant="ghost" size="sm">
-                      {t('navigation.signin')}
+          {/* Right side container - Positioned absolutely to the right */}
+          <div className="absolute right-0 flex items-center">
+            {/* Language Switcher - Before buttons */}
+            <div className="hidden md:flex mr-4">
+              <LanguageSwitcher />
+            </div>
+
+            {/* Desktop Auth Buttons */}
+            <div className="hidden md:flex items-center space-x-4">
+              {isAuthPage ? (
+                // Auth sayfalarında sadece auth butonları
+                <>
+                  {pathname !== '/auth/signin' && (
+                    <Link href="/auth/signin">
+                      <Button variant="ghost" size="sm">
+                        {t('navigation.signin')}
+                      </Button>
+                    </Link>
+                  )}
+                  {pathname !== '/auth/signup' && (
+                    <Link href="/auth/signup">
+                      <Button variant="primary" size="sm">
+                        {t('navigation.signup')}
+                      </Button>
+                    </Link>
+                  )}
+                </>
+              ) : (
+                // Diğer sayfalarda tüm butonlar
+                <>
+                  <Link href="/pricing">
+                    <Button variant="outline" size="sm">
+                      {t('navigation.pricing')}
                     </Button>
                   </Link>
-                )}
-                {pathname !== '/auth/signup' && (
                   <Link href="/auth/signup">
                     <Button variant="primary" size="sm">
                       {t('navigation.signup')}
                     </Button>
                   </Link>
-                )}
-              </>
-            ) : (
-              // Diğer sayfalarda tüm butonlar
-              <>
-                <Link href="/pricing">
-                  <Button variant="outline" size="sm">
-                    {t('navigation.pricing')}
-                  </Button>
-                </Link>
-                <Link href="/auth/signup">
-                  <Button variant="primary" size="sm">
-                    {t('navigation.signup')}
-                  </Button>
-                </Link>
-              </>
-            )}
-          </div>
+                </>
+              )}
+            </div>
 
-          {/* Mobile Menu Button */}
-          <button
-            className="md:hidden p-2 text-neutral-600 hover:text-neutral-900"
-            onClick={() => setIsMenuOpen(!isMenuOpen)}
-            aria-label="Toggle menu"
-          >
-            {isMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
-          </button>
+            {/* Mobile Menu Button */}
+            <div className="md:hidden ml-4">
+              <button
+                className="p-2 text-neutral-600 hover:text-neutral-900"
+                onClick={() => setIsMenuOpen(!isMenuOpen)}
+                aria-label="Toggle menu"
+              >
+                {isMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+              </button>
+            </div>
+          </div>
         </div>
 
         {/* Mobile Menu */}
@@ -158,9 +173,6 @@ const Header: React.FC = () => {
               ))}
               
               <div className={`flex flex-col space-y-3 ${!isAuthPage ? 'pt-4 border-t border-neutral-200' : ''}`}>
-                <div className="px-4">
-                  <LanguageSwitcher />
-                </div>
                 {isAuthPage ? (
                   // Auth sayfalarında sadece auth butonları
                   <>
@@ -194,6 +206,9 @@ const Header: React.FC = () => {
                     </Link>
                   </>
                 )}
+                <div className="px-4 pt-3 border-t border-neutral-200">
+                  <LanguageSwitcher />
+                </div>
               </div>
             </nav>
           </div>

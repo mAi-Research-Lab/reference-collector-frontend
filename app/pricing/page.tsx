@@ -236,18 +236,24 @@ export default function PricingPage() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 bg-primary-500">
-        <div className="container">
+      <section className="relative py-20 bg-gradient-to-br from-primary-600 via-primary-500 to-primary-700 overflow-hidden">
+        <div className="absolute inset-0 pointer-events-none select-none" aria-hidden="true">
+          {/* Dekoratif blur efektli daireler */}
+          <div className="absolute left-[-15vw] top-[-15vw] w-[50vw] h-[50vw] bg-primary-400 opacity-20 rounded-full blur-3xl" />
+          <div className="absolute right-[-15vw] bottom-[-15vw] w-[50vw] h-[50vw] bg-primary-300 opacity-15 rounded-full blur-2xl" />
+          <div className="absolute left-[10%] bottom-[10%] w-[30vw] h-[30vw] bg-white opacity-5 rounded-full blur-xl" />
+        </div>
+        <div className="container relative z-10">
           <div className="max-w-2xl mx-auto text-center text-white">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">
+            <h2 className="text-3xl md:text-4xl font-bold mb-4 text-white drop-shadow-sm">
               {t('cta.title', { ns: 'pricing' })}
             </h2>
-            <p className="text-lg text-primary-100 mb-8">
+            <p className="text-lg text-white mb-8 drop-shadow-sm">
               {t('cta.description', { ns: 'pricing' })}
             </p>
             
             <Link href="/auth/signup">
-              <Button variant="secondary" size="lg">
+              <Button variant="secondary" size="lg" className="shadow-lg">
                 {t('cta.startFreeTrial', { ns: 'pricing' })}
               </Button>
             </Link>

@@ -233,26 +233,26 @@ export default function HomePage() {
                 </h3>
                 <div className="space-y-4">
                   <div className="flex items-center gap-3">
-                    <div className="w-10 h-10 bg-accent-100 rounded-lg flex items-center justify-center">
-                      <span className="text-accent-600 font-bold text-sm">MIT</span>
+                    <div className="w-10 h-10 bg-primary-100 rounded-lg flex items-center justify-center">
+                      <span className="text-primary-700 font-bold text-sm">MIT</span>
                     </div>
                     <span className="text-neutral-700">Massachusetts Institute of Technology</span>
                   </div>
                   <div className="flex items-center gap-3">
-                    <div className="w-10 h-10 bg-accent-100 rounded-lg flex items-center justify-center">
-                      <span className="text-accent-600 font-bold text-sm">STF</span>
+                    <div className="w-10 h-10 bg-primary-100 rounded-lg flex items-center justify-center">
+                      <span className="text-primary-700 font-bold text-sm">STF</span>
                     </div>
                     <span className="text-neutral-700">Stanford University</span>
                   </div>
                   <div className="flex items-center gap-3">
-                    <div className="w-10 h-10 bg-accent-100 rounded-lg flex items-center justify-center">
-                      <span className="text-accent-600 font-bold text-sm">OXF</span>
+                    <div className="w-10 h-10 bg-primary-100 rounded-lg flex items-center justify-center">
+                      <span className="text-primary-700 font-bold text-sm">OXF</span>
                     </div>
                     <span className="text-neutral-700">University of Oxford</span>
                   </div>
                   <div className="flex items-center gap-3">
-                    <div className="w-10 h-10 bg-accent-100 rounded-lg flex items-center justify-center">
-                      <span className="text-accent-600 font-bold text-sm">CAM</span>
+                    <div className="w-10 h-10 bg-primary-100 rounded-lg flex items-center justify-center">
+                      <span className="text-primary-700 font-bold text-sm">CAM</span>
                     </div>
                     <span className="text-neutral-700">University of Cambridge</span>
                   </div>
@@ -379,25 +379,31 @@ export default function HomePage() {
       </section>
 
       {/* CTA Section */}
-      <section id="contact" className="py-20 bg-primary-500">
-        <div className="container">
+      <section id="contact" className="relative py-20 bg-gradient-to-br from-primary-600 via-primary-500 to-primary-700 overflow-hidden">
+        <div className="absolute inset-0 pointer-events-none select-none" aria-hidden="true">
+          {/* Dekoratif blur efektli daireler */}
+          <div className="absolute left-[-15vw] top-[-15vw] w-[50vw] h-[50vw] bg-primary-400 opacity-20 rounded-full blur-3xl" />
+          <div className="absolute right-[-15vw] bottom-[-15vw] w-[50vw] h-[50vw] bg-primary-300 opacity-15 rounded-full blur-2xl" />
+          <div className="absolute left-[10%] bottom-[10%] w-[30vw] h-[30vw] bg-white opacity-5 rounded-full blur-xl" />
+        </div>
+        <div className="container relative z-10">
           <ScrollReveal>
             <div className="max-w-2xl mx-auto text-center text-white">
-              <h2 className="text-3xl md:text-4xl font-bold mb-4 text-white">
+              <h2 className="text-3xl md:text-4xl font-bold mb-4 text-white drop-shadow-sm">
                 {t('cta.title', { ns: 'home' })}
               </h2>
-              <p className="text-lg text-primary-100 mb-8">
+              <p className="text-lg text-primary-100 mb-8 drop-shadow-sm">
                 {t('cta.description', { ns: 'home' })}
               </p>
               
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <Link href="/auth/signup">
-                  <Button variant="secondary" size="lg" className="w-full sm:w-auto">
+                  <Button variant="secondary" size="lg" className="w-full sm:w-auto shadow-lg">
                     {t('buttons.startFreeTrial', { ns: 'common' })}
                   </Button>
                 </Link>
                 <Link href="/pricing">
-                  <Button variant="outline" size="lg" className="w-full sm:w-auto text-white border-white hover:bg-white hover:text-primary-500">
+                  <Button variant="outline" size="lg" className="w-full sm:w-auto text-white border-white hover:bg-white hover:text-primary-500 shadow-lg">
                     {t('buttons.viewPricing', { ns: 'common' })}
                   </Button>
                 </Link>

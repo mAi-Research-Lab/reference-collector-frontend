@@ -9,7 +9,7 @@ export function cn(...inputs: ClassValue[]) {
 // Page title yönetimi için utility fonksiyonlar
 export function setDocumentTitle(title: string, brandName: string = 'RefCite') {
   if (typeof document !== 'undefined') {
-    document.title = `${title} | ${brandName}`;
+    document.title = `${brandName} | ${title}`;
   }
 }
 
