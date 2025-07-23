@@ -186,6 +186,7 @@ const enHome = {
     "title": "Modern Reference",
     "titleHighlight": "Management",
     "description": "Powerful, intuitive reference management for researchers, students, and academics. Simplicity and efficiency, redefined.",
+    "availableForPlatforms": "Available for Mac, Windows, Linux",
     "trustIndicators": {
       "freeForIndividuals": "Free for individuals",
       "noCreditCardRequired": "No credit card required",
@@ -195,6 +196,20 @@ const enHome = {
       "activeUsers": "Active Users",
       "universities": "Universities",
       "referencesManaged": "References Managed"
+    },
+    "features": {
+      "fastAndEasy": {
+        "title": "Fast & Easy",
+        "description": "Organize your references in minutes with intuitive design and smart features. Focus on your research instead of complex processes."
+      },
+      "secure": {
+        "title": "Secure & Private",
+        "description": "Your data is protected with end-to-end encryption. Whether stored locally or in the cloud, your privacy is always our priority."
+      },
+      "accessible": {
+        "title": "Access Anywhere",
+        "description": "Desktop, web, or mobile - syncs across all your devices. Stay productive even in offline environments with offline access."
+      }
     }
   },
   "features": {
@@ -317,7 +332,8 @@ const trHome = {
   "hero": {
     "title": "Modern Referans",
     "titleHighlight": "Yönetimi",
-    "description": "Araştırmacılar, öğrenciler ve akademisyenler için güçlü, sezgisel referans yönetimi. Basitlik ve verimlilik, yeniden tanımlandı.",
+    "description": "Araştırmacılar, öğrenciler ve akademisyenler için güçlü, sezgizel referans yönetimi. Basitlik ve verimlilik, yeniden tanımlandı.",
+    "availableForPlatforms": "Mac, Windows, Linux için kullanılabilir",
     "trustIndicators": {
       "freeForIndividuals": "Bireyler için ücretsiz",
       "noCreditCardRequired": "Kredi kartı gerektirmez",
@@ -327,6 +343,20 @@ const trHome = {
       "activeUsers": "Aktif Kullanıcı",
       "universities": "Üniversite",
       "referencesManaged": "Yönetilen Referans"
+    },
+    "features": {
+      "fastAndEasy": {
+        "title": "Hızlı ve Kolay",
+        "description": "Sezgisel tasarım ve akıllı özelliklerle referanslarınızı dakikalar içinde düzenleyin. Karmaşık süreçler yerine araştırmanıza odaklanın."
+      },
+      "secure": {
+        "title": "Güvenli ve Gizli",
+        "description": "Verileriniz uçtan uca şifreleme ile korunur. İster yerel ister bulutta saklayın, gizliliğiniz her zaman önceliğimizdir."
+      },
+      "accessible": {
+        "title": "Her Yerden Erişim",
+        "description": "Masaüstü, web veya mobil - tüm cihazlarınızda senkronize çalışır. Çevrimdışı erişim ile internetsiz ortamlarda bile üretken kalın."
+      }
     }
   },
   "features": {

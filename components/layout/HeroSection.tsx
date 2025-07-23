@@ -2,7 +2,7 @@
 
 import React from 'react';
 import Link from 'next/link';
-import { Download, ArrowRight, CheckCircle } from 'lucide-react';
+import { Download } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 import Button from '@/components/ui/Button';
 
@@ -25,7 +25,7 @@ const HeroSection: React.FC = () => {
           <p className="text-base md:text-lg text-neutral-600 mb-10 max-w-2xl mx-auto font-normal">
             {t('hero.description', { ns: 'home' })}
           </p>
-          <div className="flex flex-col sm:flex-row gap-5 justify-center mb-10 w-full">
+          <div className="flex flex-col items-center mb-10 w-full">
             <button
               onClick={() => {
                 const el = document.getElementById('download');
@@ -33,49 +33,18 @@ const HeroSection: React.FC = () => {
                   el.scrollIntoView({ behavior: 'smooth' });
                 }
               }}
-              className="w-full sm:w-auto text-lg px-8 py-4 shadow-lg btn btn-primary flex items-center justify-center"
+              className="w-full sm:w-auto text-lg px-8 py-4 shadow-lg btn btn-primary flex items-center justify-center mb-6"
               type="button"
             >
               <Download className="w-6 h-6 mr-2" />
               {t('buttons.downloadFree', { ns: 'common' })}
             </button>
-            <Link href="/auth/signup">
-              <Button variant="outline" size="lg" className="w-full sm:w-auto text-lg px-8 py-4 border-2">
-                {t('buttons.getStartedOnline', { ns: 'common' })}
-                <ArrowRight className="w-6 h-6 ml-2" />
-              </Button>
-            </Link>
+            <p className="text-sm text-neutral-500">
+              {t('hero.availableForPlatforms', { ns: 'home' })}
+            </p>
           </div>
-          {/* Trust Indicators */}
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-6 text-base text-neutral-500 mb-10">
-            <div className="flex items-center gap-2">
-              <CheckCircle className="w-5 h-5 text-green-500" />
-              {t('hero.trustIndicators.freeForIndividuals', { ns: 'home' })}
-            </div>
-            <div className="flex items-center gap-2">
-              <CheckCircle className="w-5 h-5 text-green-500" />
-              {t('hero.trustIndicators.noCreditCardRequired', { ns: 'home' })}
-            </div>
-            <div className="flex items-center gap-2">
-              <CheckCircle className="w-5 h-5 text-green-500" />
-              {t('hero.trustIndicators.worksOffline', { ns: 'home' })}
-            </div>
-          </div>
-          {/* Statistics - yarı şeffaf kutuda */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-2xl mx-auto bg-white/70 backdrop-blur-md rounded-2xl shadow-lg py-6 px-4">
-            <div className="text-center">
-              <div className="text-4xl font-extrabold text-primary-500 mb-1">50K+</div>
-              <div className="text-neutral-700 font-medium">{t('hero.statistics.activeUsers', { ns: 'home' })}</div>
-            </div>
-            <div className="text-center">
-              <div className="text-4xl font-extrabold text-primary-500 mb-1">200+</div>
-              <div className="text-neutral-700 font-medium">{t('hero.statistics.universities', { ns: 'home' })}</div>
-            </div>
-            <div className="text-center">
-              <div className="text-4xl font-extrabold text-primary-500 mb-1">10M+</div>
-              <div className="text-neutral-700 font-medium">{t('hero.statistics.referencesManaged', { ns: 'home' })}</div>
-            </div>
-          </div>
+
+
         </div>
       </div>
     </section>

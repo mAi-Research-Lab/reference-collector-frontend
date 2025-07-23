@@ -12,6 +12,20 @@
       "activeUsers": "Active Users",
       "universities": "Universities",
       "referencesManaged": "References Managed"
+    },
+    "features": {
+      "fastAndEasy": {
+        "title": "Fast & Easy",
+        "description": "Organize your references in minutes with intuitive design and smart features. Focus on your research instead of complex processes."
+      },
+      "secure": {
+        "title": "Secure & Private",
+        "description": "Your data is protected with end-to-end encryption. Whether stored locally or in the cloud, your privacy is always our priority."
+      },
+      "accessible": {
+        "title": "Access Anywhere",
+        "description": "Desktop, web, or mobile - syncs across all your devices. Stay productive even in offline environments with offline access."
+      }
     }
   },
   "features": {
