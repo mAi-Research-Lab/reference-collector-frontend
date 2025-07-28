@@ -1,0 +1,63 @@
+{
+  "title": "Kontrol Paneli - RefCite",
+  "welcome": "Hoş geldiniz, {name}!",
+  "subtitle": "Hesap bilgileriniz ve sistem durumunuz",
+  "personalInfo": {
+    "title": "Kişisel Bilgiler",
+    "edit": "Düzenle",
+    "email": "Email",
+    "userType": "Kullanıcı Tipi",
+    "institution": "Kurum",
+    "fieldOfStudy": "Çalışma Alanı",
+    "memberSince": "Üyelik Tarihi",
+    "lastUpdate": "Son Güncelleme",
+    "lastLogin": "Son Giriş",
+    "orcidId": "ORCID ID"
+  },
+  "accountStatus": {
+    "title": "Hesap Durumu",
+    "emailVerification": "Email Doğrulama",
+    "verified": "Doğrulandı",
+    "notVerified": "Doğrulanmadı",
+    "accountStatus": "Hesap Durumu",
+    "active": "Aktif",
+    "inactive": "Pasif",
+    "subscription": "Abonelik"
+  },
+  "userPreferences": {
+    "title": "Kullanıcı Tercihleri",
+    "language": "Dil",
+    "turkish": "Türkçe",
+    "english": "English",
+    "theme": "Tema",
+    "notifications": "Bildirimler",
+    "enabled": "Açık",
+    "disabled": "Kapalı",
+    "timezone": "Zaman Dilimi"
+  },
+  "quickActions": {
+    "title": "Hızlı İşlemler",
+    "editProfile": "Profili Düzenle",
+    "changePassword": "Şifre Değiştir",
+    "paymentSettings": "Ödeme Ayarları"
+  },
+  "accountSummary": {
+    "title": "Hesap Özeti",
+    "userId": "Kullanıcı ID",
+    "plan": "Plan",
+    "status": "Durum"
+  },
+  "systemInfo": {
+    "title": "Sistem Bilgileri",
+    "accountType": "Hesap Tipi",
+    "emailStatus": "Email Durumu",
+    "accountStatus": "Hesap Durumu"
+  },
+  "userTypes": {
+    "individual": "Bireysel Kullanıcı",
+    "researcher": "Araştırmacı",
+    "student": "Öğrenci",
+    "academic": "Akademisyen",
+    "enterprise": "Kurumsal"
+  }
+} 

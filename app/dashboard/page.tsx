@@ -32,13 +32,14 @@ import { useAuth } from '@/components/providers/AuthProvider';
 import { USER_TYPES } from '@/types';
 
 export default function DashboardPage() {
-  const { t } = useTranslation(['common']);
+  const { t, i18n } = useTranslation(['common', 'dashboard']);
   const { user, isLoading, isAuthenticated } = useAuth();
   const router = useRouter();
 
   useEffect(() => {
-    setDocumentTitle('Dashboard - RefCite');
-  }, []);
+    const title = t('dashboard.title', { ns: 'dashboard', defaultValue: 'Dashboard - RefCite' });
+    setDocumentTitle(title);
+  }, [t, i18n.language]);
 
   useEffect(() => {
     // Only redirect if not loading and definitely not authenticated
@@ -116,10 +117,10 @@ export default function DashboardPage() {
           <div className="flex items-center justify-between">
             <div>
               <h1 className="text-3xl font-bold mb-2">
-                Hoş geldiniz, {user.fullName}!
+                {t('dashboard.welcome', { ns: 'dashboard', name: user.fullName })}
               </h1>
               <p className="text-primary-100 text-lg">
-                Hesap bilgileriniz ve sistem durumunuz
+                {t('dashboard.subtitle', { ns: 'dashboard' })}
               </p>
             </div>
             <div className="hidden md:flex items-center space-x-4">
@@ -138,7 +139,7 @@ export default function DashboardPage() {
               <div className="flex items-center justify-between mb-6">
                 <h2 className="text-xl font-semibold text-neutral-900 flex items-center gap-2">
                   <User className="w-5 h-5" />
-                  Kişisel Bilgiler
+                  {t('dashboard.personalInfo.title', { ns: 'dashboard' })}
                 </h2>
                 <Button 
                   variant="outline" 
@@ -146,7 +147,7 @@ export default function DashboardPage() {
                   onClick={() => router.push('/profile')}
                 >
                   <Edit3 className="w-4 h-4 mr-2" />
-                  Düzenle
+                  {t('dashboard.personalInfo.edit', { ns: 'dashboard' })}
                 </Button>
               </div>
 
@@ -156,45 +157,45 @@ export default function DashboardPage() {
                     <div className="w-10 h-10 bg-blue-100 rounded-lg flex items-center justify-center">
                       <Mail className="w-5 h-5 text-blue-600" />
                     </div>
-                    <div>
-                      <p className="text-sm text-neutral-500">Email</p>
-                      <p className="font-medium text-neutral-900">{user.email}</p>
-                    </div>
-                  </div>
+                                         <div>
+                       <p className="text-sm text-neutral-500">{t('dashboard.personalInfo.email', { ns: 'dashboard' })}</p>
+                       <p className="font-medium text-neutral-900">{user.email}</p>
+                     </div>
+                   </div>
 
-                  <div className="flex items-center gap-3">
-                    <div className="w-10 h-10 bg-purple-100 rounded-lg flex items-center justify-center">
-                      <Badge className="w-5 h-5 text-purple-600" />
-                    </div>
-                    <div>
-                      <p className="text-sm text-neutral-500">Kullanıcı Tipi</p>
-                      <p className="font-medium text-neutral-900">{getUserTypeDisplay(user.userType)}</p>
-                    </div>
-                  </div>
+                   <div className="flex items-center gap-3">
+                     <div className="w-10 h-10 bg-purple-100 rounded-lg flex items-center justify-center">
+                       <Badge className="w-5 h-5 text-purple-600" />
+                     </div>
+                     <div>
+                       <p className="text-sm text-neutral-500">{t('dashboard.personalInfo.userType', { ns: 'dashboard' })}</p>
+                       <p className="font-medium text-neutral-900">{getUserTypeDisplay(user.userType)}</p>
+                     </div>
+                   </div>
 
-                  {user.institutionId && (
-                    <div className="flex items-center gap-3">
-                      <div className="w-10 h-10 bg-orange-100 rounded-lg flex items-center justify-center">
-                        <Building className="w-5 h-5 text-orange-600" />
-                      </div>
-                      <div>
-                        <p className="text-sm text-neutral-500">Kurum</p>
-                        <p className="font-medium text-neutral-900">{user.institutionId}</p>
-                      </div>
-                    </div>
-                  )}
+                   {user.institutionId && (
+                     <div className="flex items-center gap-3">
+                       <div className="w-10 h-10 bg-orange-100 rounded-lg flex items-center justify-center">
+                         <Building className="w-5 h-5 text-orange-600" />
+                       </div>
+                       <div>
+                         <p className="text-sm text-neutral-500">{t('dashboard.personalInfo.institution', { ns: 'dashboard' })}</p>
+                         <p className="font-medium text-neutral-900">{user.institutionId}</p>
+                       </div>
+                     </div>
+                   )}
 
-                  {user.fieldOfStudy && (
-                    <div className="flex items-center gap-3">
-                      <div className="w-10 h-10 bg-green-100 rounded-lg flex items-center justify-center">
-                        <GraduationCap className="w-5 h-5 text-green-600" />
-                      </div>
-                      <div>
-                        <p className="text-sm text-neutral-500">Çalışma Alanı</p>
-                        <p className="font-medium text-neutral-900">{user.fieldOfStudy}</p>
-                      </div>
-                    </div>
-                  )}
+                   {user.fieldOfStudy && (
+                     <div className="flex items-center gap-3">
+                       <div className="w-10 h-10 bg-green-100 rounded-lg flex items-center justify-center">
+                         <GraduationCap className="w-5 h-5 text-green-600" />
+                       </div>
+                       <div>
+                         <p className="text-sm text-neutral-500">{t('dashboard.personalInfo.fieldOfStudy', { ns: 'dashboard' })}</p>
+                         <p className="font-medium text-neutral-900">{user.fieldOfStudy}</p>
+                       </div>
+                     </div>
+                   )}
                 </div>
 
                 <div className="space-y-4">
@@ -371,10 +372,15 @@ export default function DashboardPage() {
                 <Button 
                   variant="outline" 
                   className="w-full justify-start"
-                  onClick={() => router.push('/payment')}
+                  onClick={() => {
+                    // If user has active subscription, go to payment management
+                    // Otherwise go to pricing page
+                    const hasActiveSubscription = user.subscriptionStatus === 'active' || user.subscriptionPlan;
+                    router.push(hasActiveSubscription ? '/payment' : '/pricing');
+                  }}
                 >
                   <Settings className="w-4 h-4 mr-2" />
-                  Ödeme Ayarları
+                  {t('dashboard.quickActions.paymentSettings', { ns: 'dashboard' })}
                 </Button>
               </div>
             </div>

@@ -10,15 +10,16 @@ import Button from '@/components/ui/Button';
 import Input from '@/components/ui/Input';
 import { setDocumentTitle } from '@/lib/utils';
 import { authService } from '@/lib/services/auth';
+import { useAuth } from '@/components/providers/AuthProvider';
 import { User as UserType, UpdateUserRequest, ApiError, UserPreferences } from '@/types';
 
 export default function ProfilePage() {
   const { t } = useTranslation(['auth', 'common']);
   const router = useRouter();
+  const { user, isLoading: authLoading, isAuthenticated, refreshUser } = useAuth();
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState<string>('');
   const [success, setSuccess] = useState<string>('');
-  const [user, setUser] = useState<UserType | null>(null);
   const [formData, setFormData] = useState<UpdateUserRequest>({
     fullName: '',
     institutionId: '',
@@ -35,30 +36,31 @@ export default function ProfilePage() {
 
   useEffect(() => {
     setDocumentTitle(t('profile.title', { ns: 'auth' }));
-    loadUserData();
   }, [t]);
 
-  const loadUserData = async () => {
-    try {
-      const userData = await authService.getCurrentUser();
-      setUser(userData);
+  useEffect(() => {
+    if (!authLoading && !isAuthenticated) {
+      router.push('/auth/signin');
+    }
+  }, [authLoading, isAuthenticated, router]);
+
+  useEffect(() => {
+    if (user) {
       setFormData({
-        fullName: userData.fullName || '',
-        institutionId: userData.institutionId || '',
-        fieldOfStudy: userData.fieldOfStudy || '',
-        orcidId: userData.orcidId || '',
-        avatarUrl: userData.avatarUrl || '',
-        preferences: userData.preferences || {
+        fullName: user.fullName || '',
+        institutionId: user.institutionId || '',
+        fieldOfStudy: user.fieldOfStudy || '',
+        orcidId: user.orcidId || '',
+        avatarUrl: user.avatarUrl || '',
+        preferences: user.preferences || {
           language: 'en',
           theme: 'light',
           notifications: true,
           timezone: 'Europe/Istanbul'
         }
       });
-    } catch (err: any) {
-      setError('Failed to load user data');
     }
-  };
+  }, [user]);
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
     const { name, value, type } = e.target;
@@ -95,7 +97,7 @@ export default function ProfilePage() {
     try {
       await authService.updateUser(formData);
       setSuccess(t('profile.updateSuccess', { ns: 'auth' }));
-      loadUserData(); // Refresh user data
+      refreshUser(); // Refresh user data
     } catch (err: any) {
       const apiError = err as ApiError;
       setError(apiError.message || t('profile.updateError', { ns: 'auth' }));
@@ -104,7 +106,7 @@ export default function ProfilePage() {
     }
   };
 
-  if (!user) {
+  if (authLoading || !user) {
     return (
       <div className="min-h-screen bg-neutral-50">
         <Header />
@@ -114,6 +116,10 @@ export default function ProfilePage() {
         <Footer />
       </div>
     );
+  }
+
+  if (!isAuthenticated) {
+    return null; // Will redirect to signin
   }
 
   return (

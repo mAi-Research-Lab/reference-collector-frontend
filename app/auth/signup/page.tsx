@@ -207,7 +207,7 @@ export default function SignUpPage() {
 
               <div>
                 <label htmlFor="userType" className="block text-sm font-medium text-neutral-700 mb-2">
-                  User Type
+                  {t('signup.userTypeLabel', { ns: 'auth' })}
                 </label>
                 <select
                   id="userType"
@@ -216,17 +216,17 @@ export default function SignUpPage() {
                   onChange={handleInputChange}
                   className="w-full px-3 py-2 border border-neutral-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500"
                 >
-                  <option value={USER_TYPES.INDIVIDUAL}>Individual</option>
-                  <option value={USER_TYPES.RESEARCHER}>Researcher</option>
-                  <option value={USER_TYPES.STUDENT}>Student</option>
-                  <option value={USER_TYPES.ACADEMIC}>Academic</option>
-                  <option value={USER_TYPES.ENTERPRISE}>Enterprise</option>
+                  <option value={USER_TYPES.INDIVIDUAL}>{t('signup.userTypes.individual', { ns: 'auth' })}</option>
+                  <option value={USER_TYPES.RESEARCHER}>{t('signup.userTypes.researcher', { ns: 'auth' })}</option>
+                  <option value={USER_TYPES.STUDENT}>{t('signup.userTypes.student', { ns: 'auth' })}</option>
+                  <option value={USER_TYPES.ACADEMIC}>{t('signup.userTypes.academic', { ns: 'auth' })}</option>
+                  <option value={USER_TYPES.ENTERPRISE}>{t('signup.userTypes.enterprise', { ns: 'auth' })}</option>
                 </select>
               </div>
 
               <div>
                 <label htmlFor="institutionId" className="block text-sm font-medium text-neutral-700 mb-2">
-                  Institution (Optional)
+                  {t('signup.institutionLabel', { ns: 'auth' })}
                 </label>
                 <Input
                   id="institutionId"
@@ -234,13 +234,13 @@ export default function SignUpPage() {
                   type="text"
                   value={formData.institutionId}
                   onChange={handleInputChange}
-                  placeholder="Your institution name"
+                  placeholder={t('signup.institutionPlaceholder', { ns: 'auth' })}
                 />
               </div>
 
               <div>
                 <label htmlFor="fieldOfStudy" className="block text-sm font-medium text-neutral-700 mb-2">
-                  Field of Study (Optional)
+                  {t('signup.fieldOfStudyLabel', { ns: 'auth' })}
                 </label>
                 <Input
                   id="fieldOfStudy"
@@ -248,13 +248,13 @@ export default function SignUpPage() {
                   type="text"
                   value={formData.fieldOfStudy}
                   onChange={handleInputChange}
-                  placeholder="e.g., Computer Science"
+                  placeholder={t('signup.fieldOfStudyPlaceholder', { ns: 'auth' })}
                 />
               </div>
 
               <div>
                 <label htmlFor="orcidId" className="block text-sm font-medium text-neutral-700 mb-2">
-                  ORCID ID (Optional)
+                  {t('signup.orcidIdLabel', { ns: 'auth' })}
                 </label>
                 <Input
                   id="orcidId"
@@ -262,7 +262,7 @@ export default function SignUpPage() {
                   type="text"
                   value={formData.orcidId}
                   onChange={handleInputChange}
-                  placeholder="0000-0000-0000-0000"
+                  placeholder={t('signup.orcidIdPlaceholder', { ns: 'auth' })}
                 />
               </div>
 

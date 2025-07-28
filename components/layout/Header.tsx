@@ -7,16 +7,20 @@ import { Menu, X, FileText } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 import Button from '@/components/ui/Button';
 import LanguageSwitcher from '@/components/ui/LanguageSwitcher';
+import { useAuth } from '@/components/providers/AuthProvider';
 import type { NavItem } from '@/types';
 
 const Header: React.FC = () => {
   const { t } = useTranslation();
+  const { isAuthenticated, user } = useAuth();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const pathname = usePathname();
   const isHomePage = pathname === '/';
   const isAuthPage = pathname.startsWith('/auth/');
   const isContactPage = pathname === '/contact';
   const isPricingPage = pathname === '/pricing';
+  const isDashboardPage = pathname === '/dashboard';
+  const isProfilePage = pathname === '/profile';
 
   const handleNavigation = (href: string) => {
     if (isHomePage && href.startsWith('#')) {
@@ -38,15 +42,27 @@ const Header: React.FC = () => {
     setIsMenuOpen(false);
   };
 
-  // Navigation itemları sayfa tipine göre
-  const navigationItems: NavItem[] = isAuthPage ? [] : isContactPage ? [] : isPricingPage ? [] : isHomePage ? [
-    { href: '#home', label: t('navigation.home') },
-    { href: '#features', label: t('navigation.features') },
-    { href: '#download', label: t('navigation.download') },
-    { href: '#about', label: t('navigation.about') },
-  ] : [
-    { href: '/', label: t('navigation.home') },
-  ];
+  // Navigation itemları sayfa tipine ve authentication durumuna göre
+  const navigationItems: NavItem[] = 
+    isAuthPage ? [] : 
+    isContactPage ? [] : 
+    isPricingPage ? [] : 
+    isAuthenticated ? (
+      // Authenticated users için navigation
+      isDashboardPage || isProfilePage ? [] : [
+        { href: '/dashboard', label: t('navigation.dashboard') || 'Dashboard' },
+      ]
+    ) : (
+      // Non-authenticated users için navigation
+      isHomePage ? [
+        { href: '#home', label: t('navigation.home') },
+        { href: '#features', label: t('navigation.features') },
+        { href: '#download', label: t('navigation.download') },
+        { href: '#about', label: t('navigation.about') },
+      ] : [
+        { href: '/', label: t('navigation.home') },
+      ]
+    );
 
   return (
     <header className="bg-white border-b border-neutral-200 sticky top-0 z-50">
@@ -98,7 +114,28 @@ const Header: React.FC = () => {
 
             {/* Desktop Auth Buttons */}
             <div className="hidden md:flex items-center space-x-4">
-              {isAuthPage ? (
+              {isAuthenticated ? (
+                // Authenticated kullanıcılar için butonlar
+                <>
+                  {!isDashboardPage && (
+                    <Link href="/dashboard">
+                      <Button variant="outline" size="sm">
+                        {t('navigation.dashboard') || 'Dashboard'}
+                      </Button>
+                    </Link>
+                  )}
+                  {!isProfilePage && (
+                    <Link href="/profile">
+                      <Button variant="ghost" size="sm">
+                        {t('navigation.profile') || 'Profile'}
+                      </Button>
+                    </Link>
+                  )}
+                  <span className="text-sm text-neutral-600">
+                    {user?.fullName || user?.email}
+                  </span>
+                </>
+              ) : isAuthPage ? (
                 // Auth sayfalarında sadece auth butonları
                 <>
                   {pathname !== '/auth/signin' && (
@@ -117,7 +154,7 @@ const Header: React.FC = () => {
                   )}
                 </>
               ) : (
-                // Diğer sayfalarda tüm butonlar
+                // Non-authenticated kullanıcılar için butonlar
                 <>
                   <Link href="/pricing">
                     <Button variant="outline" size="sm">
@@ -173,7 +210,28 @@ const Header: React.FC = () => {
               ))}
               
               <div className={`flex flex-col space-y-3 ${!isAuthPage ? 'pt-4 border-t border-neutral-200' : ''}`}>
-                {isAuthPage ? (
+                {isAuthenticated ? (
+                  // Authenticated kullanıcılar için butonlar
+                  <>
+                    {!isDashboardPage && (
+                      <Link href="/dashboard" onClick={() => setIsMenuOpen(false)}>
+                        <Button variant="outline" size="sm" className="w-full">
+                          {t('navigation.dashboard') || 'Dashboard'}
+                        </Button>
+                      </Link>
+                    )}
+                    {!isProfilePage && (
+                      <Link href="/profile" onClick={() => setIsMenuOpen(false)}>
+                        <Button variant="ghost" size="sm" className="w-full">
+                          {t('navigation.profile') || 'Profile'}
+                        </Button>
+                      </Link>
+                    )}
+                    <div className="text-center py-2 text-sm text-neutral-600">
+                      {user?.fullName || user?.email}
+                    </div>
+                  </>
+                ) : isAuthPage ? (
                   // Auth sayfalarında sadece auth butonları
                   <>
                     {pathname !== '/auth/signin' && (
@@ -192,7 +250,7 @@ const Header: React.FC = () => {
                     )}
                   </>
                 ) : (
-                  // Diğer sayfalarda tüm butonlar
+                  // Non-authenticated kullanıcılar için butonlar
                   <>
                     <Link href="/pricing" onClick={() => setIsMenuOpen(false)}>
                       <Button variant="outline" size="sm" className="w-full">

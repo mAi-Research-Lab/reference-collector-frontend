@@ -3,6 +3,7 @@
     "title": "Modern Referans",
     "titleHighlight": "Yönetimi",
     "description": "Araştırmacılar, öğrenciler ve akademisyenler için güçlü, sezgisel referans yönetimi. Basitlik ve verimlilik, yeniden tanımlandı.",
+    "welcomeBack": "Hoş geldiniz, {name}!",
     "trustIndicators": {
       "freeForIndividuals": "Bireyler için ücretsiz",
       "noCreditCardRequired": "Kredi kartı gerektirmez",

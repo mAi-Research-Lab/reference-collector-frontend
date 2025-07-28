@@ -2,12 +2,14 @@
 
 import React from 'react';
 import Link from 'next/link';
-import { Download } from 'lucide-react';
+import { Download, User } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 import Button from '@/components/ui/Button';
+import { useAuth } from '@/components/providers/AuthProvider';
 
 const HeroSection: React.FC = () => {
   const { t } = useTranslation(['home', 'common']);
+  const { isAuthenticated, user } = useAuth();
 
   return (
     <section id="home" className="relative min-h-screen flex items-center justify-center bg-gradient-to-br from-primary-50 via-white to-neutral-100 overflow-hidden">
@@ -26,22 +28,38 @@ const HeroSection: React.FC = () => {
             {t('hero.description', { ns: 'home' })}
           </p>
           <div className="flex flex-col items-center mb-10 w-full">
-            <button
-              onClick={() => {
-                const el = document.getElementById('download');
-                if (el) {
-                  el.scrollIntoView({ behavior: 'smooth' });
-                }
-              }}
-              className="w-full sm:w-auto text-lg px-8 py-4 shadow-lg btn btn-primary flex items-center justify-center mb-6"
-              type="button"
-            >
-              <Download className="w-6 h-6 mr-2" />
-              {t('buttons.downloadFree', { ns: 'common' })}
-            </button>
-            <p className="text-sm text-neutral-500">
-              {t('hero.availableForPlatforms', { ns: 'home' })}
-            </p>
+            {isAuthenticated ? (
+              <>
+                <Link href="/dashboard" className="w-full sm:w-auto">
+                  <Button size="lg" className="w-full sm:w-auto text-lg px-8 py-4 shadow-lg flex items-center justify-center mb-6">
+                    <User className="w-6 h-6 mr-2" />
+                    {t('navigation.dashboard') || 'Dashboard\'a Git'}
+                  </Button>
+                </Link>
+                <p className="text-sm text-neutral-500">
+                  {t('hero.welcomeBack', { ns: 'home', name: user?.fullName || user?.email }) || `Hoş geldiniz, ${user?.fullName || user?.email}!`}
+                </p>
+              </>
+            ) : (
+              <>
+                <button
+                  onClick={() => {
+                    const el = document.getElementById('download');
+                    if (el) {
+                      el.scrollIntoView({ behavior: 'smooth' });
+                    }
+                  }}
+                  className="w-full sm:w-auto text-lg px-8 py-4 shadow-lg btn btn-primary flex items-center justify-center mb-6"
+                  type="button"
+                >
+                  <Download className="w-6 h-6 mr-2" />
+                  {t('buttons.downloadFree', { ns: 'common' })}
+                </button>
+                <p className="text-sm text-neutral-500">
+                  {t('hero.availableForPlatforms', { ns: 'home' })}
+                </p>
+              </>
+            )}
           </div>
 
 

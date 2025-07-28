@@ -3,6 +3,7 @@
     "title": "Modern Reference",
     "titleHighlight": "Management",
     "description": "Powerful, intuitive reference management for researchers, students, and academics. Simplicity and efficiency, redefined.",
+    "welcomeBack": "Welcome back, {name}!",
     "trustIndicators": {
       "freeForIndividuals": "Free for individuals",
       "noCreditCardRequired": "No credit card required",
