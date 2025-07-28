@@ -8,18 +8,18 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        // Custom green color palette
+        // Custom blue color palette based on #2596be
         primary: {
-          50: '#f6fbf4',
-          100: '#e9f5e3',
-          200: '#d4eac9',
-          300: '#b6d9a4',
-          400: '#94c177',
-          500: '#A0C878', // Main green
-          600: '#7fb05c',
-          700: '#6a954a',
-          800: '#57773d',
-          900: '#496235',
+          50: '#f0f7ff',
+          100: '#e0efff',
+          200: '#baddff',
+          300: '#7dc4ff',
+          400: '#38a5ff',
+          500: '#2596be', // Main blue
+          600: '#1f7fa1',
+          700: '#1b6b87',
+          800: '#1a566f',
+          900: '#1c485c',
         },
         neutral: {
           50: '#fafafa',
