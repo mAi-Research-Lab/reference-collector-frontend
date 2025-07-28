@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
+import { useRouter } from 'next/navigation';
 import { Eye, EyeOff, Mail, Lock } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 import Header from '@/components/layout/Header';
@@ -9,17 +10,25 @@ import Footer from '@/components/layout/Footer';
 import Button from '@/components/ui/Button';
 import Input from '@/components/ui/Input';
 import { setDocumentTitle } from '@/lib/utils';
+import { authService } from '@/lib/services/auth';
+import { SignInForm, ApiError } from '@/types';
+import { useAuth } from '@/components/providers/AuthProvider';
 
 export default function SignInPage() {
   const { t, i18n } = useTranslation(['auth', 'common']);
+  const router = useRouter();
+  const { signIn } = useAuth();
   const [showPassword, setShowPassword] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
+  const [error, setError] = useState<string>('');
 
   // Tab title'ı dil değiştiğinde güncelle
   useEffect(() => {
     const title = t('signin.title', { ns: 'auth' });
     setDocumentTitle(title);
   }, [t, i18n.language]);
-  const [formData, setFormData] = useState({
+
+  const [formData, setFormData] = useState<SignInForm>({
     email: '',
     password: '',
     rememberMe: false,
@@ -31,12 +40,44 @@ export default function SignInPage() {
       ...prev,
       [name]: type === 'checkbox' ? checked : value,
     }));
+
+    // Clear error when user starts typing
+    if (error) setError('');
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const validateForm = (): boolean => {
+    if (!formData.email.trim()) {
+      setError(t('signin.errors.emailRequired', { ns: 'auth' }));
+      return false;
+    }
+    if (!formData.password) {
+      setError(t('signin.errors.passwordRequired', { ns: 'auth' }));
+      return false;
+    }
+    return true;
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // Handle sign in logic here
-    console.log('Sign in attempt:', formData);
+    
+    if (!validateForm()) return;
+
+    setIsLoading(true);
+    setError('');
+
+    try {
+      await signIn(formData.email, formData.password);
+      
+      // Small delay to allow AuthProvider state to update
+      setTimeout(() => {
+        router.push('/dashboard');
+      }, 100);
+    } catch (err: any) {
+      const apiError = err as ApiError;
+      setError(apiError.message || t('signin.errors.signInFailed', { ns: 'auth' }));
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   return (
@@ -55,6 +96,12 @@ export default function SignInPage() {
                 {t('signin.subtitle', { ns: 'auth' })}
               </p>
             </div>
+
+            {error && (
+              <div className="mb-6 p-4 bg-red-50 border border-red-200 rounded-lg text-red-600 text-sm">
+                {error}
+              </div>
+            )}
 
             <form onSubmit={handleSubmit} className="space-y-6">
               <div>
@@ -122,7 +169,7 @@ export default function SignInPage() {
                 </Link>
               </div>
 
-              <Button type="submit" className="w-full">
+              <Button type="submit" className="w-full" loading={isLoading}>
                 {t('signin.signInButton', { ns: 'auth' })}
               </Button>
             </form>

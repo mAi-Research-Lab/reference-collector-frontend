@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import './globals.css'
 import I18nProvider from '@/components/providers/I18nProvider'
+import { AuthProvider } from '@/components/providers/AuthProvider'
 
 export const metadata: Metadata = {
   title: {
@@ -48,9 +49,11 @@ export default function RootLayout({
     <html lang="en" className="scroll-smooth">
       <body className="antialiased bg-white text-neutral-900">
         <I18nProvider>
-          <div className="min-h-screen flex flex-col">
-            {children}
-          </div>
+          <AuthProvider>
+            <div className="min-h-screen flex flex-col">
+              {children}
+            </div>
+          </AuthProvider>
         </I18nProvider>
       </body>
     </html>

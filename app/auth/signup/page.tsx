@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
+import { useRouter } from 'next/navigation';
 import { Eye, EyeOff, Mail, Lock, User } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 import Header from '@/components/layout/Header';
@@ -9,38 +10,116 @@ import Footer from '@/components/layout/Footer';
 import Button from '@/components/ui/Button';
 import Input from '@/components/ui/Input';
 import { setDocumentTitle } from '@/lib/utils';
+import { authService } from '@/lib/services/auth';
+import { SignUpForm, RegisterRequest, ApiError, USER_TYPES } from '@/types';
 
 export default function SignUpPage() {
   const { t, i18n } = useTranslation(['auth', 'common']);
+  const router = useRouter();
   const [showPassword, setShowPassword] = useState(false);
+  const [showConfirmPassword, setShowConfirmPassword] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
+  const [error, setError] = useState<string>('');
 
   // Tab title'ı dil değiştiğinde güncelle
   useEffect(() => {
     const title = t('signup.title', { ns: 'auth' });
     setDocumentTitle(title);
   }, [t, i18n.language]);
-  const [showConfirmPassword, setShowConfirmPassword] = useState(false);
-  const [formData, setFormData] = useState({
+
+  const [formData, setFormData] = useState<SignUpForm>({
     firstName: '',
     lastName: '',
     email: '',
     password: '',
     confirmPassword: '',
+    institutionId: '',
+    fieldOfStudy: '',
+    orcidId: '',
+    userType: USER_TYPES.INDIVIDUAL, // default value
     agreeToTerms: false,
   });
 
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const { name, value, type, checked } = e.target;
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
+    const { name, value, type } = e.target;
+    const checked = (e.target as HTMLInputElement).checked;
+    
     setFormData(prev => ({
       ...prev,
       [name]: type === 'checkbox' ? checked : value,
     }));
+    
+    // Clear error when user starts typing
+    if (error) setError('');
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const validateForm = (): boolean => {
+    if (!formData.firstName.trim()) {
+      setError(t('signup.errors.firstNameRequired', { ns: 'auth' }));
+      return false;
+    }
+    if (!formData.lastName.trim()) {
+      setError(t('signup.errors.lastNameRequired', { ns: 'auth' }));
+      return false;
+    }
+    if (!formData.email.trim()) {
+      setError(t('signup.errors.emailRequired', { ns: 'auth' }));
+      return false;
+    }
+    if (!formData.password) {
+      setError(t('signup.errors.passwordRequired', { ns: 'auth' }));
+      return false;
+    }
+    if (formData.password.length < 6) {
+      setError(t('signup.errors.passwordTooShort', { ns: 'auth' }));
+      return false;
+    }
+    if (formData.password !== formData.confirmPassword) {
+      setError(t('signup.errors.passwordMismatch', { ns: 'auth' }));
+      return false;
+    }
+    if (!formData.agreeToTerms) {
+      setError(t('signup.errors.agreeToTerms', { ns: 'auth' }));
+      return false;
+    }
+    return true;
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // Handle sign up logic here
-    console.log('Sign up attempt:', formData);
+    
+    if (!validateForm()) return;
+
+    setIsLoading(true);
+    setError('');
+
+    try {
+      const registerData: RegisterRequest = {
+        email: formData.email,
+        password: formData.password,
+        fullName: `${formData.firstName} ${formData.lastName}`,
+        institutionId: formData.institutionId || undefined,
+        fieldOfStudy: formData.fieldOfStudy || undefined,
+        orcidId: formData.orcidId || undefined,
+        userType: formData.userType,
+        preferences: {
+          language: i18n.language as 'en' | 'tr',
+          theme: 'light',
+          notifications: true,
+          timezone: 'Europe/Istanbul'
+        }
+      };
+
+      await authService.register(registerData);
+      
+      // Redirect to email verification page or dashboard
+      router.push('/auth/verify-email');
+    } catch (err: any) {
+      const apiError = err as ApiError;
+      setError(apiError.message || t('signup.errors.registrationFailed', { ns: 'auth' }));
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   return (
@@ -59,6 +138,12 @@ export default function SignUpPage() {
                 {t('signup.subtitle', { ns: 'auth' })}
               </p>
             </div>
+
+            {error && (
+              <div className="mb-6 p-4 bg-red-50 border border-red-200 rounded-lg text-red-600 text-sm">
+                {error}
+              </div>
+            )}
 
             <form onSubmit={handleSubmit} className="space-y-6">
               <div className="grid grid-cols-2 gap-4">
@@ -118,6 +203,67 @@ export default function SignUpPage() {
                     className="pl-10"
                   />
                 </div>
+              </div>
+
+              <div>
+                <label htmlFor="userType" className="block text-sm font-medium text-neutral-700 mb-2">
+                  User Type
+                </label>
+                <select
+                  id="userType"
+                  name="userType"
+                  value={formData.userType}
+                  onChange={handleInputChange}
+                  className="w-full px-3 py-2 border border-neutral-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500"
+                >
+                  <option value={USER_TYPES.INDIVIDUAL}>Individual</option>
+                  <option value={USER_TYPES.RESEARCHER}>Researcher</option>
+                  <option value={USER_TYPES.STUDENT}>Student</option>
+                  <option value={USER_TYPES.ACADEMIC}>Academic</option>
+                  <option value={USER_TYPES.ENTERPRISE}>Enterprise</option>
+                </select>
+              </div>
+
+              <div>
+                <label htmlFor="institutionId" className="block text-sm font-medium text-neutral-700 mb-2">
+                  Institution (Optional)
+                </label>
+                <Input
+                  id="institutionId"
+                  name="institutionId"
+                  type="text"
+                  value={formData.institutionId}
+                  onChange={handleInputChange}
+                  placeholder="Your institution name"
+                />
+              </div>
+
+              <div>
+                <label htmlFor="fieldOfStudy" className="block text-sm font-medium text-neutral-700 mb-2">
+                  Field of Study (Optional)
+                </label>
+                <Input
+                  id="fieldOfStudy"
+                  name="fieldOfStudy"
+                  type="text"
+                  value={formData.fieldOfStudy}
+                  onChange={handleInputChange}
+                  placeholder="e.g., Computer Science"
+                />
+              </div>
+
+              <div>
+                <label htmlFor="orcidId" className="block text-sm font-medium text-neutral-700 mb-2">
+                  ORCID ID (Optional)
+                </label>
+                <Input
+                  id="orcidId"
+                  name="orcidId"
+                  type="text"
+                  value={formData.orcidId}
+                  onChange={handleInputChange}
+                  placeholder="0000-0000-0000-0000"
+                />
               </div>
 
               <div>
@@ -194,7 +340,7 @@ export default function SignUpPage() {
                 </label>
               </div>
 
-              <Button type="submit" className="w-full">
+              <Button type="submit" className="w-full" loading={isLoading}>
                 {t('signup.signUpButton', { ns: 'auth' })}
               </Button>
             </form>
