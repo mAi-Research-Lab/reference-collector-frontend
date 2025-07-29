@@ -32,11 +32,10 @@ class ApiClient {
       (response: AxiosResponse) => response,
       (error: AxiosError) => {
         if (error.response?.status === 401) {
-          // Unauthorized - clear token and redirect to login
+          // Unauthorized - clear token but don't redirect automatically
+          // Let individual components/pages decide how to handle auth failures
           Cookies.remove('access_token');
-          if (typeof window !== 'undefined') {
-            window.location.href = '/auth/signin';
-          }
+          console.log('Token cleared due to 401 error');
         }
         return Promise.reject(error);
       }

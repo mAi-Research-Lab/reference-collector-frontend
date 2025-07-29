@@ -6,7 +6,7 @@ import { authService } from '@/lib/services/auth';
 
 interface AuthContextType extends AuthState {
   signIn: (email: string, password: string) => Promise<void>;
-  signOut: () => Promise<void>;
+  signOut: (redirectToSignIn?: boolean) => Promise<void>;
   refreshUser: () => Promise<void>;
 }
 
@@ -81,7 +81,7 @@ export function AuthProvider({ children }: AuthProviderProps) {
       // If token exists but user fetch failed, token might be invalid
       if (authService.isAuthenticated()) {
         console.log('Token exists but user fetch failed, clearing token');
-        authService.signOut();
+        authService.signOut(false); // Don't redirect on automatic token cleanup
       }
       dispatch({ type: 'SET_USER', payload: null });
       dispatch({ type: 'SET_TOKEN', payload: null });
@@ -100,9 +100,9 @@ export function AuthProvider({ children }: AuthProviderProps) {
     }
   };
 
-  const signOut = async () => {
+  const signOut = async (redirectToSignIn: boolean = true) => {
     try {
-      await authService.signOut();
+      await authService.signOut(redirectToSignIn);
       dispatch({ type: 'SIGN_OUT' });
     } catch (error) {
       console.error('Sign out error:', error);

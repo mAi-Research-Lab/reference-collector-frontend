@@ -44,9 +44,9 @@ class AuthService {
   }
 
   // Sign out user
-  async signOut(): Promise<void> {
+  async signOut(redirectToSignIn: boolean = false): Promise<void> {
     Cookies.remove('access_token');
-    if (typeof window !== 'undefined') {
+    if (redirectToSignIn && typeof window !== 'undefined') {
       window.location.href = '/auth/signin';
     }
   }
