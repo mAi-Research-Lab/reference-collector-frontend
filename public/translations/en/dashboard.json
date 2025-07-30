@@ -1,0 +1,63 @@
+{
+  "title": "Dashboard - RefCite",
+  "welcome": "Welcome, {name}!",
+  "subtitle": "Your account information and system status",
+  "personalInfo": {
+    "title": "Personal Information",
+    "edit": "Edit",
+    "email": "Email",
+    "userType": "User Type",
+    "institution": "Institution",
+    "fieldOfStudy": "Field of Study",
+    "memberSince": "Member Since",
+    "lastUpdate": "Last Update",
+    "lastLogin": "Last Login",
+    "orcidId": "ORCID ID"
+  },
+  "accountStatus": {
+    "title": "Account Status",
+    "emailVerification": "Email Verification",
+    "verified": "Verified",
+    "notVerified": "Not Verified",
+    "accountStatus": "Account Status",
+    "active": "Active",
+    "inactive": "Inactive",
+    "subscription": "Subscription"
+  },
+  "userPreferences": {
+    "title": "User Preferences",
+    "language": "Language",
+    "turkish": "Turkish",
+    "english": "English",
+    "theme": "Theme",
+    "notifications": "Notifications",
+    "enabled": "Enabled",
+    "disabled": "Disabled",
+    "timezone": "Timezone"
+  },
+  "quickActions": {
+    "title": "Quick Actions",
+    "editProfile": "Edit Profile",
+    "changePassword": "Change Password",
+    "paymentSettings": "Payment Settings"
+  },
+  "accountSummary": {
+    "title": "Account Summary",
+    "userId": "User ID",
+    "plan": "Plan",
+    "status": "Status"
+  },
+  "systemInfo": {
+    "title": "System Information",
+    "accountType": "Account Type",
+    "emailStatus": "Email Status",
+    "accountStatus": "Account Status"
+  },
+  "userTypes": {
+    "individual": "Individual User",
+    "researcher": "Researcher",
+    "student": "Student",
+    "academic": "Academic",
+    "enterprise": "Enterprise"
+  }
+} 

@@ -1,0 +1,92 @@
+{
+  "brand": "RefCite",
+  "navigation": {
+    "home": "Ana Sayfa",
+    "features": "Özellikler",
+    "download": "İndir",
+    "about": "Hakkında",
+    "contact": "İletişim",
+    "pricing": "Fiyatlandırma",
+    "signin": "Giriş Yap",
+    "signup": "Başla",
+    "dashboard": "Kontrol Paneli",
+    "profile": "Profil"
+  },
+  "buttons": {
+    "download": "İndir",
+    "downloadFree": "Ücretsiz İndir",
+    "getStarted": "Başla",
+    "getStartedOnline": "Online Başla",
+    "startFreeTrial": "Ücretsiz Deneme Başlat",
+    "contactSales": "Satış Ekibiyle İletişim",
+    "contactSupport": "Destek Al",
+    "learnMore": "Daha Fazla Bilgi",
+    "viewPricing": "Fiyatları Görüntüle",
+    "signIn": "Giriş Yap",
+    "signUp": "Kayıt Ol",
+    "continue": "Devam Et",
+    "cancel": "İptal",
+    "save": "Kaydet",
+    "close": "Kapat",
+    "sendMessage": "Mesaj Gönder"
+  },
+  "footer": {
+    "description": "RefCite, araştırmacılar, öğrenciler ve akademisyenler için tasarlanmış modern bir referans yönetim uygulamasıdır.",
+    "product": "Ürün",
+    "company": "Şirket",
+    "support": "Destek",
+    "legal": "Yasal",
+    "privacyPolicy": "Gizlilik Politikası",
+    "termsOfService": "Kullanım Şartları",
+    "cookiePolicy": "Çerez Politikası",
+    "copyright": "© 2024 RefCite. Tüm hakları saklıdır."
+  },
+  "language": {
+    "english": "English",
+    "turkish": "Türkçe",
+    "switchLanguage": "Dil Değiştir"
+  },
+  "common": {
+    "loading": "Yükleniyor...",
+    "error": "Hata",
+    "success": "Başarılı",
+    "warning": "Uyarı",
+    "info": "Bilgi",
+    "required": "Zorunlu",
+    "optional": "İsteğe Bağlı",
+    "email": "E-posta",
+    "password": "Şifre",
+    "name": "İsim",
+    "username": "Kullanıcı Adı"
+  },
+  "contact": {
+    "title": "İletişime Geçin",
+    "subtitle": "Sorularınız mı var? Sizden haber almaktan memnuniyet duyarız.",
+    "description": "Bize bir mesaj gönderin, en kısa sürede size geri döneceğiz.",
+    "form": {
+      "nameLabel": "Ad Soyad",
+      "namePlaceholder": "Ad soyadınızı girin",
+      "emailLabel": "E-posta Adresi",
+      "emailPlaceholder": "E-posta adresinizi girin",
+      "subjectLabel": "Konu",
+      "subjectPlaceholder": "Bu ne hakkında?",
+      "messageLabel": "Mesaj",
+      "messagePlaceholder": "Sorunuz veya geri bildiriminiz hakkında daha fazla bilgi verin...",
+      "sendButton": "Mesaj Gönder"
+    },
+    "info": {
+      "title": "Bize ulaşmanın diğer yolları",
+      "email": "Doğrudan e-posta gönderin",
+      "emailAddress": "hello@refcite.com",
+      "support": "Yardıma mı ihtiyacınız var?",
+      "supportAddress": "support@refcite.com",
+      "sales": "Satış sorguları",
+      "salesAddress": "sales@refcite.com"
+    },
+    "success": {
+      "title": "Mesaj gönderildi!",
+      "description": "Bizimle iletişime geçtiğiniz için teşekkür ederiz. En kısa sürede size geri döneceğiz.",
+      "backToHome": "Ana Sayfaya Dön"
+    }
+  }
+} 

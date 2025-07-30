@@ -64,6 +64,7 @@ export interface RegisterRequest {
   email: string;
   password: string;
   fullName: string;
+  institutionId?: string;
   fieldOfStudy?: string;
   orcidId?: string;
   avatarUrl?: string;

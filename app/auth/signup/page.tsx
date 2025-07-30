@@ -425,7 +425,7 @@ export default function SignUpPage() {
                 <div className="w-full border-t border-neutral-200" />
               </div>
               <div className="relative flex justify-center text-sm">
-                <span className="px-3 bg-white text-neutral-500">veya</span>
+                <span className="px-3 bg-white text-neutral-500">{t('signup.or', { ns: 'auth' })}</span>
               </div>
             </div>
 
