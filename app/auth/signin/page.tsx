@@ -106,7 +106,7 @@ export default function SignInPage() {
             <form onSubmit={handleSubmit} className="space-y-6">
               <div>
                 <label htmlFor="email" className="block text-sm font-medium text-neutral-700 mb-2">
-                  {t('signin.emailLabel', { ns: 'auth' })}
+                  {t('signin.email', { ns: 'auth' })}
                 </label>
                 <div className="relative">
                   <Mail className="absolute left-3 top-1/2 transform -translate-y-1/2 text-neutral-400 w-5 h-5" />
@@ -125,7 +125,7 @@ export default function SignInPage() {
 
               <div>
                 <label htmlFor="password" className="block text-sm font-medium text-neutral-700 mb-2">
-                  {t('signin.passwordLabel', { ns: 'auth' })}
+                  {t('signin.password', { ns: 'auth' })}
                 </label>
                 <div className="relative">
                   <Lock className="absolute left-3 top-1/2 transform -translate-y-1/2 text-neutral-400 w-5 h-5" />

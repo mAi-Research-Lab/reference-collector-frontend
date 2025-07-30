@@ -39,7 +39,11 @@
     "privacyPolicy": "Privacy Policy",
     "termsOfService": "Terms of Service",
     "cookiePolicy": "Cookie Policy",
-    "copyright": "© 2024 RefCite. All rights reserved."
+    "copyright": "© 2024 RefCite. All rights reserved.",
+    "features": "Features",
+    "download": "Download",
+    "pricing": "Pricing",
+    "contact": "Contact"
   },
   "language": {
     "english": "English",

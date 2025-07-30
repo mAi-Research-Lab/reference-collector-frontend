@@ -9,11 +9,13 @@
       "noCreditCardRequired": "Kredi kartı gerektirmez",
       "worksOffline": "Çevrimdışı çalışır"
     },
+    "availableForPlatforms": "Linux, macOS ve Windows için mevcut",
     "statistics": {
       "activeUsers": "Aktif Kullanıcı",
       "universities": "Üniversite",
       "referencesManaged": "Yönetilen Referans"
     },
+    "featuresTitle": "Anahtar Özellikler",
     "features": {
       "fastAndEasy": {
         "title": "Hızlı ve Kolay",

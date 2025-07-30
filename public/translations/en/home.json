@@ -9,6 +9,7 @@
       "noCreditCardRequired": "No credit card required",
       "worksOffline": "Works offline"
     },
+    "availableForPlatforms": "Available for Windows, macOS, and Linux",
     "statistics": {
       "activeUsers": "Active Users",
       "universities": "Universities",
@@ -82,6 +83,7 @@
       "macos": "macOS",
       "linux": "Linux"
     },
+    "featuresTitle": "Key Features",
     "features": {
       "desktopApp": "Desktop app",
       "officeIntegration": "Office integration",

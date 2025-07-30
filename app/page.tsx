@@ -96,9 +96,9 @@ export default function HomePage() {
       version: 'v2.1.0',
       requirements: 'Windows 10 or later',
       features: [
-        t('download.platforms.windows.features.desktopApp', { ns: 'home' }),
-        t('download.platforms.windows.features.officeIntegration', { ns: 'home' }),
-        t('download.platforms.windows.features.offlineSync', { ns: 'home' })
+        t('download.features.desktopApp', { ns: 'home' }),
+        t('download.features.officeIntegration', { ns: 'home' }),
+        t('download.features.offlineSync', { ns: 'home' })
       ]
     },
     { 
@@ -107,9 +107,9 @@ export default function HomePage() {
       version: 'v2.1.0',
       requirements: 'macOS 10.14 or later',
       features: [
-        t('download.platforms.macos.features.nativeDesign', { ns: 'home' }),
-        t('download.platforms.macos.features.quickLook', { ns: 'home' }),
-        t('download.platforms.macos.features.spotlightSearch', { ns: 'home' })
+        t('download.features.nativeDesign', { ns: 'home' }),
+        t('download.features.quickLook', { ns: 'home' }),
+        t('download.features.spotlightSearch', { ns: 'home' })
       ]
     },
     { 
@@ -118,9 +118,9 @@ export default function HomePage() {
       version: 'v2.1.0',
       requirements: 'Ubuntu 18.04+ or equivalent',
       features: [
-        t('download.platforms.linux.features.appImageFormat', { ns: 'home' }),
-        t('download.platforms.linux.features.commandLineTools', { ns: 'home' }),
-        t('download.platforms.linux.features.packageManagers', { ns: 'home' })
+        t('download.features.appImageFormat', { ns: 'home' }),
+        t('download.features.commandLineTools', { ns: 'home' }),
+        t('download.features.packageManagers', { ns: 'home' })
       ]
     },
   ];
@@ -296,7 +296,7 @@ export default function HomePage() {
                     <p className="text-xs text-neutral-400 mb-4">{option.requirements}</p>
                     
                     <div className="mb-6">
-                      <div className="text-sm font-medium text-neutral-700 mb-2">{t('download.features', { ns: 'home' })}</div>
+                      <div className="text-sm font-medium text-neutral-700 mb-2">{t('download.featuresTitle', { ns: 'home' })}</div>
                       <div className="space-y-1">
                         {option.features.map((feature, idx) => (
                           <div key={idx} className="flex items-center justify-center gap-2 text-xs text-neutral-600">
