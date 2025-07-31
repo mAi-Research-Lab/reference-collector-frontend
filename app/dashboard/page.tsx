@@ -21,7 +21,8 @@ import {
   Clock,
   Building,
   GraduationCap,
-  Badge
+  Badge,
+  LogOut
 } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 import Header from '@/components/layout/Header';
@@ -33,7 +34,7 @@ import { USER_TYPES } from '@/types';
 
 export default function DashboardPage() {
   const { t, i18n } = useTranslation(['common', 'dashboard']);
-  const { user, isLoading, isAuthenticated } = useAuth();
+  const { user, isLoading, isAuthenticated, signOut } = useAuth();
   const router = useRouter();
 
   useEffect(() => {
@@ -262,12 +263,9 @@ export default function DashboardPage() {
                   )}
                   <p className="text-sm font-medium text-neutral-900">{t('dashboard.accountStatus.emailConfirm', { ns: 'dashboard' })}</p>
                   <p className={`text-xs ${user.emailVerified ? 'text-green-600' : 'text-red-600'}`}>
-                    <p className={`text-xs ${user.emailVerified ? 'text-green-600' : 'text-red-600'}`}>
-                      {user.emailVerified
-                        ? t('dashboard.accountStatus.verified', { ns: 'dashboard' })
-                        : t('dashboard.accountStatus.notVerified', { ns: 'dashboard' })}
-                    </p>
-
+                    {user.emailVerified
+                      ? t('dashboard.accountStatus.verified', { ns: 'dashboard' })
+                      : t('dashboard.accountStatus.notVerified', { ns: 'dashboard' })}
                   </p>
                 </div>
 
@@ -393,14 +391,22 @@ export default function DashboardPage() {
                   variant="outline"
                   className="w-full justify-start"
                   onClick={() => {
-                    // If user has active subscription, go to payment management
-                    // Otherwise go to pricing page
                     const hasActiveSubscription = user.subscriptionStatus === 'active' || user.subscriptionPlan;
                     router.push(hasActiveSubscription ? '/payment' : '/pricing');
                   }}
                 >
                   <Settings className="w-4 h-4 mr-2" />
                   {t('dashboard.quickActions.paymentSettings', { ns: 'dashboard' })}
+                </Button>
+                <Button
+                  variant="outline"
+                  className="w-full justify-start"
+                  onClick={() => {
+                    signOut(); // oturumu sonlandır
+                  }}
+                >
+                  <LogOut className="w-4 h-4 mr-2" />
+                  {t('dashboard.quickActions.logOut', { ns: 'dashboard' })}
                 </Button>
               </div>
             </div>

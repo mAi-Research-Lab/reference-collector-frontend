@@ -14,7 +14,7 @@ export default function Footer() {
           {/* Brand Column */}
           <div className="lg:col-span-2">
             <Link href="/" className="text-2xl font-bold mb-4 block">
-              {t('brand')}
+              { t('brand', { ns: 'common' })}
             </Link>
             <p className="text-neutral-300 mb-6 max-w-md">
               {t('footer.description')}

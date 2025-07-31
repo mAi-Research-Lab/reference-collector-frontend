@@ -11,7 +11,6 @@ import { useAuth } from '@/components/providers/AuthProvider';
 import type { NavItem } from '@/types';
 
 const Header: React.FC = () => {
-  const { t } = useTranslation();
   const { isAuthenticated, user } = useAuth();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const pathname = usePathname();
@@ -21,13 +20,13 @@ const Header: React.FC = () => {
   const isPricingPage = pathname === '/pricing';
   const isDashboardPage = pathname === '/dashboard';
   const isProfilePage = pathname === '/profile';
-
+  const { t } = useTranslation(['common']);
   const handleNavigation = (href: string) => {
     if (isHomePage && href.startsWith('#')) {
       // If on home page and it's an anchor link, use smooth scroll
       const targetId = href.replace('#', '');
       const targetElement = document.getElementById(targetId);
-      
+
       if (targetElement) {
         targetElement.scrollIntoView({
           behavior: 'smooth',
@@ -38,31 +37,41 @@ const Header: React.FC = () => {
       // If not on home page but anchor link, go to home page with hash
       window.location.href = `/${href}`;
     }
-    
+
     setIsMenuOpen(false);
   };
 
   // Navigation itemları sayfa tipine ve authentication durumuna göre
-  const navigationItems: NavItem[] = 
-    isAuthPage ? [] : 
-    isContactPage ? [] : 
-    isPricingPage ? [] : 
-    isAuthenticated ? (
-      // Authenticated users için navigation
-      isDashboardPage || isProfilePage ? [] : [
-        { href: '/dashboard', label: t('navigation.dashboard') || 'Dashboard' },
-      ]
-    ) : (
-      // Non-authenticated users için navigation
-      isHomePage ? [
-        { href: '#home', label: t('navigation.home') },
-        { href: '#features', label: t('navigation.features') },
-        { href: '#download', label: t('navigation.download') },
-        { href: '#about', label: t('navigation.about') },
-      ] : [
-        { href: '/', label: t('navigation.home') },
-      ]
-    );
+  const navigationItems: NavItem[] =
+    isAuthPage ? [] :
+      isContactPage ? [] :
+        isPricingPage ? [] :
+          isAuthenticated
+            ? (
+              // Giriş yapılmış ama anasayfadaysa eski menüleri göster
+              isHomePage ? [
+                { href: '#home', label: t('navigation.home') },
+                { href: '#features', label: t('navigation.features') },
+                { href: '#download', label: t('navigation.download') },
+                { href: '#about', label: t('navigation.about') },
+              ] : (
+                isDashboardPage || isProfilePage ? [] : [
+                  { href: '/dashboard', label: t('navigation.dashboard') || 'Dashboard' },
+                ]
+              )
+            )
+            : (
+              // Giriş yapılmamış kullanıcılar
+              isHomePage ? [
+                { href: '#home', label: t('navigation.home') },
+                { href: '#features', label: t('navigation.features') },
+                { href: '#download', label: t('navigation.download') },
+                { href: '#about', label: t('navigation.about') },
+              ] : [
+                { href: '/', label: t('navigation.home') },
+              ]
+            );
+
 
   return (
     <header className="bg-white border-b border-neutral-200 sticky top-0 z-50">
@@ -74,7 +83,7 @@ const Header: React.FC = () => {
               <div className="w-8 h-8 bg-primary-500 rounded-lg flex items-center justify-center">
                 <FileText className="w-5 h-5 text-white" />
               </div>
-              <span className="text-xl font-bold text-neutral-900">{t('brand')}</span>
+              <span className="text-xl font-bold text-neutral-900">{t('brand', { ns: 'common' })}</span>
             </Link>
           </div>
 
@@ -115,25 +124,13 @@ const Header: React.FC = () => {
             {/* Desktop Auth Buttons */}
             <div className="hidden md:flex items-center space-x-4">
               {isAuthenticated ? (
-                // Authenticated kullanıcılar için butonlar
                 <>
-                  {!isDashboardPage && (
-                    <Link href="/dashboard">
-                      <Button variant="outline" size="sm">
-                        {t('navigation.dashboard') || 'Dashboard'}
-                      </Button>
-                    </Link>
-                  )}
-                  {!isProfilePage && (
-                    <Link href="/profile">
-                      <Button variant="ghost" size="sm">
-                        {t('navigation.profile') || 'Profile'}
-                      </Button>
-                    </Link>
-                  )}
-                  <span className="text-sm text-neutral-600">
-                    {user?.fullName || user?.email}
-                  </span>
+                  {/* Kullanıcı adı/eposta dashboard butonu olsun */}
+                  <Link href="/dashboard" onClick={() => setIsMenuOpen(false)}>
+                    <Button variant="outline" size="sm" className="w-full">
+                      {user?.fullName || user?.email}
+                    </Button>
+                  </Link>
                 </>
               ) : isAuthPage ? (
                 // Auth sayfalarında sadece auth butonları
@@ -208,7 +205,7 @@ const Header: React.FC = () => {
                   </Link>
                 )
               ))}
-              
+
               <div className={`flex flex-col space-y-3 ${!isAuthPage ? 'pt-4 border-t border-neutral-200' : ''}`}>
                 {isAuthenticated ? (
                   // Authenticated kullanıcılar için butonlar
