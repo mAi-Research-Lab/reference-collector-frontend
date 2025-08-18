@@ -10,12 +10,24 @@ i18n
     fallbackLng: 'en',
     ns: ['common', 'home', 'pricing', 'auth', 'dashboard'],
     defaultNS: 'common',
+    debug: false, // Production için false
     interpolation: {
       escapeValue: false,
+      format: function(value, format, lng) {
+        if (format === 'uppercase') return value.toUpperCase();
+        if (format === 'lowercase') return value.toLowerCase();
+        return value;
+      }
     },
     backend: {
       loadPath: '/translations/{{lng}}/{{ns}}.json', // public klasöründeki dosya yolu
+      requestOptions: {
+        cache: 'no-cache' // Cache problemlerini önlemek için
+      }
     },
+    react: {
+      useSuspense: false // SSR ile uyumluluk için
+    }
   });
 
 export default i18n;

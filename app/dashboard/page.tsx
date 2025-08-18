@@ -33,12 +33,12 @@ import { useAuth } from '@/components/providers/AuthProvider';
 import { USER_TYPES } from '@/types';
 
 export default function DashboardPage() {
-  const { t, i18n } = useTranslation(['common', 'dashboard']);
+  const { t, i18n } = useTranslation('dashboard'); // Ana namespace olarak dashboard kullan
   const { user, isLoading, isAuthenticated, signOut } = useAuth();
   const router = useRouter();
 
   useEffect(() => {
-    const title = t('dashboard.title', { ns: 'dashboard', defaultValue: 'Dashboard - RefCite' });
+    const title = t('title', { defaultValue: 'Dashboard - RefCite' });
     setDocumentTitle(title);
   }, [t, i18n.language]);
 
@@ -81,15 +81,15 @@ export default function DashboardPage() {
   const getUserTypeDisplay = (userType: string) => {
     switch (userType) {
       case USER_TYPES.INDIVIDUAL:
-        return t('dashboard.userTypes.individual', { ns: 'dashboard' });
+        return t('userTypes.individual');
       case USER_TYPES.RESEARCHER:
-        return t('dashboard.userTypes.researcher', { ns: 'dashboard' });
+        return t('userTypes.researcher');
       case USER_TYPES.STUDENT:
-        return t('dashboard.userTypes.student', { ns: 'dashboard' });
+        return t('userTypes.student');
       case USER_TYPES.ACADEMIC:
-        return t('dashboard.userTypes.academic', { ns: 'dashboard' });
+        return t('userTypes.academic');
       case USER_TYPES.ENTERPRISE:
-        return t('dashboard.userTypes.enterprise', { ns: 'dashboard' });
+        return t('userTypes.enterprise');
       default:
         return userType;
     }
@@ -119,10 +119,10 @@ export default function DashboardPage() {
           <div className="flex items-center justify-between">
             <div>
               <h1 className="text-3xl font-bold mb-2">
-                {t('dashboard.welcome', { ns: 'dashboard', name: user.fullName })}
+                {t('welcome').replace('{name}', user?.fullName || user?.email || (i18n.language === 'tr' ? 'Kullanıcı' : 'User'))}
               </h1>
               <p className="text-primary-100 text-lg">
-                {t('dashboard.subtitle', { ns: 'dashboard' })}
+                {t('subtitle')}
               </p>
             </div>
             <div className="hidden md:flex items-center space-x-4">
@@ -141,7 +141,7 @@ export default function DashboardPage() {
               <div className="flex items-center justify-between mb-6">
                 <h2 className="text-xl font-semibold text-neutral-900 flex items-center gap-2">
                   <User className="w-5 h-5" />
-                  {t('dashboard.personalInfo.title', { ns: 'dashboard' })}
+                  {t('personalInfo.title')}
                 </h2>
                 <Button
                   variant="outline"
@@ -149,7 +149,7 @@ export default function DashboardPage() {
                   onClick={() => router.push('/profile')}
                 >
                   <Edit3 className="w-4 h-4 mr-2" />
-                  {t('dashboard.personalInfo.edit', { ns: 'dashboard' })}
+                  {t('personalInfo.edit')}
                 </Button>
               </div>
 
@@ -160,7 +160,7 @@ export default function DashboardPage() {
                       <Mail className="w-5 h-5 text-blue-600" />
                     </div>
                     <div>
-                      <p className="text-sm text-neutral-500">{t('dashboard.personalInfo.email', { ns: 'dashboard' })}</p>
+                      <p className="text-sm text-neutral-500">{t('personalInfo.email')}</p>
                       <p className="font-medium text-neutral-900">{user.email}</p>
                     </div>
                   </div>
@@ -170,7 +170,7 @@ export default function DashboardPage() {
                       <Badge className="w-5 h-5 text-purple-600" />
                     </div>
                     <div>
-                      <p className="text-sm text-neutral-500">{t('dashboard.personalInfo.userType', { ns: 'dashboard' })}</p>
+                      <p className="text-sm text-neutral-500">{t('personalInfo.userType')}</p>
                       <p className="font-medium text-neutral-900">{getUserTypeDisplay(user.userType)}</p>
                     </div>
                   </div>
@@ -181,7 +181,7 @@ export default function DashboardPage() {
                         <Building className="w-5 h-5 text-orange-600" />
                       </div>
                       <div>
-                        <p className="text-sm text-neutral-500">{t('dashboard.personalInfo.institution', { ns: 'dashboard' })}</p>
+                        <p className="text-sm text-neutral-500">{t('personalInfo.institution')}</p>
                         <p className="font-medium text-neutral-900">{user.institutionId}</p>
                       </div>
                     </div>
@@ -193,7 +193,7 @@ export default function DashboardPage() {
                         <GraduationCap className="w-5 h-5 text-green-600" />
                       </div>
                       <div>
-                        <p className="text-sm text-neutral-500">{t('dashboard.personalInfo.fieldOfStudy', { ns: 'dashboard' })}</p>
+                        <p className="text-sm text-neutral-500">{t('personalInfo.fieldOfStudy')}</p>
                         <p className="font-medium text-neutral-900">{user.fieldOfStudy}</p>
                       </div>
                     </div>
@@ -206,7 +206,7 @@ export default function DashboardPage() {
                       <Calendar className="w-5 h-5 text-indigo-600" />
                     </div>
                     <div>
-                      <p className="text-sm text-neutral-500">{t('dashboard.personalInfo.membershipDate', { ns: 'dashboard' })}</p>
+                      <p className="text-sm text-neutral-500">{t('personalInfo.membershipDate')}</p>
                       <p className="font-medium text-neutral-900">{formatDate(user.createdAt)}</p>
                     </div>
                   </div>
@@ -216,7 +216,7 @@ export default function DashboardPage() {
                       <Clock className="w-5 h-5 text-cyan-600" />
                     </div>
                     <div>
-                      <p className="text-sm text-neutral-500">{t('dashboard.personalInfo.lastUpdate', { ns: 'dashboard' })}</p>
+                      <p className="text-sm text-neutral-500">{t('personalInfo.lastUpdate')}</p>
                       <p className="font-medium text-neutral-900">{formatDate(user.updatedAt)}</p>
                     </div>
                   </div>
@@ -227,7 +227,7 @@ export default function DashboardPage() {
                         <Eye className="w-5 h-5 text-yellow-600" />
                       </div>
                       <div>
-                        <p className="text-sm text-neutral-500">{t('dashboard.personalInfo.lastLogin', { ns: 'dashboard' })}</p>
+                        <p className="text-sm text-neutral-500">{t('personalInfo.lastLogin')}</p>
                         <p className="font-medium text-neutral-900">{formatDate(user.lastLogin)}</p>
                       </div>
                     </div>
@@ -239,7 +239,7 @@ export default function DashboardPage() {
                         <Shield className="w-5 h-5 text-pink-600" />
                       </div>
                       <div>
-                        <p className="text-sm text-neutral-500">{t('dashboard.personalInfo.orcidId', { ns: 'dashboard' })}</p>
+                        <p className="text-sm text-neutral-500">{t('personalInfo.orcidId')}</p>
                         <p className="font-medium text-neutral-900">{user.orcidId}</p>
                       </div>
                     </div>
@@ -252,7 +252,7 @@ export default function DashboardPage() {
             <div className="bg-white rounded-2xl border border-neutral-200 p-6">
               <h2 className="text-xl font-semibold text-neutral-900 mb-6 flex items-center gap-2">
                 <Shield className="w-5 h-5" />
-                {t('dashboard.accountStatus.title', { ns: 'dashboard' })}
+                {t('accountStatus.title')}
               </h2>
 
               <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
@@ -262,12 +262,12 @@ export default function DashboardPage() {
                   ) : (
                     <XCircle className="w-8 h-8 text-red-500 mx-auto mb-2" />
                   )}
-                  <p className="text-sm font-medium text-neutral-900">{t('dashboard.accountStatus.emailConfirm', { ns: 'dashboard' })}</p>
-                  <p className={`text-xs ${user.emailVerified ? 'text-green-600' : 'text-red-600'}`}>
+                  <p className="text-sm font-medium text-neutral-900">{t('accountStatus.emailConfirm')}</p>
+                  <span className={`text-xs px-2 py-1 rounded-full ${user.emailVerified ? 'text-green-600 bg-green-100' : 'text-red-600 bg-red-100'}`}>
                     {user.emailVerified
-                      ? t('dashboard.accountStatus.verified', { ns: 'dashboard' })
-                      : t('dashboard.accountStatus.notVerified', { ns: 'dashboard' })}
-                  </p>
+                      ? t('accountStatus.verified')
+                      : t('accountStatus.notVerified')}
+                  </span>
                 </div>
 
                 <div className="text-center p-4 rounded-lg border border-neutral-200">
@@ -276,21 +276,21 @@ export default function DashboardPage() {
                   ) : (
                     <XCircle className="w-8 h-8 text-red-500 mx-auto mb-2" />
                   )}
-                  <p className="text-sm font-medium text-neutral-900">{t('dashboard.accountStatus.accountStatus', { ns: 'dashboard' })}</p>
-                  <p className={`text-xs ${user.isActive ? 'text-green-600' : 'text-red-600'}`}>
+                  <p className="text-sm font-medium text-neutral-900">{t('accountStatus.accountStatus')}</p>
+                  <span className={`text-xs px-2 py-1 rounded-full ${user.isActive ? 'text-green-600 bg-green-100' : 'text-red-600 bg-red-100'}`}>
                     {user.isActive
-                      ? t('dashboard.accountStatus.active', { ns: 'dashboard' })
-                      : t('dashboard.accountStatus.inactive', { ns: 'dashboard' })}
-                  </p>
+                      ? t('accountStatus.active')
+                      : t('accountStatus.inactive')}
+                  </span>
                 </div>
 
                 <div className="text-center p-4 rounded-lg border border-neutral-200">
                   <Shield className="w-8 h-8 text-blue-500 mx-auto mb-2" />
-                  <p className="text-sm font-medium text-neutral-900">{t('dashboard.accountStatus.subscription', { ns: 'dashboard' })}</p>
+                  <p className="text-sm font-medium text-neutral-900">{t('accountStatus.subscription')}</p>
                   <span className={`text-xs px-2 py-1 rounded-full ${getStatusColor(user.subscriptionStatus)}`}>
                     {user.subscriptionStatus 
-                      ? t(`dashboard.subscriptionStatus.${user.subscriptionStatus.toLowerCase()}`, { ns: 'dashboard', defaultValue: user.subscriptionStatus })
-                      : t('dashboard.subscriptionStatus.free', { ns: 'dashboard' })}
+                      ? t(`subscriptionStatus.${user.subscriptionStatus.toLowerCase()}`, { defaultValue: user.subscriptionStatus })
+                      : t('subscriptionStatus.free')}
                   </span>
                 </div>
               </div>
@@ -301,7 +301,7 @@ export default function DashboardPage() {
               <div className="bg-white rounded-2xl border border-neutral-200 p-6">
                 <h2 className="text-xl font-semibold text-neutral-900 mb-6 flex items-center gap-2">
                   <Settings className="w-5 h-5" />
-                  {t('dashboard.userPreferences.title', { ns: 'dashboard' })}
+                  {t('userPreferences.title')}
                 </h2>
 
                 <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
@@ -310,11 +310,11 @@ export default function DashboardPage() {
                       <Globe className="w-5 h-5 text-blue-600" />
                     </div>
                     <div>
-                      <p className="text-sm text-neutral-500">{t('dashboard.userPreferences.language', { ns: 'dashboard' })}</p>
+                      <p className="text-sm text-neutral-500">{t('userPreferences.language')}</p>
                       <p className="font-medium text-neutral-900">
                         {user.preferences.language === 'tr'
-                          ? t('dashboard.userPreferences.language_tr', { ns: 'dashboard' })
-                          : t('dashboard.userPreferences.language_en', { ns: 'dashboard' })}
+                          ? t('userPreferences.language_tr')
+                          : t('userPreferences.language_en')}
                       </p>
                     </div>
                   </div>
@@ -324,7 +324,7 @@ export default function DashboardPage() {
                       <Eye className="w-5 h-5 text-purple-600" />
                     </div>
                     <div>
-                      <p className="text-sm text-neutral-500">{t('dashboard.userPreferences.theme', { ns: 'dashboard' })}</p>
+                      <p className="text-sm text-neutral-500">{t('userPreferences.theme')}</p>
                       <p className="font-medium text-neutral-900 capitalize">{user.preferences.theme}</p>
                     </div>
                   </div>
@@ -334,11 +334,11 @@ export default function DashboardPage() {
                       <Bell className="w-5 h-5 text-yellow-600" />
                     </div>
                     <div>
-                      <p className="text-sm text-neutral-500">{t('dashboard.userPreferences.notifications', { ns: 'dashboard' })}</p>
+                      <p className="text-sm text-neutral-500">{t('userPreferences.notifications')}</p>
                       <p className="font-medium text-neutral-900">
                         {user.preferences.notifications
-                          ? t('dashboard.userPreferences.notifications_on', { ns: 'dashboard' })
-                          : t('dashboard.userPreferences.notifications_off', { ns: 'dashboard' })}
+                          ? t('userPreferences.notifications_on')
+                          : t('userPreferences.notifications_off')}
                       </p>
                     </div>
                   </div>
@@ -348,7 +348,7 @@ export default function DashboardPage() {
                       <MapPin className="w-5 h-5 text-green-600" />
                     </div>
                     <div>
-                      <p className="text-sm text-neutral-500">{t('dashboard.userPreferences.timePeriod', { ns: 'dashboard' })}</p>
+                      <p className="text-sm text-neutral-500">{t('userPreferences.timePeriod')}</p>
                       <p className="font-medium text-neutral-900">{user.preferences.timezone}</p>
                     </div>
                   </div>
@@ -362,7 +362,7 @@ export default function DashboardPage() {
             {/* Quick Actions */}
             <div className="bg-white rounded-2xl border border-neutral-200 p-6">
               <h3 className="text-lg font-semibold text-neutral-900 mb-4">
-                {t('dashboard.quickActions.title', { ns: 'dashboard' })}
+                {t('quickActions.title')}
               </h3>
               <div className="space-y-3">
                 <Button
@@ -371,7 +371,7 @@ export default function DashboardPage() {
                   onClick={() => router.push('/profile')}
                 >
                   <Edit3 className="w-4 h-4 mr-2" />
-                  {t('dashboard.quickActions.editProfile', { ns: 'dashboard' })}
+                  {t('quickActions.editProfile')}
                 </Button>
                 <Button
                   variant="outline"
@@ -379,7 +379,7 @@ export default function DashboardPage() {
                   onClick={() => router.push('/auth/change-password')}
                 >
                   <Shield className="w-4 h-4 mr-2" />
-                  {t('dashboard.quickActions.changePassword', { ns: 'dashboard' })}
+                  {t('quickActions.changePassword')}
                 </Button>
                 <Button
                   variant="outline"
@@ -390,7 +390,7 @@ export default function DashboardPage() {
                   }}
                 >
                   <Settings className="w-4 h-4 mr-2" />
-                  {t('dashboard.quickActions.paymentSettings', { ns: 'dashboard' })}
+                  {t('quickActions.paymentSettings')}
                 </Button>
                 <Button
                   variant="outline"
@@ -400,7 +400,7 @@ export default function DashboardPage() {
                   }}
                 >
                   <LogOut className="w-4 h-4 mr-2" />
-                  {t('dashboard.quickActions.logOut', { ns: 'dashboard' })}
+                  {t('quickActions.logOut')}
                 </Button>
               </div>
             </div>
