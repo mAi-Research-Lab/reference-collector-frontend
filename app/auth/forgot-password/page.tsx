@@ -144,7 +144,7 @@ export default function ForgotPasswordPage() {
               </div>
 
               <Button type="submit" className="w-full" loading={isLoading}>
-                {t('forgotPassword.sendResetLink', { ns: 'auth' })}
+                {t('forgotPassword.sendResetLinkButton', { ns: 'auth' })}
               </Button>
             </form>
 
