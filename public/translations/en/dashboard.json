@@ -9,14 +9,14 @@
     "userType": "User Type",
     "institution": "Institution",
     "fieldOfStudy": "Field of Study",
-    "memberSince": "Member Since",
+    "membershipDate": "Membership Date",
     "lastUpdate": "Last Update",
     "lastLogin": "Last Login",
     "orcidId": "ORCID ID"
   },
   "accountStatus": {
     "title": "Account Status",
-    "emailVerification": "Email Verification",
+    "emailConfirm": "Email Confirmation",
     "verified": "Verified",
     "notVerified": "Not Verified",
     "accountStatus": "Account Status",
@@ -27,19 +27,20 @@
   "userPreferences": {
     "title": "User Preferences",
     "language": "Language",
-    "turkish": "Turkish",
-    "english": "English",
+    "language_tr": "Turkish",
+    "language_en": "English",
     "theme": "Theme",
     "notifications": "Notifications",
-    "enabled": "Enabled",
-    "disabled": "Disabled",
-    "timezone": "Timezone"
+    "notifications_on": "Enabled",
+    "notifications_off": "Disabled",
+    "timePeriod": "Time Period"
   },
   "quickActions": {
     "title": "Quick Actions",
     "editProfile": "Edit Profile",
     "changePassword": "Change Password",
-    "paymentSettings": "Payment Settings"
+    "paymentSettings": "Payment Settings",
+    "logOut": "Log Out"
   },
   "accountSummary": {
     "title": "Account Summary",
@@ -59,5 +60,11 @@
     "student": "Student",
     "academic": "Academic",
     "enterprise": "Enterprise"
+  },
+  "subscriptionStatus": {
+    "active": "Active",
+    "inactive": "Inactive",
+    "trial": "Trial",
+    "free": "Free"
   }
 } 

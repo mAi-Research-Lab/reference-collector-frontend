@@ -67,7 +67,8 @@ export default function DashboardPage() {
 
   // Format dates
   const formatDate = (dateString: string) => {
-    return new Date(dateString).toLocaleDateString('tr-TR', {
+    const locale = i18n.language === 'tr' ? 'tr-TR' : 'en-US';
+    return new Date(dateString).toLocaleDateString(locale, {
       year: 'numeric',
       month: 'long',
       day: 'numeric',
@@ -80,15 +81,15 @@ export default function DashboardPage() {
   const getUserTypeDisplay = (userType: string) => {
     switch (userType) {
       case USER_TYPES.INDIVIDUAL:
-        return 'Individual User';
+        return t('dashboard.userTypes.individual', { ns: 'dashboard' });
       case USER_TYPES.RESEARCHER:
-        return 'Researcher';
+        return t('dashboard.userTypes.researcher', { ns: 'dashboard' });
       case USER_TYPES.STUDENT:
-        return 'Student';
+        return t('dashboard.userTypes.student', { ns: 'dashboard' });
       case USER_TYPES.ACADEMIC:
-        return 'Academic';
+        return t('dashboard.userTypes.academic', { ns: 'dashboard' });
       case USER_TYPES.ENTERPRISE:
-        return 'Enterprise';
+        return t('dashboard.userTypes.enterprise', { ns: 'dashboard' });
       default:
         return userType;
     }
@@ -287,7 +288,9 @@ export default function DashboardPage() {
                   <Shield className="w-8 h-8 text-blue-500 mx-auto mb-2" />
                   <p className="text-sm font-medium text-neutral-900">{t('dashboard.accountStatus.subscription', { ns: 'dashboard' })}</p>
                   <span className={`text-xs px-2 py-1 rounded-full ${getStatusColor(user.subscriptionStatus)}`}>
-                    {user.subscriptionStatus || 'Free'}
+                    {user.subscriptionStatus 
+                      ? t(`dashboard.subscriptionStatus.${user.subscriptionStatus.toLowerCase()}`, { ns: 'dashboard', defaultValue: user.subscriptionStatus })
+                      : t('dashboard.subscriptionStatus.free', { ns: 'dashboard' })}
                   </span>
                 </div>
               </div>

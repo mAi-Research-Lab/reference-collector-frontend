@@ -9,14 +9,14 @@
     "userType": "Kullanıcı Tipi",
     "institution": "Kurum",
     "fieldOfStudy": "Çalışma Alanı",
-    "memberSince": "Üyelik Tarihi",
+    "membershipDate": "Üyelik Tarihi",
     "lastUpdate": "Son Güncelleme",
     "lastLogin": "Son Giriş",
     "orcidId": "ORCID ID"
   },
   "accountStatus": {
     "title": "Hesap Durumu",
-    "emailVerification": "Email Doğrulama",
+    "emailConfirm": "Email Doğrulama",
     "verified": "Doğrulandı",
     "notVerified": "Doğrulanmadı",
     "accountStatus": "Hesap Durumu",
@@ -27,19 +27,20 @@
   "userPreferences": {
     "title": "Kullanıcı Tercihleri",
     "language": "Dil",
-    "turkish": "Türkçe",
-    "english": "English",
+    "language_tr": "Türkçe",
+    "language_en": "English",
     "theme": "Tema",
     "notifications": "Bildirimler",
-    "enabled": "Açık",
-    "disabled": "Kapalı",
-    "timezone": "Zaman Dilimi"
+    "notifications_on": "Açık",
+    "notifications_off": "Kapalı",
+    "timePeriod": "Zaman Dilimi"
   },
   "quickActions": {
     "title": "Hızlı İşlemler",
     "editProfile": "Profili Düzenle",
     "changePassword": "Şifre Değiştir",
-    "paymentSettings": "Ödeme Ayarları"
+    "paymentSettings": "Ödeme Ayarları",
+    "logOut": "Çıkış Yap"
   },
   "accountSummary": {
     "title": "Hesap Özeti",
@@ -59,5 +60,11 @@
     "student": "Öğrenci",
     "academic": "Akademisyen",
     "enterprise": "Kurumsal"
+  },
+  "subscriptionStatus": {
+    "active": "Aktif",
+    "inactive": "Pasif",
+    "trial": "Deneme",
+    "free": "Ücretsiz"
   }
 } 
