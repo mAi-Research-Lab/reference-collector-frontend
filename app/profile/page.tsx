@@ -14,7 +14,7 @@ import { useAuth } from '@/components/providers/AuthProvider';
 import { User as UserType, UpdateUserRequest, ApiError, UserPreferences } from '@/types';
 
 export default function ProfilePage() {
-  const { t } = useTranslation(['auth', 'common']);
+  const { t, i18n, ready } = useTranslation('profile');
   const router = useRouter();
   const { user, isLoading: authLoading, isAuthenticated, refreshUser } = useAuth();
   const [isLoading, setIsLoading] = useState(false);
@@ -22,7 +22,6 @@ export default function ProfilePage() {
   const [success, setSuccess] = useState<string>('');
   const [formData, setFormData] = useState<UpdateUserRequest>({
     fullName: '',
-    institutionId: '',
     fieldOfStudy: '',
     orcidId: '',
     avatarUrl: '',
@@ -35,8 +34,8 @@ export default function ProfilePage() {
   });
 
   useEffect(() => {
-    setDocumentTitle(t('profile.title', { ns: 'auth' }));
-  }, [t]);
+    setDocumentTitle(t('title', { defaultValue: 'Profile - RefCite' }));
+  }, [t, i18n.language]);
 
   useEffect(() => {
     if (!authLoading && !isAuthenticated) {
@@ -48,7 +47,6 @@ export default function ProfilePage() {
     if (user) {
       setFormData({
         fullName: user.fullName || '',
-        institutionId: user.institutionId || '',
         fieldOfStudy: user.fieldOfStudy || '',
         orcidId: user.orcidId || '',
         avatarUrl: user.avatarUrl || '',
@@ -96,17 +94,17 @@ export default function ProfilePage() {
 
     try {
       await authService.updateUser(formData);
-      setSuccess(t('profile.updateSuccess', { ns: 'auth' }));
+      setSuccess(t('updateSuccess'));
       refreshUser(); // Refresh user data
     } catch (err: any) {
       const apiError = err as ApiError;
-      setError(apiError.message || t('profile.updateError', { ns: 'auth' }));
+      setError(apiError.message || t('updateError'));
     } finally {
       setIsLoading(false);
     }
   };
 
-  if (authLoading || !user) {
+  if (authLoading || !user || !ready) {
     return (
       <div className="min-h-screen bg-neutral-50">
         <Header />
@@ -143,11 +141,11 @@ export default function ProfilePage() {
                   </span>
                   {user.emailVerified ? (
                     <span className="bg-green-500/20 px-3 py-1 rounded-full">
-                      ✓ Email Verified
+                      {t('emailVerified')}
                     </span>
                   ) : (
                     <span className="bg-red-500/20 px-3 py-1 rounded-full">
-                      ✗ Email Not Verified
+                      {t('emailNotVerified')}
                     </span>
                   )}
                 </div>
@@ -174,12 +172,12 @@ export default function ProfilePage() {
               <div>
                 <h2 className="text-xl font-semibold text-neutral-900 mb-4 flex items-center gap-2">
                   <User className="w-5 h-5" />
-                  Personal Information
+                  {t('sections.personalInfo.title')}
                 </h2>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div>
                     <label htmlFor="fullName" className="block text-sm font-medium text-neutral-700 mb-2">
-                      Full Name
+                      {t('sections.personalInfo.fullName')}
                     </label>
                     <Input
                       id="fullName"
@@ -187,13 +185,13 @@ export default function ProfilePage() {
                       type="text"
                       value={formData.fullName}
                       onChange={handleInputChange}
-                      placeholder="Your full name"
+                      placeholder={t('sections.personalInfo.fullNamePlaceholder')}
                     />
                   </div>
                   
                   <div>
                     <label htmlFor="email" className="block text-sm font-medium text-neutral-700 mb-2">
-                      Email Address
+                      {t('sections.personalInfo.emailAddress')}
                     </label>
                     <div className="relative">
                       <Input
@@ -206,7 +204,7 @@ export default function ProfilePage() {
                       />
                       <Mail className="absolute right-3 top-1/2 transform -translate-y-1/2 text-neutral-400 w-5 h-5" />
                     </div>
-                    <p className="text-xs text-neutral-500 mt-1">Email cannot be changed</p>
+                    <p className="text-xs text-neutral-500 mt-1">{t('sections.personalInfo.emailCannotChange')}</p>
                   </div>
                 </div>
               </div>
@@ -215,30 +213,13 @@ export default function ProfilePage() {
               <div>
                 <h2 className="text-xl font-semibold text-neutral-900 mb-4 flex items-center gap-2">
                   <GraduationCap className="w-5 h-5" />
-                  Academic Information
+                  {t('sections.academicInfo.title')}
                 </h2>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                  <div>
-                    <label htmlFor="institutionId" className="block text-sm font-medium text-neutral-700 mb-2">
-                      Institution
-                    </label>
-                    <div className="relative">
-                      <Building className="absolute left-3 top-1/2 transform -translate-y-1/2 text-neutral-400 w-5 h-5" />
-                      <Input
-                        id="institutionId"
-                        name="institutionId"
-                        type="text"
-                        value={formData.institutionId}
-                        onChange={handleInputChange}
-                        placeholder="Your institution"
-                        className="pl-10"
-                      />
-                    </div>
-                  </div>
                   
                   <div>
                     <label htmlFor="fieldOfStudy" className="block text-sm font-medium text-neutral-700 mb-2">
-                      Field of Study
+                      {t('sections.academicInfo.fieldOfStudy')}
                     </label>
                     <Input
                       id="fieldOfStudy"
@@ -246,13 +227,13 @@ export default function ProfilePage() {
                       type="text"
                       value={formData.fieldOfStudy}
                       onChange={handleInputChange}
-                      placeholder="e.g., Computer Science"
+                      placeholder={t('sections.academicInfo.fieldOfStudyPlaceholder')}
                     />
                   </div>
                   
                   <div className="md:col-span-2">
                     <label htmlFor="orcidId" className="block text-sm font-medium text-neutral-700 mb-2">
-                      ORCID ID
+                      {t('sections.academicInfo.orcidId')}
                     </label>
                     <div className="relative">
                       <Link2 className="absolute left-3 top-1/2 transform -translate-y-1/2 text-neutral-400 w-5 h-5" />
@@ -262,7 +243,7 @@ export default function ProfilePage() {
                         type="text"
                         value={formData.orcidId}
                         onChange={handleInputChange}
-                        placeholder="0000-0000-0000-0000"
+                        placeholder={t('sections.academicInfo.orcidIdPlaceholder')}
                         className="pl-10"
                       />
                     </div>
@@ -274,13 +255,13 @@ export default function ProfilePage() {
               <div>
                 <h2 className="text-xl font-semibold text-neutral-900 mb-4 flex items-center gap-2">
                   <Settings className="w-5 h-5" />
-                  Preferences
+                  {t('sections.preferences.title')}
                 </h2>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div>
                     <label htmlFor="preferences.language" className="block text-sm font-medium text-neutral-700 mb-2">
                       <Globe className="w-4 h-4 inline mr-1" />
-                      Language
+                      {t('sections.preferences.language')}
                     </label>
                     <select
                       id="preferences.language"
@@ -289,15 +270,15 @@ export default function ProfilePage() {
                       onChange={handleInputChange}
                       className="w-full px-3 py-2 border border-neutral-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500"
                     >
-                      <option value="en">English</option>
-                      <option value="tr">Türkçe</option>
+                      <option value="en">{t('options.language.english')}</option>
+                      <option value="tr">{t('options.language.turkish')}</option>
                     </select>
                   </div>
                   
                   <div>
                     <label htmlFor="preferences.theme" className="block text-sm font-medium text-neutral-700 mb-2">
                       <Palette className="w-4 h-4 inline mr-1" />
-                      Theme
+                      {t('sections.preferences.theme')}
                     </label>
                     <select
                       id="preferences.theme"
@@ -306,15 +287,15 @@ export default function ProfilePage() {
                       onChange={handleInputChange}
                       className="w-full px-3 py-2 border border-neutral-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500"
                     >
-                      <option value="light">Light</option>
-                      <option value="dark">Dark</option>
+                      <option value="light">{t('options.theme.light')}</option>
+                      <option value="dark">{t('options.theme.dark')}</option>
                     </select>
                   </div>
                   
                   <div>
                     <label htmlFor="preferences.timezone" className="block text-sm font-medium text-neutral-700 mb-2">
                       <Clock className="w-4 h-4 inline mr-1" />
-                      Timezone
+                      {t('sections.preferences.timezone')}
                     </label>
                     <select
                       id="preferences.timezone"
@@ -323,10 +304,10 @@ export default function ProfilePage() {
                       onChange={handleInputChange}
                       className="w-full px-3 py-2 border border-neutral-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500"
                     >
-                      <option value="Europe/Istanbul">Europe/Istanbul</option>
-                      <option value="Europe/London">Europe/London</option>
-                      <option value="America/New_York">America/New_York</option>
-                      <option value="Asia/Tokyo">Asia/Tokyo</option>
+                      <option value="Europe/Istanbul">{t('options.timezones.europeIstanbul')}</option>
+                      <option value="Europe/London">{t('options.timezones.europeLondon')}</option>
+                      <option value="America/New_York">{t('options.timezones.americaNewYork')}</option>
+                      <option value="Asia/Tokyo">{t('options.timezones.asiaTokyo')}</option>
                     </select>
                   </div>
                   
@@ -341,7 +322,7 @@ export default function ProfilePage() {
                     />
                     <label htmlFor="preferences.notifications" className="ml-2 block text-sm text-neutral-700">
                       <Bell className="w-4 h-4 inline mr-1" />
-                      Email Notifications
+                      {t('sections.preferences.emailNotifications')}
                     </label>
                   </div>
                 </div>
@@ -350,7 +331,7 @@ export default function ProfilePage() {
               {/* Action Buttons */}
               <div className="flex flex-col sm:flex-row gap-4 pt-6 border-t border-neutral-200">
                 <Button type="submit" loading={isLoading} className="flex-1">
-                  Update Profile
+                  {t('buttons.updateProfile')}
                 </Button>
                 <Button 
                   type="button" 
@@ -358,7 +339,7 @@ export default function ProfilePage() {
                   onClick={() => router.push('/auth/change-password')}
                   className="flex-1"
                 >
-                  Change Password
+                  {t('buttons.changePassword')}
                 </Button>
               </div>
             </form>

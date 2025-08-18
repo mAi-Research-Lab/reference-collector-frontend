@@ -8,8 +8,18 @@ import Button from '@/components/ui/Button';
 import { useAuth } from '@/components/providers/AuthProvider';
 
 const HeroSection: React.FC = () => {
-  const { t } = useTranslation(['home', 'common']);
+  const { t, ready } = useTranslation('home');
   const { isAuthenticated, user } = useAuth();
+
+  if (!ready) {
+    return (
+      <section id="home" className="relative min-h-screen flex items-center justify-center bg-gradient-to-br from-primary-50 via-white to-neutral-100">
+        <div className="flex items-center justify-center">
+          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-primary-500"></div>
+        </div>
+      </section>
+    );
+  }
 
   return (
     <section id="home" className="relative min-h-screen flex items-center justify-center bg-gradient-to-br from-primary-50 via-white to-neutral-100 overflow-hidden">
@@ -21,11 +31,11 @@ const HeroSection: React.FC = () => {
       <div className="container relative z-10">
         <div className="max-w-3xl mx-auto text-center flex flex-col items-center justify-center">
           <h1 className="text-5xl md:text-6xl font-extrabold text-neutral-900 mb-8 drop-shadow-sm">
-            {t('hero.title', { ns: 'home' })}
-            <span className="text-primary-500"> {t('hero.titleHighlight', { ns: 'home' })}</span>
+            {t('hero.title')}
+            <span className="text-primary-500"> {t('hero.titleHighlight')}</span>
           </h1>
           <p className="text-base md:text-lg text-neutral-600 mb-10 max-w-2xl mx-auto font-normal">
-            {t('hero.description', { ns: 'home' })}
+            {t('hero.description')}
           </p>
           <div className="flex flex-col items-center mb-10 w-full">
             {isAuthenticated ? (
@@ -33,11 +43,11 @@ const HeroSection: React.FC = () => {
                 <Link href="/dashboard" className="w-full sm:w-auto">
                   <Button size="lg" className="w-full sm:w-auto text-lg px-8 py-4 shadow-lg flex items-center justify-center mb-6">
                     <User className="w-6 h-6 mr-2" />
-                    {t('navigation.dashboard') || 'Dashboard\'a Git'}
+                    {t('hero.navigation')}
                   </Button>
                 </Link>
                 <p className="text-sm text-neutral-500">
-                  {t('hero.welcomeBack', { ns: 'home', name: user?.fullName || user?.email }) || `Hoş geldiniz, ${user?.fullName || user?.email}!`}
+                  {t('hero.welcomeBack').replace('{name}', user?.fullName || user?.email || 'User')}
                 </p>
               </>
             ) : (
@@ -53,10 +63,10 @@ const HeroSection: React.FC = () => {
                   type="button"
                 >
                   <Download className="w-6 h-6 mr-2" />
-                  {t('buttons.downloadFree', { ns: 'common' })}
+                  {t('common:buttons.downloadFree')}
                 </button>
                 <p className="text-sm text-neutral-500">
-                  {t('hero.availableForPlatforms', { ns: 'home' })}
+                  {t('hero.availableForPlatforms')}
                 </p>
               </>
             )}

@@ -8,7 +8,7 @@ i18n
   .init({
     lng: 'en', // varsayılan dil
     fallbackLng: 'en',
-    ns: ['common', 'home', 'pricing', 'auth', 'dashboard'],
+    ns: ['common', 'home', 'pricing', 'auth', 'dashboard', 'profile'],
     defaultNS: 'common',
     debug: false, // Production için false
     interpolation: {

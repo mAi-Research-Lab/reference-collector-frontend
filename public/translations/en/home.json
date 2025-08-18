@@ -1,5 +1,6 @@
 {
   "hero": {
+    "navigation": "Go to Dashboard",
     "title": "Modern Reference",
     "titleHighlight": "Management",
     "description": "Powerful, intuitive reference management for researchers, students, and academics. Simplicity and efficiency, redefined.",

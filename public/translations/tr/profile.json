@@ -1,0 +1,50 @@
+{
+  "title": "Profil - RefCite",
+  "updateSuccess": "Profil başarıyla güncellendi",
+  "updateError": "Profil güncellenirken bir hata oluştu",
+  "emailVerified": "✓ Email Doğrulandı",
+  "emailNotVerified": "✗ Email Doğrulanmadı",
+  "sections": {
+    "personalInfo": {
+      "title": "Kişisel Bilgiler",
+      "fullName": "Ad Soyad",
+      "fullNamePlaceholder": "Ad soyadınızı girin",
+      "emailAddress": "E-posta Adresi",
+      "emailCannotChange": "E-posta değiştirilemez"
+    },
+    "academicInfo": {
+      "title": "Akademik Bilgiler",
+      "fieldOfStudy": "Çalışma Alanı",
+      "fieldOfStudyPlaceholder": "örn., Bilgisayar Bilimleri",
+      "orcidId": "ORCID ID",
+      "orcidIdPlaceholder": "0000-0000-0000-0000"
+    },
+    "preferences": {
+      "title": "Tercihler",
+      "language": "Dil",
+      "theme": "Tema",
+      "timezone": "Zaman Dilimi",
+      "emailNotifications": "E-posta Bildirimleri"
+    }
+  },
+  "options": {
+    "language": {
+      "english": "English",
+      "turkish": "Türkçe"
+    },
+    "theme": {
+      "light": "Açık",
+      "dark": "Koyu"
+    },
+    "timezones": {
+      "europeIstanbul": "Avrupa/İstanbul",
+      "europeLondon": "Avrupa/Londra",
+      "americaNewYork": "Amerika/New York",
+      "asiaTokyo": "Asya/Tokyo"
+    }
+  },
+  "buttons": {
+    "updateProfile": "Profili Güncelle",
+    "changePassword": "Şifre Değiştir"
+  }
+}

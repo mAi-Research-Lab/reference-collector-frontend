@@ -33,7 +33,7 @@ import { useAuth } from '@/components/providers/AuthProvider';
 import { USER_TYPES } from '@/types';
 
 export default function DashboardPage() {
-  const { t, i18n } = useTranslation('dashboard'); // Ana namespace olarak dashboard kullan
+  const { t, i18n, ready } = useTranslation('dashboard'); // Ana namespace olarak dashboard kullan
   const { user, isLoading, isAuthenticated, signOut } = useAuth();
   const router = useRouter();
 
@@ -49,7 +49,7 @@ export default function DashboardPage() {
     }
   }, [isLoading, isAuthenticated, user, router]);
 
-  if (isLoading) {
+  if (isLoading || !ready) {
     return (
       <div className="min-h-screen bg-neutral-50">
         <Header />
@@ -93,6 +93,26 @@ export default function DashboardPage() {
       default:
         return userType;
     }
+  };
+
+  // Get theme display name
+  const getThemeDisplay = (theme: string) => {
+    const themeKey = `userPreferences.theme_${theme?.toLowerCase()}`;
+    return t(themeKey, { defaultValue: theme });
+  };
+
+  // Get timezone display name
+  const getTimezoneDisplay = (timezone: string) => {
+    if (!timezone) return timezone;
+    
+    // Convert timezone strings to translation keys
+    const timezoneKey = timezone
+      .toLowerCase()
+      .replace(/\//g, '_')
+      .replace(/[-\s]/g, '_');
+    
+    const translationKey = `userPreferences.timezone_${timezoneKey}`;
+    return t(translationKey, { defaultValue: timezone });
   };
 
   // Get subscription status color
@@ -174,18 +194,6 @@ export default function DashboardPage() {
                       <p className="font-medium text-neutral-900">{getUserTypeDisplay(user.userType)}</p>
                     </div>
                   </div>
-
-                  {user.institutionId && (
-                    <div className="flex items-center gap-3">
-                      <div className="w-10 h-10 bg-orange-100 rounded-lg flex items-center justify-center">
-                        <Building className="w-5 h-5 text-orange-600" />
-                      </div>
-                      <div>
-                        <p className="text-sm text-neutral-500">{t('personalInfo.institution')}</p>
-                        <p className="font-medium text-neutral-900">{user.institutionId}</p>
-                      </div>
-                    </div>
-                  )}
 
                   {user.fieldOfStudy && (
                     <div className="flex items-center gap-3">
@@ -325,7 +333,7 @@ export default function DashboardPage() {
                     </div>
                     <div>
                       <p className="text-sm text-neutral-500">{t('userPreferences.theme')}</p>
-                      <p className="font-medium text-neutral-900 capitalize">{user.preferences.theme}</p>
+                      <p className="font-medium text-neutral-900">{getThemeDisplay(user.preferences.theme)}</p>
                     </div>
                   </div>
 
@@ -349,7 +357,7 @@ export default function DashboardPage() {
                     </div>
                     <div>
                       <p className="text-sm text-neutral-500">{t('userPreferences.timePeriod')}</p>
-                      <p className="font-medium text-neutral-900">{user.preferences.timezone}</p>
+                      <p className="font-medium text-neutral-900">{getTimezoneDisplay(user.preferences.timezone)}</p>
                     </div>
                   </div>
                 </div>

@@ -79,7 +79,6 @@ export interface SignInRequest {
 
 export interface UpdateUserRequest {
   fullName?: string;
-  institutionId?: string;
   fieldOfStudy?: string;
   orcidId?: string;
   subscriptionPlan?: string;

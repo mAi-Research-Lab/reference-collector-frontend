@@ -1,0 +1,50 @@
+{
+  "title": "Profile - RefCite",
+  "updateSuccess": "Profile updated successfully",
+  "updateError": "An error occurred while updating profile",
+  "emailVerified": "✓ Email Verified",
+  "emailNotVerified": "✗ Email Not Verified",
+  "sections": {
+    "personalInfo": {
+      "title": "Personal Information",
+      "fullName": "Full Name",
+      "fullNamePlaceholder": "Enter your full name",
+      "emailAddress": "Email Address",
+      "emailCannotChange": "Email cannot be changed"
+    },
+    "academicInfo": {
+      "title": "Academic Information",
+      "fieldOfStudy": "Field of Study",
+      "fieldOfStudyPlaceholder": "e.g., Computer Science",
+      "orcidId": "ORCID ID",
+      "orcidIdPlaceholder": "0000-0000-0000-0000"
+    },
+    "preferences": {
+      "title": "Preferences",
+      "language": "Language",
+      "theme": "Theme",
+      "timezone": "Timezone",
+      "emailNotifications": "Email Notifications"
+    }
+  },
+  "options": {
+    "language": {
+      "english": "English",
+      "turkish": "Türkçe"
+    },
+    "theme": {
+      "light": "Light",
+      "dark": "Dark"
+    },
+    "timezones": {
+      "europeIstanbul": "Europe/Istanbul",
+      "europeLondon": "Europe/London",
+      "americaNewYork": "America/New York",
+      "asiaTokyo": "Asia/Tokyo"
+    }
+  },
+  "buttons": {
+    "updateProfile": "Update Profile",
+    "changePassword": "Change Password"
+  }
+}
