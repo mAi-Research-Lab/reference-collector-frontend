@@ -12,7 +12,7 @@ import { authService } from '@/lib/services/auth';
 import { ApiError } from '@/types';
 
 export default function VerifyEmailPage() {
-  const { t } = useTranslation(['auth', 'common']);
+  const { t } = useTranslation('auth');
   const router = useRouter();
   const searchParams = useSearchParams();
   const token = searchParams.get('token');
@@ -22,7 +22,7 @@ export default function VerifyEmailPage() {
   const [isResending, setIsResending] = useState(false);
 
   useEffect(() => {
-    setDocumentTitle(t('verifyEmail.title', { ns: 'auth' }));
+    setDocumentTitle(t('verifyEmail.title'));
   }, [t]);
 
   useEffect(() => {
@@ -45,7 +45,7 @@ export default function VerifyEmailPage() {
       }, 2000);
     } catch (err: any) {
       const apiError = err as ApiError;
-      setError(apiError.message || t('verifyEmail.errors.verificationFailed', { ns: 'auth' }));
+      setError(apiError.message || t('verifyEmail.errors.verificationFailed'));
       setStatus('error');
     }
   };
@@ -58,10 +58,10 @@ export default function VerifyEmailPage() {
       await authService.resendVerificationEmail();
       setError('');
       // Show success message
-      alert(t('verifyEmail.resendSuccess', { ns: 'auth' }));
+      alert(t('verifyEmail.resendSuccess'));
     } catch (err: any) {
       const apiError = err as ApiError;
-      setError(apiError.message || t('verifyEmail.errors.resendFailed', { ns: 'auth' }));
+      setError(apiError.message || t('verifyEmail.errors.resendFailed'));
     } finally {
       setIsResending(false);
     }
@@ -74,18 +74,18 @@ export default function VerifyEmailPage() {
           <div className="text-center">
             <Mail className="w-16 h-16 text-primary-500 mx-auto mb-6" />
             <h1 className="text-3xl font-bold text-neutral-900 mb-4">
-              {t('verifyEmail.title', { ns: 'auth' })}
+              {t('verifyEmail.title')}
             </h1>
             <p className="text-lg text-neutral-600 mb-8">
-              {t('verifyEmail.description', { ns: 'auth' })}
+              {t('verifyEmail.description')}
             </p>
             <div className="space-y-4">
               <Button onClick={resendVerificationEmail} loading={isResending} variant="outline">
-                {t('verifyEmail.resendButton', { ns: 'auth' })}
+                {t('verifyEmail.resendButton')}
               </Button>
               <div>
                 <Button onClick={() => router.push('/auth/signin')} variant="ghost">
-                  {t('verifyEmail.backToSignIn', { ns: 'auth' })}
+                  {t('verifyEmail.backToSignIn')}
                 </Button>
               </div>
             </div>
@@ -97,10 +97,10 @@ export default function VerifyEmailPage() {
           <div className="text-center">
             <Loader2 className="w-16 h-16 text-primary-500 mx-auto mb-6 animate-spin" />
             <h1 className="text-3xl font-bold text-neutral-900 mb-4">
-              {t('verifyEmail.verifying', { ns: 'auth' })}
+              {t('verifyEmail.verifying')}
             </h1>
             <p className="text-lg text-neutral-600">
-              {t('verifyEmail.verifyingDescription', { ns: 'auth' })}
+              {t('verifyEmail.verifyingDescription')}
             </p>
           </div>
         );
@@ -110,14 +110,14 @@ export default function VerifyEmailPage() {
           <div className="text-center">
             <CheckCircle className="w-16 h-16 text-green-500 mx-auto mb-6" />
             <h1 className="text-3xl font-bold text-neutral-900 mb-4">
-              {t('verifyEmail.success', { ns: 'auth' })}
+              {t('verifyEmail.success')}
             </h1>
             <p className="text-lg text-neutral-600 mb-8">
-              {t('verifyEmail.successDescription', { ns: 'auth' })}
+              {t('verifyEmail.successDescription')}
             </p>
             <div className="space-y-4">
               <Button onClick={() => router.push('/dashboard')}>
-                {t('verifyEmail.goToDashboard', { ns: 'auth' })}
+                {t('verifyEmail.goToDashboard')}
               </Button>
             </div>
           </div>
@@ -128,18 +128,18 @@ export default function VerifyEmailPage() {
           <div className="text-center">
             <XCircle className="w-16 h-16 text-red-500 mx-auto mb-6" />
             <h1 className="text-3xl font-bold text-neutral-900 mb-4">
-              {t('verifyEmail.error', { ns: 'auth' })}
+              {t('verifyEmail.error')}
             </h1>
             <p className="text-lg text-neutral-600 mb-4">
-              {error || t('verifyEmail.errorDescription', { ns: 'auth' })}
+              {error || t('verifyEmail.errorDescription')}
             </p>
             <div className="space-y-4">
               <Button onClick={resendVerificationEmail} loading={isResending}>
-                {t('verifyEmail.resendButton', { ns: 'auth' })}
+                {t('verifyEmail.resendButton')}
               </Button>
               <div>
                 <Button onClick={() => router.push('/auth/signin')} variant="ghost">
-                  {t('verifyEmail.backToSignIn', { ns: 'auth' })}
+                  {t('verifyEmail.backToSignIn')}
                 </Button>
               </div>
             </div>
