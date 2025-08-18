@@ -26,7 +26,7 @@ const I18nProvider: React.FC<I18nProviderProps> = ({ children }) => {
     return () => {
       i18n.off('languageChanged', handleLanguageChange);
     };
-  }, []);
+  }, []); // Empty dependency array - this effect should only run once on mount
 
   return (
     <I18nextProvider i18n={i18n}>

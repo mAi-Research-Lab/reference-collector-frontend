@@ -53,7 +53,7 @@ class AuthService {
 
   // Get current user info
   async getCurrentUser(): Promise<User> {
-    const response = await apiClient.get<User>('/auth/me');
+    const response = await apiClient.get<User>('/user/current');
     return (response.data || response) as User;
   }
 

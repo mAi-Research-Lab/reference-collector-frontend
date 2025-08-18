@@ -277,12 +277,9 @@ export default function DashboardPage() {
                   )}
                   <p className="text-sm font-medium text-neutral-900">{t('dashboard.accountStatus.accountStatus', { ns: 'dashboard' })}</p>
                   <p className={`text-xs ${user.isActive ? 'text-green-600' : 'text-red-600'}`}>
-                    <p className={`text-xs ${user.isActive ? 'text-green-600' : 'text-red-600'}`}>
-                      {user.isActive
-                        ? t('dashboard.accountStatus.active', { ns: 'dashboard' })
-                        : t('dashboard.accountStatus.inactive', { ns: 'dashboard' })}
-                    </p>
-
+                    {user.isActive
+                      ? t('dashboard.accountStatus.active', { ns: 'dashboard' })
+                      : t('dashboard.accountStatus.inactive', { ns: 'dashboard' })}
                   </p>
                 </div>
 
@@ -312,12 +309,9 @@ export default function DashboardPage() {
                     <div>
                       <p className="text-sm text-neutral-500">{t('dashboard.userPreferences.language', { ns: 'dashboard' })}</p>
                       <p className="font-medium text-neutral-900">
-                        <p className="font-medium text-neutral-900">
-                          {user.preferences.language === 'tr'
-                            ? t('dashboard.userPreferences.language_tr', { ns: 'dashboard' })
-                            : t('dashboard.userPreferences.language_en', { ns: 'dashboard' })}
-                        </p>
-
+                        {user.preferences.language === 'tr'
+                          ? t('dashboard.userPreferences.language_tr', { ns: 'dashboard' })
+                          : t('dashboard.userPreferences.language_en', { ns: 'dashboard' })}
                       </p>
                     </div>
                   </div>
@@ -339,12 +333,9 @@ export default function DashboardPage() {
                     <div>
                       <p className="text-sm text-neutral-500">{t('dashboard.userPreferences.notifications', { ns: 'dashboard' })}</p>
                       <p className="font-medium text-neutral-900">
-                        <p className="font-medium text-neutral-900">
-                          {user.preferences.notifications
-                            ? t('dashboard.userPreferences.notifications_on', { ns: 'dashboard' })
-                            : t('dashboard.userPreferences.notifications_off', { ns: 'dashboard' })}
-                        </p>
-
+                        {user.preferences.notifications
+                          ? t('dashboard.userPreferences.notifications_on', { ns: 'dashboard' })
+                          : t('dashboard.userPreferences.notifications_off', { ns: 'dashboard' })}
                       </p>
                     </div>
                   </div>
