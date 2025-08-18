@@ -97,22 +97,47 @@ export default function DashboardPage() {
 
   // Get theme display name
   const getThemeDisplay = (theme: string) => {
-    const themeKey = `userPreferences.theme_${theme?.toLowerCase()}`;
-    return t(themeKey, { defaultValue: theme });
+    if (!theme) return theme;
+    
+    switch (theme.toLowerCase()) {
+      case 'light':
+        return t('userPreferences.theme_light');
+      case 'dark':
+        return t('userPreferences.theme_dark');
+      case 'system':
+        return t('userPreferences.theme_system');
+      case 'auto':
+        return t('userPreferences.theme_auto');
+      default:
+        return theme;
+    }
   };
 
   // Get timezone display name
   const getTimezoneDisplay = (timezone: string) => {
     if (!timezone) return timezone;
     
-    // Convert timezone strings to translation keys
-    const timezoneKey = timezone
-      .toLowerCase()
-      .replace(/\//g, '_')
-      .replace(/[-\s]/g, '_');
-    
-    const translationKey = `userPreferences.timezone_${timezoneKey}`;
-    return t(translationKey, { defaultValue: timezone });
+    // Common timezone mappings
+    switch (timezone.toLowerCase()) {
+      case 'utc':
+        return t('userPreferences.timezone_utc');
+      case 'europe/istanbul':
+        return t('userPreferences.timezone_europe_istanbul');
+      case 'europe/london':
+        return t('userPreferences.timezone_europe_london');
+      case 'america/new_york':
+        return t('userPreferences.timezone_america_new_york');
+      case 'america/los_angeles':
+        return t('userPreferences.timezone_america_los_angeles');
+      case 'asia/tokyo':
+        return t('userPreferences.timezone_asia_tokyo');
+      case 'asia/shanghai':
+        return t('userPreferences.timezone_asia_shanghai');
+      case 'australia/sydney':
+        return t('userPreferences.timezone_australia_sydney');
+      default:
+        return timezone;
+    }
   };
 
   // Get subscription status color
