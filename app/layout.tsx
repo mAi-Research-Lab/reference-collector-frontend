@@ -5,27 +5,27 @@ import { AuthProvider } from '@/components/providers/AuthProvider'
 
 export const metadata: Metadata = {
   title: {
-    template: '%s | RefCite',
-    default: 'RefCite - Modern Reference Management'
+    template: '%s | Citext',
+    default: 'Citext - Modern Reference Management'
   },
-  description: 'RefCite is a modern, powerful reference management application inspired by Zotero. Organize, cite, and collaborate on your research with ease.',
+  description: 'Citext is a modern, powerful reference management application. Organize, cite, and collaborate on your research with ease.',
   keywords: ['reference management', 'citations', 'research', 'bibliography', 'academic'],
-  authors: [{ name: 'RefCite Team' }],
-  creator: 'RefCite',
-  metadataBase: new URL('https://refcite.com'),
+  authors: [{ name: 'Citext Team' }],
+  creator: 'Citext',
+  metadataBase: new URL('https://citext.com'),
   openGraph: {
     type: 'website',
     locale: 'en_US',
-    url: 'https://refcite.com',
-    title: 'RefCite - Modern Reference Management',
-    description: 'RefCite is a modern, powerful reference management application inspired by Zotero.',
-    siteName: 'RefCite',
+    url: 'https://citext.com',
+    title: 'Citext - Modern Reference Management',
+    description: 'Citext is a modern, powerful reference management application.',
+    siteName: 'Citext',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'RefCite - Modern Reference Management',
-    description: 'RefCite is a modern, powerful reference management application inspired by Zotero.',
-    creator: '@refcite',
+    title: 'Citext - Modern Reference Management',
+    description: 'Citext is a modern, powerful reference management application.',
+    creator: '@citext',
   },
   robots: {
     index: true,

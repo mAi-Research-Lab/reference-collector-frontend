@@ -220,7 +220,7 @@ export default function SignInPage() {
                   {t('signin.noAccount', { ns: 'auth' })}
                 </h4>
                 <p className="text-sm text-neutral-600 mb-4">
-                  RefCite'a katılın ve referanslarınızı organize etmeye başlayın
+                    Citext'a katılın ve referanslarınızı organize etmeye başlayın
                 </p>
                 <Link href="/auth/signup">
                   <Button variant="primary" className="w-full">

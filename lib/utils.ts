@@ -7,7 +7,7 @@ export function cn(...inputs: ClassValue[]) {
 }
 
 // Page title yönetimi için utility fonksiyonlar
-export function setDocumentTitle(title: string, brandName: string = 'RefCite') {
+export function setDocumentTitle(title: string, brandName: string = 'Citext') {
   if (typeof document !== 'undefined') {
     document.title = `${brandName} | ${title}`;
   }
@@ -23,7 +23,7 @@ export function getPageTitle(key: string, t: any): string {
     forgotPassword: t('forgotPassword.title')
   };
 
-  return titles[key] || 'RefCite';
+  return titles[key] || 'Citext';
 }
 
 // Format currency

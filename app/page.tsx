@@ -21,6 +21,10 @@ import ScrollToTop from '@/components/ui/ScrollToTop';
 import ScrollReveal from '@/components/ui/ScrollReveal';
 import HeroSection from '@/components/layout/HeroSection';
 import { setDocumentTitle } from '@/lib/utils';
+import ReferenceCaptureAnimation from "@/components/animations/reference-capture-animation";
+import ReferenceOrganizationAnimation from "@/components/animations/reference-organization-animation";
+import ReferenceCiteAnimation from "@/components/animations/reference-word-animation";
+import ReferenceAnnotationAnimation from "@/components/animations/reference-annotation-animation";
 
 export default function HomePage() {
   const { t, i18n } = useTranslation(['home', 'common']);
@@ -91,9 +95,8 @@ export default function HomePage() {
 
   const downloadOptions = [
     { 
-      platform: 'Windows', 
-      size: '125 MB', 
-      version: 'v2.1.0',
+      platform: 'Windows',
+      version: 'v1.0',
       requirements: 'Windows 10 or later',
       features: [
         t('download.features.desktopApp', { ns: 'home' }),
@@ -102,9 +105,8 @@ export default function HomePage() {
       ]
     },
     { 
-      platform: 'macOS', 
-      size: '98 MB', 
-      version: 'v2.1.0',
+      platform: 'macOS',
+      version: 'v1.0',
       requirements: 'macOS 10.14 or later',
       features: [
         t('download.features.nativeDesign', { ns: 'home' }),
@@ -113,9 +115,8 @@ export default function HomePage() {
       ]
     },
     { 
-      platform: 'Linux', 
-      size: '112 MB', 
-      version: 'v2.1.0',
+      platform: 'Linux',
+      version: 'v1.0',
       requirements: 'Ubuntu 18.04+ or equivalent',
       features: [
         t('download.features.appImageFormat', { ns: 'home' }),
@@ -165,113 +166,100 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Why Choose RefCite Section */}
-      <section className="py-20 bg-neutral-50">
-        <div className="container">
-          <ScrollReveal>
-            <div className="text-center mb-16">
-              <h2 className="text-3xl md:text-4xl font-bold text-neutral-900 mb-4">
-                {t('whyChoose.title', { ns: 'home' })}
-              </h2>
-              <p className="text-lg text-neutral-600 max-w-2xl mx-auto">
-                {t('whyChoose.description', { ns: 'home' })}
-              </p>
+        {/* How to Use Citext Section */}
+        <section id="how-to-use" className="py-20 bg-white">
+            <div className="container max-w-6xl mx-auto">
+                {/* Main Title */}
+                <div className="text-center mb-16">
+                    <h2 className="text-3xl md:text-4xl font-bold text-neutral-900 mb-4">
+                        {t('howToUse.title', { ns: 'home' })}
+                    </h2>
+                    <p className="text-lg text-neutral-600 max-w-2xl mx-auto">
+                        {t('howToUse.description', { ns: 'home' })}
+                    </p>
+                </div>
+
+                {/* Collect Section */}
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-24">
+                    {/* Left: Text */}
+                    <div className="text-left">
+                        <h3 className="text-2xl md:text-3xl font-semibold text-neutral-900 mb-4">
+                            {t('howToUse.collect.title', { ns: 'home' })}
+                        </h3>
+                        <p className="text-lg text-neutral-600 leading-relaxed">
+                            {t('howToUse.collect.description', { ns: 'home' })}
+                        </p>
+                    </div>
+
+                    {/* Right: Animation */}
+                    <div className="flex justify-center">
+                        <ReferenceCaptureAnimation />
+                    </div>
+                </div>
+
+                {/* Organize Section */}
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-24">
+                    {/* Left: Animation */}
+                    <div className="flex justify-center">
+                        <ReferenceOrganizationAnimation />
+                    </div>
+
+                    {/* Right: Text */}
+                    <div className="text-left">
+                        <h3 className="text-2xl md:text-3xl font-semibold text-neutral-900 mb-4">
+                            {t('howToUse.organize.title', { ns: 'home' })}
+                        </h3>
+                        <p className="text-lg text-neutral-600 leading-relaxed">
+                            {t('howToUse.organize.description', { ns: 'home' })}
+                        </p>
+                    </div>
+                </div>
+
+                {/* Cite Section */}
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-24">
+                    {/* Left: Text */}
+                    <div className="text-left">
+                        <h3 className="text-2xl md:text-3xl font-semibold text-neutral-900 mb-4">
+                            {t('howToUse.cite.title', { ns: 'home' })}
+                        </h3>
+                        <p
+                            className="text-lg text-neutral-600 leading-relaxed"
+                            dangerouslySetInnerHTML={{
+                                __html: t('howToUse.cite.description', { ns: 'home' }),
+                            }}
+                        />
+                    </div>
+
+                    {/* Right: Animation */}
+                    <div className="flex justify-center">
+                        <ReferenceCiteAnimation />
+                    </div>
+                </div>
+
+                {/* Annotation & Smart Organization Section */}
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                    {/* Left: Animation */}
+                    <div className="flex justify-center">
+                        <ReferenceAnnotationAnimation />
+                    </div>
+
+                    {/* Right: Text */}
+                    <div className="text-left lg:pl-8">
+                        <h3 className="text-2xl md:text-3xl font-semibold text-neutral-900 mb-4">
+                            {t('howToUse.annotation.title', { ns: 'home' })}
+                        </h3>
+                        <p
+                            className="text-lg text-neutral-600 leading-relaxed"
+                            dangerouslySetInnerHTML={{
+                                __html: t('howToUse.annotation.description', { ns: 'home' }),
+                            }}
+                        />
+                    </div>
+                </div>
             </div>
-          </ScrollReveal>
+        </section>
 
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <ScrollReveal direction="left">
-              <div className="space-y-8">
-                <div className="flex gap-4">
-                  <div className="w-12 h-12 bg-primary-500 rounded-lg flex items-center justify-center flex-shrink-0">
-                    <CheckCircle className="w-6 h-6 text-white" />
-                  </div>
-                  <div>
-                    <h3 className="text-2xl font-semibold text-neutral-900 mb-2">
-                      {t('whyChoose.items.noVendorLockIn.title', { ns: 'home' })}
-                    </h3>
-                    <p className="text-neutral-600">
-                      {t('whyChoose.items.noVendorLockIn.description', { ns: 'home' })}
-                    </p>
-                  </div>
-                </div>
-                
-                <div className="flex gap-4">
-                  <div className="w-12 h-12 bg-primary-500 rounded-lg flex items-center justify-center flex-shrink-0">
-                    <Zap className="w-6 h-6 text-white" />
-                  </div>
-                  <div>
-                    <h3 className="text-2xl font-semibold text-neutral-900 mb-2">
-                      {t('whyChoose.items.lightningFast.title', { ns: 'home' })}
-                    </h3>
-                    <p className="text-neutral-600">
-                      {t('whyChoose.items.lightningFast.description', { ns: 'home' })}
-                    </p>
-                  </div>
-                </div>
-                
-                <div className="flex gap-4">
-                  <div className="w-12 h-12 bg-primary-500 rounded-lg flex items-center justify-center flex-shrink-0">
-                    <Users className="w-6 h-6 text-white" />
-                  </div>
-                  <div>
-                    <h3 className="text-2xl font-semibold text-neutral-900 mb-2">
-                      {t('whyChoose.items.academicFirst.title', { ns: 'home' })}
-                    </h3>
-                    <p className="text-neutral-600">
-                      {t('whyChoose.items.academicFirst.description', { ns: 'home' })}
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </ScrollReveal>
-
-            <ScrollReveal direction="right">
-              <div className="bg-white rounded-2xl p-8 shadow-medium">
-                <h3 className="text-2xl font-bold text-neutral-900 mb-6">
-                  {t('whyChoose.trustedInstitutions.title', { ns: 'home' })}
-                </h3>
-                <div className="space-y-4">
-                  <div className="flex items-center gap-3">
-                    <div className="w-10 h-10 bg-primary-100 rounded-lg flex items-center justify-center">
-                      <span className="text-primary-700 font-bold text-sm">MIT</span>
-                    </div>
-                    <span className="text-neutral-700">Massachusetts Institute of Technology</span>
-                  </div>
-                  <div className="flex items-center gap-3">
-                    <div className="w-10 h-10 bg-primary-100 rounded-lg flex items-center justify-center">
-                      <span className="text-primary-700 font-bold text-sm">STF</span>
-                    </div>
-                    <span className="text-neutral-700">Stanford University</span>
-                  </div>
-                  <div className="flex items-center gap-3">
-                    <div className="w-10 h-10 bg-primary-100 rounded-lg flex items-center justify-center">
-                      <span className="text-primary-700 font-bold text-sm">OXF</span>
-                    </div>
-                    <span className="text-neutral-700">University of Oxford</span>
-                  </div>
-                  <div className="flex items-center gap-3">
-                    <div className="w-10 h-10 bg-primary-100 rounded-lg flex items-center justify-center">
-                      <span className="text-primary-700 font-bold text-sm">CAM</span>
-                    </div>
-                    <span className="text-neutral-700">University of Cambridge</span>
-                  </div>
-                </div>
-                <div className="mt-6 p-4 bg-neutral-50 rounded-lg">
-                  <p className="text-sm text-neutral-600 italic">
-                    "{t('whyChoose.trustedInstitutions.quote', { ns: 'home' })}"
-                  </p>
-                  <p className="text-sm font-medium text-neutral-900 mt-2">
-                    — {t('whyChoose.trustedInstitutions.author', { ns: 'home' })}
-                  </p>
-                </div>
-              </div>
-            </ScrollReveal>
-          </div>
-        </div>
-      </section>
-
-      {/* Download Section */}
+        {/* Download Section */}
       <section id="download" className="py-20 bg-neutral-50">
         <div className="container">
           <div className="max-w-4xl mx-auto text-center">
@@ -292,7 +280,6 @@ export default function HomePage() {
                       {option.platform}
                     </h3>
                     <p className="text-neutral-600 mb-1">{t('download.version', { ns: 'home' })} {option.version}</p>
-                    <p className="text-sm text-neutral-500 mb-4">{option.size}</p>
                     <p className="text-xs text-neutral-400 mb-4">{option.requirements}</p>
                     
                     <div className="mb-6">
@@ -306,11 +293,10 @@ export default function HomePage() {
                         ))}
                       </div>
                     </div>
-                    
-                    <Button className="w-full">
-                      <Download className="w-4 h-4 mr-2" />
-                      {t('download.downloadFor', { ns: 'home' })} {option.platform}
-                    </Button>
+
+                      <Button className="w-full" disabled>
+                          🚧 {t('download.comingSoon', { ns: 'home' })}
+                      </Button>
                   </div>
                 </ScrollReveal>
               ))}
@@ -325,73 +311,41 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Testimonials Section */}
-      <section id="about" className="py-20 bg-white">
-        <div className="container">
-          <ScrollReveal>
-            <div className="text-center mb-16">
-              <h2 className="text-3xl md:text-4xl font-bold text-neutral-900 mb-4">
-                {t('testimonials.title', { ns: 'home' })}
-              </h2>
-              <p className="text-lg text-neutral-600">
-                {t('testimonials.description', { ns: 'home' })}
-              </p>
+        {/* Support Section (Link Only) */}
+        <section id="support" className="py-20 bg-white text-center">
+            <div className="container mx-auto px-4">
+                <h2 className="text-3xl md:text-4xl font-bold text-neutral-900 mb-6">
+                    {t('support.title', { ns: 'home' })}
+                </h2>
+                <p className="text-lg text-neutral-600 mb-8 max-w-2xl mx-auto">
+                    {t('support.description', { ns: 'home' })}
+                </p>
+
+                <Link
+                    href="/contact"
+                    className="inline-block bg-primary-600 hover:bg-primary-700 text-white font-medium py-3 px-8 rounded-lg transition"
+                >
+                    {t('support.support')}
+                </Link>
             </div>
-          </ScrollReveal>
+        </section>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {testimonials.map((testimonial, index) => (
-              <ScrollReveal key={index} delay={index * 150} direction="up">
-                <div className="card hover:shadow-medium transition-all duration-300">
-                  <div className="flex items-center justify-between mb-4">
-                    <div className="flex items-center">
-                      {[...Array(testimonial.rating)].map((_, i) => (
-                        <Star key={i} className="w-4 h-4 text-yellow-400 fill-current" />
-                      ))}
-                    </div>
-                    <div className="text-xs bg-accent-100 text-accent-700 px-2 py-1 rounded">
-                      {testimonial.researchField}
-                    </div>
-                  </div>
-                  
-                  <Quote className="w-8 h-8 text-primary-200 mb-4" />
-                  
-                  <p className="text-neutral-700 mb-6 italic leading-relaxed">
-                    "{testimonial.quote}"
-                  </p>
-                  
-                  <div className="border-t border-neutral-200 pt-4">
-                    <div className="font-semibold text-neutral-900">
-                      {testimonial.name}
-                    </div>
-                    <div className="text-sm text-neutral-600">
-                      {testimonial.role}
-                    </div>
-                    <div className="text-sm text-neutral-500 mt-1">
-                      {testimonial.institution}
-                    </div>
-                  </div>
-                </div>
-              </ScrollReveal>
-            ))}
-          </div>
-        </div>
-      </section>
+        {/* CTA Section */}
+        <section id="contact" className="relative py-20 bg-gradient-to-br from-primary-600 via-primary-500 to-primary-700 overflow-hidden">
+            <div className="absolute inset-0 pointer-events-none select-none" aria-hidden="true">
+                {/* Dekoratif blur efektli daireler */}
+                <div className="absolute left-[-15vw] top-[-15vw] w-[50vw] h-[50vw] bg-primary-400 opacity-20 rounded-full blur-3xl" />
+                <div className="absolute right-[-15vw] bottom-[-15vw] w-[50vw] h-[50vw] bg-primary-300 opacity-15 rounded-full blur-2xl" />
+                <div className="absolute left-[10%] bottom-[10%] w-[30vw] h-[30vw] bg-white opacity-5 rounded-full blur-xl" />
 
-      {/* CTA Section */}
-      <section id="contact" className="relative py-20 bg-gradient-to-br from-primary-600 via-primary-500 to-primary-700 overflow-hidden">
-        <div className="absolute inset-0 pointer-events-none select-none" aria-hidden="true">
-          {/* Dekoratif blur efektli daireler */}
-          <div className="absolute left-[-15vw] top-[-15vw] w-[50vw] h-[50vw] bg-primary-400 opacity-20 rounded-full blur-3xl" />
-          <div className="absolute right-[-15vw] bottom-[-15vw] w-[50vw] h-[50vw] bg-primary-300 opacity-15 rounded-full blur-2xl" />
-          <div className="absolute left-[10%] bottom-[10%] w-[30vw] h-[30vw] bg-white opacity-5 rounded-full blur-xl" />
-        </div>
-        <div className="container relative z-10">
-          <ScrollReveal>
-            <div className="max-w-2xl mx-auto text-center text-white">
-              <h2 className="text-3xl md:text-4xl font-bold mb-4 text-white drop-shadow-sm">
-                {t('cta.title', { ns: 'home' })}
-              </h2>
+            </div>
+
+            <div className="container relative z-10">
+                <ScrollReveal>
+                    <div className="max-w-2xl mx-auto text-center text-white">
+                        <h2 className="text-3xl md:text-4xl font-bold mb-4 text-white drop-shadow-sm">
+                            {t('cta.title', { ns: 'home' })}
+                        </h2>
               <p className="text-lg text-primary-100 mb-8 drop-shadow-sm">
                 {t('cta.description', { ns: 'home' })}
               </p>

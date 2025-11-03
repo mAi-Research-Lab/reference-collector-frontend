@@ -1,7 +1,7 @@
 {
   "hero": {
     "navigation": "Go to Dashboard",
-    "title": "Modern Reference",
+    "title": "Modern AI Powered Reference",
     "titleHighlight": "Management",
     "description": "Powerful, intuitive reference management for researchers, students, and academics. Simplicity and efficiency, redefined.",
     "welcomeBack": "Welcome back, {name}!",
@@ -32,30 +32,30 @@
     }
   },
   "features": {
-    "title": "Everything you need to manage references",
-    "description": "RefCite combines the power of traditional reference managers with modern, intuitive design and seamless collaboration features.",
+    "title": "AI-Powered Reference Management",
+    "description": "Citext is an intelligent, AI-assisted literature management and analysis tool designed for academics and graduate students. It helps researchers organize sources efficiently, generate citations, and analyze literature with cutting-edge automation.",
     "items": {
       "smartOrganization": {
-        "title": "Smart Organization",
-        "description": "Automatically organize your references with intelligent tagging, categorization, and machine learning-powered metadata extraction. Never lose track of important papers again."
+        "title": "Annotation & Smart Organization",
+        "description": "Highlight and annotate any section within your imported PDF documents using the Annotation module. Organize your resources efficiently with AI-driven tagging and categorization."
       },
       "powerfulSearch": {
-        "title": "Powerful Search",
-        "description": "Find any reference instantly with advanced search, full-text indexing, and smart filters. Search by author, title, keywords, or even content within PDFs."
+        "title": "CrossCheck & Smart Search",
+        "description": "Use CrossCheck to detect cross-references between texts and Search&Cite to find related or similar studies instantly. Explore literature faster and with higher accuracy."
       },
       "teamCollaboration": {
-        "title": "Team Collaboration",
-        "description": "Share libraries, create group collections, and collaborate with colleagues in real-time. Perfect for research teams, departments, and academic institutions."
+        "title": "AI Integration & Collaboration",
+        "description": "With the Airisto module, you can perform instant AI-based text analysis and verification, enabling efficient collaboration and intelligent feedback within your research team."
       },
       "quickCitation": {
-        "title": "Quick Citation",
-        "description": "Generate perfectly formatted citations in over 500 styles including APA, MLA, Chicago, and journal-specific formats. One-click bibliography creation."
+        "title": "AutoCite & Translation",
+        "description": "Generate direct (quote) or indirect (paraphrase) citations effortlessly using AutoCite. Instantly translate selected material or entire sections into your desired language with the Translate module."
       }
     }
   },
   "whyChoose": {
-    "title": "Why Choose RefCite?",
-    "description": "Built by researchers, for researchers. RefCite addresses the real challenges faced by the academic community with innovative solutions.",
+    "title": "Why Choose Citext?",
+    "description": "Built by researchers, for researchers. Citext addresses the real challenges faced by the academic community with innovative solutions.",
     "items": {
       "noVendorLockIn": {
         "title": "No Vendor Lock-in",
@@ -67,18 +67,18 @@
       },
       "academicFirst": {
         "title": "Academic-First Design",
-        "description": "Every feature is designed with academic workflows in mind. From dissertation writing to systematic reviews, RefCite adapts to your research methodology."
+        "description": "Every feature is designed with academic workflows in mind. From dissertation writing to systematic reviews, Citext adapts to your research methodology."
       }
     },
     "trustedInstitutions": {
       "title": "Trusted by Leading Institutions",
-      "quote": "RefCite has transformed how our research department manages citations. The collaboration features are exactly what we needed.",
+      "quote": "Citext has transformed how our research department manages citations. The collaboration features are exactly what we needed.",
       "author": "Dr. Sarah Williams, Research Director"
     }
   },
   "download": {
     "title": "Available on all platforms",
-    "description": "Download RefCite for your preferred operating system and start managing your references today.",
+    "description": "Download Citext for your preferred operating system and start managing your references today.",
     "platforms": {
       "windows": "Windows",
       "macos": "macOS",
@@ -98,35 +98,36 @@
     },
     "requirements": "System requirements: Windows 10+, macOS 10.14+, or Ubuntu 18.04+",
     "version": "Version",
-    "downloadFor": "Download for"
+    "downloadFor": "Download for",
+    "comingSoon": "Coming Soon"
   },
   "testimonials": {
     "title": "Trusted by researchers worldwide",
-    "description": "See what our users have to say about RefCite",
+    "description": "See what our users have to say about Citext",
     "items": {
       "drSarahJohnson": {
-        "quote": "RefCite has completely transformed how I manage my research. The AI-powered organization and seamless collaboration features have saved me countless hours. The interface is intuitive and the citation accuracy is unmatched.",
+        "quote": "Citext has completely transformed how I manage my research. The AI-powered organization and seamless collaboration features have saved me countless hours. The interface is intuitive and the citation accuracy is unmatched.",
         "name": "Dr. Sarah Johnson",
         "role": "Research Scientist",
         "institution": "MIT",
         "field": "Computational Biology"
       },
       "profMichaelChen": {
-        "quote": "Our entire research team has adopted RefCite, and it's been game-changing. The real-time collaboration and advanced search capabilities make literature reviews so much more efficient. Best investment we've made.",
+        "quote": "Our entire research team has adopted Citext, and it's been game-changing. The real-time collaboration and advanced search capabilities make literature reviews so much more efficient. Best investment we've made.",
         "name": "Prof. Michael Chen",
         "role": "University Professor",
         "institution": "Stanford University",
         "field": "Machine Learning"
       },
       "emmaRodriguez": {
-        "quote": "As a PhD student, I need tools that work seamlessly across devices and don't slow me down. RefCite delivers on both fronts. The offline sync is perfect for fieldwork, and the citation styles are comprehensive.",
+        "quote": "As a PhD student, I need tools that work seamlessly across devices and don't slow me down. Citext delivers on both fronts. The offline sync is perfect for fieldwork, and the citation styles are comprehensive.",
         "name": "Emma Rodriguez",
         "role": "PhD Student",
         "institution": "University of Oxford",
         "field": "Environmental Science"
       },
       "drJamesThompson": {
-        "quote": "We've implemented RefCite across our entire library system. The institutional features and admin controls are excellent. Students love the user experience, and faculty appreciate the advanced features.",
+        "quote": "We've implemented Citext across our entire library system. The institutional features and admin controls are excellent. Students love the user experience, and faculty appreciate the advanced features.",
         "name": "Dr. James Thompson",
         "role": "Librarian & Research Coordinator",
         "institution": "University of Cambridge",
@@ -134,8 +135,34 @@
       }
     }
   },
+  "howToUse": {
+    "title": "How to Use Citext",
+    "description": "Learn how Citext helps you collect, organize, cite, and annotate your research effortlessly — powered by intelligent automation.",
+
+    "collect": {
+      "title": "Collect with a Click",
+      "description": "Citext automatically detects academic content while you browse and helps you capture it instantly. Whether it’s a journal article, conference paper, dataset, or preprint — Citext saves it with one click and keeps your references organized seamlessly."
+    },
+    "organize": {
+      "title": "Organize Your Way",
+      "description": "Once captured, your references are automatically categorized and neatly organized. Citext uses intelligent structure to help you find, tag, and group your sources effortlessly — so you can focus on your research, not your folders."
+    },
+    "cite": {
+      "title": "Cite in Word",
+      "description": "With Citext, you can insert your collected references directly into your Word documents using the integrated toolbar. Simply click Add Citation, and Citext automatically formats and inserts the reference in your preferred citation style."
+    },
+    "annotation": {
+      "title": "Annotation & Smart Organization",
+      "description": "Highlight and annotate any section within your imported PDF documents using the Annotation module. Organize your resources efficiently with AI-driven tagging and categorization."
+    }
+  },
+  "support": {
+    "title": "Support",
+    "description": "The Citext support team is here to help you as quickly as possible. Visit our support page for more information.",
+    "support": "Navigate"
+  },
   "cta": {
     "title": "Ready to get started?",
-    "description": "Join thousands of researchers who trust RefCite to manage their references."
+    "description": "Join thousands of researchers who trust Citext to manage their references."
   }
 } 

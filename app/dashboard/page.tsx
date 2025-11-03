@@ -38,7 +38,7 @@ export default function DashboardPage() {
   const router = useRouter();
 
   useEffect(() => {
-    const title = t('title', { defaultValue: 'Dashboard - RefCite' });
+    const title = t('title', { defaultValue: 'Dashboard - Citext' });
     setDocumentTitle(title);
   }, [t, i18n.language]);
 

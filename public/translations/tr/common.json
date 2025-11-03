@@ -1,5 +1,5 @@
 {
-  "brand": "RefCite",
+  "brand": "Citext",
   "navigation": {
     "home": "Ana Sayfa",
     "features": "Özellikler",
@@ -31,7 +31,7 @@
     "sendMessage": "Mesaj Gönder"
   },
   "footer": {
-    "description": "RefCite, araştırmacılar, öğrenciler ve akademisyenler için tasarlanmış modern bir referans yönetim uygulamasıdır.",
+    "description": "Citext, araştırmacılar, öğrenciler ve akademisyenler için tasarlanmış modern bir referans yönetim uygulamasıdır.",
     "product": "Ürün",
     "company": "Şirket",
     "support": "Destek",
@@ -39,7 +39,7 @@
     "privacyPolicy": "Gizlilik Politikası",
     "termsOfService": "Kullanım Şartları",
     "cookiePolicy": "Çerez Politikası",
-    "copyright": "© 2024 RefCite. Tüm hakları saklıdır.",
+    "copyright": "© 2025 Citext. Tüm hakları saklıdır.",
     "features": "Özellikler",
     "download": "İndir",
     "pricing": "Fiyatlandırma",
@@ -81,11 +81,11 @@
     "info": {
       "title": "Bize ulaşmanın diğer yolları",
       "email": "Doğrudan e-posta gönderin",
-      "emailAddress": "hello@refcite.com",
+      "emailAddress": "hello@citext.com",
       "support": "Yardıma mı ihtiyacınız var?",
-      "supportAddress": "support@refcite.com",
+      "supportAddress": "support@citext.com",
       "sales": "Satış sorguları",
-      "salesAddress": "sales@refcite.com"
+      "salesAddress": "sales@citext.com"
     },
     "success": {
       "title": "Mesaj gönderildi!",

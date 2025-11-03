@@ -1,7 +1,7 @@
 {
   "hero": {
     "title": "Choose Your",
-    "titleHighlight": "RefCite",
+    "titleHighlight": "Citext",
     "titleEnd": "Plan",
     "description": "Start free and upgrade as your research grows. All plans include our core reference management features.",
     "moneyBackGuarantee": "30-day money-back guarantee"
@@ -79,7 +79,7 @@
   },
   "cta": {
     "title": "Ready to transform your research?",
-    "description": "Join thousands of researchers who trust RefCite to organize their references.",
+    "description": "Join thousands of researchers who trust Citext to organize their references.",
     "startFreeTrial": "Start Your Free Trial"
   }
 } 

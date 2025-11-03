@@ -354,7 +354,7 @@ export default function SignUpPage() {
 
           {/* Sağ kart - Diğer seçenekler */}
           <div className="bg-white p-6 rounded-2xl shadow-lg border border-neutral-100 flex flex-col backdrop-blur-sm bg-white/95">
-            {/* RefCite'ın avantajları */}
+            {/* Citext'in avantajları */}
             <div className="mb-6">
               <div className="text-center mb-6">
                 <div className="w-12 h-12 bg-gradient-to-r from-green-400 to-blue-500 rounded-full mx-auto mb-3 flex items-center justify-center">

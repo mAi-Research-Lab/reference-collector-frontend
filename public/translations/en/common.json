@@ -1,5 +1,5 @@
 {
-  "brand": "RefCite",
+  "brand": "Citext",
   "navigation": {
     "home": "Home",
     "features": "Features",
@@ -31,7 +31,7 @@
     "sendMessage": "Send Message"
   },
   "footer": {
-    "description": "RefCite is a modern reference management application designed for researchers, students, and academics.",
+    "description": "Citext is a modern reference management application designed for researchers, students, and academics.",
     "product": "Product",
     "company": "Company",
     "support": "Support",
@@ -39,7 +39,7 @@
     "privacyPolicy": "Privacy Policy",
     "termsOfService": "Terms of Service",
     "cookiePolicy": "Cookie Policy",
-    "copyright": "© 2024 RefCite. All rights reserved.",
+    "copyright": "© 2025 Citext. All rights reserved.",
     "features": "Features",
     "download": "Download",
     "pricing": "Pricing",
@@ -81,11 +81,11 @@
     "info": {
       "title": "Other ways to reach us",
       "email": "Email us directly",
-      "emailAddress": "hello@refcite.com",
+      "emailAddress": "hello@citext.com",
       "support": "Need help?",
-      "supportAddress": "support@refcite.com",
+      "supportAddress": "support@citext.com",
       "sales": "Sales inquiries",
-      "salesAddress": "sales@refcite.com"
+      "salesAddress": "sales@citext.com"
     },
     "success": {
       "title": "Message sent!",

@@ -34,7 +34,7 @@ export default function ProfilePage() {
   });
 
   useEffect(() => {
-    setDocumentTitle(t('title', { defaultValue: 'Profile - RefCite' }));
+    setDocumentTitle(t('title', { defaultValue: 'Profile - Citext' }));
   }, [t, i18n.language]);
 
   useEffect(() => {

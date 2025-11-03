@@ -1,7 +1,7 @@
 {
   "hero": {
     "title": "",
-    "titleHighlight": "RefCite",
+    "titleHighlight": "Citext",
     "titleEnd": "Planınızı Seçin",
     "description": "Ücretsiz başlayın ve araştırmanız büyüdükçe yükseltin. Tüm planlar temel referans yönetimi özelliklerimizi içerir.",
     "moneyBackGuarantee": "30 günlük para iade garantisi"
@@ -79,7 +79,7 @@
   },
   "cta": {
     "title": "Araştırmanızı dönüştürmeye hazır mısınız?",
-    "description": "Referanslarını düzenlemek için RefCite'a güvenen binlerce araştırmacıya katılın.",
+    "description": "Referanslarını düzenlemek için Citext'e güvenen binlerce araştırmacıya katılın.",
     "startFreeTrial": "Ücretsiz Denemenizi Başlatın"
   }
 } 
