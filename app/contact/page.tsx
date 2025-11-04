@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
-import { Mail, Phone, MapPin, Send, CheckCircle, ArrowLeft } from 'lucide-react';
+import { Mail, Send, CheckCircle, ArrowLeft } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
@@ -203,40 +203,6 @@ export default function ContactPage() {
                         className="text-primary-500 hover:text-primary-600"
                       >
                         {t('contact.info.emailAddress')}
-                      </a>
-                    </div>
-                  </div>
-
-                  <div className="flex items-start gap-4">
-                    <div className="w-12 h-12 bg-primary-100 rounded-lg flex items-center justify-center flex-shrink-0">
-                      <Mail className="w-6 h-6 text-primary-500" />
-                    </div>
-                    <div>
-                      <h4 className="font-medium text-neutral-900 mb-1">
-                        {t('contact.info.support')}
-                      </h4>
-                      <a 
-                        href={`mailto:${t('contact.info.supportAddress')}`}
-                        className="text-primary-500 hover:text-primary-600"
-                      >
-                        {t('contact.info.supportAddress')}
-                      </a>
-                    </div>
-                  </div>
-
-                  <div className="flex items-start gap-4">
-                    <div className="w-12 h-12 bg-primary-100 rounded-lg flex items-center justify-center flex-shrink-0">
-                      <Mail className="w-6 h-6 text-primary-500" />
-                    </div>
-                    <div>
-                      <h4 className="font-medium text-neutral-900 mb-1">
-                        {t('contact.info.sales')}
-                      </h4>
-                      <a 
-                        href={`mailto:${t('contact.info.salesAddress')}`}
-                        className="text-primary-500 hover:text-primary-600"
-                      >
-                        {t('contact.info.salesAddress')}
                       </a>
                     </div>
                   </div>

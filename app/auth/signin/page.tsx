@@ -10,7 +10,6 @@ import Footer from '@/components/layout/Footer';
 import Button from '@/components/ui/Button';
 import Input from '@/components/ui/Input';
 import { setDocumentTitle } from '@/lib/utils';
-import { authService } from '@/lib/services/auth';
 import { SignInForm, ApiError } from '@/types';
 import { useAuth } from '@/components/providers/AuthProvider';
 
@@ -176,8 +175,8 @@ export default function SignInPage() {
           </div>
 
           {/* Sağ kart - Diğer seçenekler */}
-          <div className="bg-white p-8 rounded-2xl shadow-sm border border-neutral-100 flex flex-col">
-            {/* Sosyal medya giriş */}
+          <div className="bg-white p-8 rounded-2xl shadow-sm border border-neutral-100 flex items-center">
+            {/* Sosyal medya giriş 
             <div className="mb-8">
               <h3 className="text-xl font-semibold text-neutral-900 mb-4 text-center">
                 {t('signin.orContinueWith', { ns: 'auth' })}
@@ -202,8 +201,8 @@ export default function SignInPage() {
                 </Button>
               </div>
             </div>
-
-            {/* Separator */}
+*/}
+            {/* Separator 
             <div className="relative mb-8">
               <div className="absolute inset-0 flex items-center">
                 <div className="w-full border-t border-neutral-200" />
@@ -212,15 +211,15 @@ export default function SignInPage() {
                 <span className="px-3 bg-white text-neutral-500">veya</span>
               </div>
             </div>
-
+*/}
             {/* Signup yönlendirme */}
-            <div className="mt-auto">
+            <div className="w-full">
               <div className="text-center p-6 bg-gradient-to-br from-primary-50 to-primary-100 rounded-xl border border-primary-200">
                 <h4 className="text-lg font-semibold text-neutral-900 mb-2">
                   {t('signin.noAccount', { ns: 'auth' })}
                 </h4>
                 <p className="text-sm text-neutral-600 mb-4">
-                    Citext'a katılın ve referanslarınızı organize etmeye başlayın
+                  {t('signin.rightSectionComments', { ns: 'auth' })}
                 </p>
                 <Link href="/auth/signup">
                   <Button variant="primary" className="w-full">

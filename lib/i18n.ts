@@ -13,7 +13,7 @@ i18n
     debug: false, // Production için false
     interpolation: {
       escapeValue: false,
-      format: function(value, format, lng) {
+      format: function(value, format) {
         if (format === 'uppercase') return value.toUpperCase();
         if (format === 'lowercase') return value.toLowerCase();
         return value;

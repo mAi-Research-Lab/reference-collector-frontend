@@ -20,7 +20,6 @@ interface PricingPlan {
 
 export default function PaymentPage() {
   const { t } = useTranslation(['pricing', 'common']);
-  const [selectedPlan, setSelectedPlan] = useState<string>('monthly');
   const [billingCycle, setBillingCycle] = useState<'monthly' | 'yearly'>('monthly');
 
   useEffect(() => {

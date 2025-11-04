@@ -406,7 +406,7 @@ export default function SignUpPage() {
               </div>
             </div>
 
-            {/* Sosyal medya kayıt */}
+            {/* Sosyal medya kayıt 
             <div className="mb-6">
               <div className="relative mb-4">
                 <div className="absolute inset-0 flex items-center">
@@ -436,7 +436,7 @@ export default function SignUpPage() {
                 </Button>
               </div>
             </div>
-
+*/}
             {/* Güven göstergeleri */}
             <div className="bg-gradient-to-r from-green-50 to-emerald-50 p-4 rounded-lg border border-green-100 mb-4">
               <div className="flex items-center justify-center space-x-4 text-xs text-green-700">

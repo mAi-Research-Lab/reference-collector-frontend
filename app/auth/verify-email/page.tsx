@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback, Suspense } from 'react';
 import { useRouter, useSearchParams } from 'next/navigation';
 import { Mail, CheckCircle, XCircle, Loader2 } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
@@ -11,7 +11,7 @@ import { setDocumentTitle } from '@/lib/utils';
 import { authService } from '@/lib/services/auth';
 import { ApiError } from '@/types';
 
-export default function VerifyEmailPage() {
+function VerifyEmailContent() {
   const { t } = useTranslation('auth');
   const router = useRouter();
   const searchParams = useSearchParams();
@@ -25,13 +25,7 @@ export default function VerifyEmailPage() {
     setDocumentTitle(t('verifyEmail.title'));
   }, [t]);
 
-  useEffect(() => {
-    if (token) {
-      verifyEmail(token);
-    }
-  }, [token]);
-
-  const verifyEmail = async (token: string) => {
+  const verifyEmail = useCallback(async (token: string) => {
     setStatus('verifying');
     setError('');
 
@@ -48,7 +42,13 @@ export default function VerifyEmailPage() {
       setError(apiError.message || t('verifyEmail.errors.verificationFailed'));
       setStatus('error');
     }
-  };
+  }, [router, t]);
+
+  useEffect(() => {
+    if (token) {
+      verifyEmail(token);
+    }
+  }, [token, verifyEmail]);
 
   const resendVerificationEmail = async () => {
     setIsResending(true);
@@ -165,5 +165,26 @@ export default function VerifyEmailPage() {
 
       <Footer />
     </div>
+  );
+}
+
+export default function VerifyEmailPage() {
+  return (
+    <Suspense fallback={
+      <div className="min-h-screen bg-neutral-50">
+        <Header />
+        <div className="flex items-center justify-center min-h-[calc(100vh-200px)] py-12">
+          <div className="max-w-md w-full">
+            <div className="bg-white p-8 rounded-2xl shadow-sm border border-neutral-100 text-center">
+              <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-primary-500 mx-auto mb-4"></div>
+              <p>Loading...</p>
+            </div>
+          </div>
+        </div>
+        <Footer />
+      </div>
+    }>
+      <VerifyEmailContent />
+    </Suspense>
   );
 } 

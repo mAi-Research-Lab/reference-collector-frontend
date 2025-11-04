@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
-import { User, Settings, Mail, Building, GraduationCap, Link2, Bell, Globe, Palette, Clock } from 'lucide-react';
+import { User, Settings, Mail, GraduationCap, Link2, Bell, Globe, Palette, Clock } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
@@ -11,7 +11,7 @@ import Input from '@/components/ui/Input';
 import { setDocumentTitle } from '@/lib/utils';
 import { authService } from '@/lib/services/auth';
 import { useAuth } from '@/components/providers/AuthProvider';
-import { User as UserType, UpdateUserRequest, ApiError, UserPreferences } from '@/types';
+import { UpdateUserRequest, ApiError, UserPreferences } from '@/types';
 
 export default function ProfilePage() {
   const { t, i18n, ready } = useTranslation('profile');

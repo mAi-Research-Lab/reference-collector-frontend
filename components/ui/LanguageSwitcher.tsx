@@ -5,7 +5,7 @@ import { useTranslation } from 'react-i18next';
 import { Globe, ChevronDown } from 'lucide-react';
 
 const LanguageSwitcher: React.FC = () => {
-  const { i18n, t } = useTranslation();
+  const { i18n } = useTranslation();
   const [isOpen, setIsOpen] = useState(false);
 
   const languages = [

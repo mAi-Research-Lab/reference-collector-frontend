@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, Suspense } from 'react';
 import { useRouter, useSearchParams } from 'next/navigation';
 import { Lock, Eye, EyeOff, CheckCircle, XCircle } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
@@ -12,7 +12,7 @@ import { setDocumentTitle } from '@/lib/utils';
 import { authService } from '@/lib/services/auth';
 import { ResetPasswordForm, ApiError } from '@/types';
 
-export default function ResetPasswordPage() {
+function ResetPasswordContent() {
   const { t } = useTranslation(['auth', 'common']);
   const router = useRouter();
   const searchParams = useSearchParams();
@@ -253,5 +253,26 @@ export default function ResetPasswordPage() {
 
       <Footer />
     </div>
+  );
+}
+
+export default function ResetPasswordPage() {
+  return (
+    <Suspense fallback={
+      <div className="min-h-screen bg-neutral-50">
+        <Header />
+        <div className="flex items-center justify-center min-h-[calc(100vh-200px)] py-12">
+          <div className="max-w-md w-full">
+            <div className="bg-white p-8 rounded-2xl shadow-sm border border-neutral-100 text-center">
+              <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-primary-500 mx-auto mb-4"></div>
+              <p>Loading...</p>
+            </div>
+          </div>
+        </div>
+        <Footer />
+      </div>
+    }>
+      <ResetPasswordContent />
+    </Suspense>
   );
 } 

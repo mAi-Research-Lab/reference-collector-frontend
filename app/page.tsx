@@ -7,11 +7,7 @@ import {
   Search, 
   Users, 
   Zap, 
-  Download, 
   CheckCircle,
-  ArrowRight,
-  Star,
-  Quote
 } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 import Header from '@/components/layout/Header';
