@@ -25,6 +25,49 @@ import ReferenceAnnotationAnimation from "@/components/animations/reference-anno
 export default function HomePage() {
   const { t, i18n } = useTranslation(['home', 'common']);
 
+    const [downloadLinks, setDownloadLinks] = React.useState({
+        windows: null as string | null,
+        mac: null as string | null,
+        linux: null as string | null
+    });
+
+    useEffect(() => {
+        async function loadLatestRelease() {
+            try {
+                const res = await fetch(
+                    "https://api.github.com/repos/mAi-Research-Lab/citext-application/releases/latest"
+                );
+                const data = await res.json();
+
+                const windowsAsset = data.assets?.find((a: any) =>
+                    a.name.toLowerCase().includes("win") ||
+                    a.name.toLowerCase().endsWith(".exe")
+                );
+
+                const macAsset = data.assets?.find((a: any) =>
+                    a.name.toLowerCase().includes("mac") ||
+                    a.name.toLowerCase().includes("osx") ||
+                    a.name.toLowerCase().endsWith(".dmg")
+                );
+
+                const linuxAsset = data.assets?.find((a: any) =>
+                    a.name.toLowerCase().includes("linux") ||
+                    a.name.toLowerCase().includes("appimage")
+                );
+
+
+                setDownloadLinks({
+                    windows: windowsAsset?.browser_download_url || null,
+                    mac: macAsset?.browser_download_url || null,
+                    linux: linuxAsset?.browser_download_url || null,
+                });
+            } catch (err) {
+                console.error("Download fetch error:", err);
+            }
+        }
+
+        loadLatestRelease();
+    }, []);
   // Tab title'ı dil değiştiğinde güncelle
   useEffect(() => {
     const title = t('hero.title', { ns: 'home' }) + ' ' + t('hero.titleHighlight', { ns: 'home' });
@@ -290,9 +333,47 @@ export default function HomePage() {
                       </div>
                     </div>
 
-                      <Button className="w-full" disabled>
-                          🚧 {t('download.comingSoon', { ns: 'home' })}
-                      </Button>
+                      {option.platform === "Windows" && (
+                          downloadLinks.windows ? (
+                              <Link href={downloadLinks.windows} target="_blank">
+                                  <Button className="w-full">
+                                      {t("download.downloadNow", { ns: "home" })}
+                                  </Button>
+                              </Link>
+                          ) : (
+                              <Button className="w-full" disabled>
+                                  🚧 {t("download.comingSoon", { ns: "home" })}
+                              </Button>
+                          )
+                      )}
+
+                      {option.platform === "macOS" && (
+                          downloadLinks.mac ? (
+                              <Link href={downloadLinks.mac} target="_blank">
+                                  <Button className="w-full">
+                                      {t("download.downloadNow", { ns: "home" })}
+                                  </Button>
+                              </Link>
+                          ) : (
+                              <Button className="w-full" disabled>
+                                  🚧 {t("download.comingSoon", { ns: "home" })}
+                              </Button>
+                          )
+                      )}
+
+                      {option.platform === "Linux" && (
+                          downloadLinks.linux ? (
+                              <Link href={downloadLinks.linux} target="_blank">
+                                  <Button className="w-full">
+                                      {t("download.downloadNow", { ns: "home" })}
+                                  </Button>
+                              </Link>
+                          ) : (
+                              <Button className="w-full" disabled>
+                                  🚧 {t("download.comingSoon", { ns: "home" })}
+                              </Button>
+                          )
+                      )}
                   </div>
                 </ScrollReveal>
               ))}

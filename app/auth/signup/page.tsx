@@ -97,8 +97,8 @@ export default function SignUpPage() {
         email: formData.email,
         password: formData.password,
         fullName: `${formData.firstName} ${formData.lastName}`,
-        fieldOfStudy: formData.fieldOfStudy || undefined,
-        orcidId: formData.orcidId || undefined,
+        fieldOfStudy: formData.fieldOfStudy || "N/A",
+        orcidId: formData.orcidId || "N/A",
         userType: formData.userType,
         preferences: {
           language: i18n.language as 'en' | 'tr',
@@ -111,7 +111,8 @@ export default function SignUpPage() {
       await authService.register(registerData);
       
       // Redirect to email verification page or dashboard
-      router.push('/auth/verify-email');
+      // router.push('/auth/verify-email');
+        router.push('/dashboard');
     } catch (err: any) {
       const apiError = err as ApiError;
       setError(apiError.message || t('signup.errors.registrationFailed', { ns: 'auth' }));

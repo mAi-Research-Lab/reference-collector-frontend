@@ -45,7 +45,8 @@ const Header: React.FC = () => {
                             isHomePage ? [
                                 { href: '#home', label: t('navigation.home') },
                                 { href: '#features', label: t('navigation.features') },
-                                { href: '#download', label: t('navigation.download') },
+                                { href: '#how-to-use', label: t('navigation.howToUse') },
+                                { href: '#download', label: t('navigation.download') }
                                 /* { href: '#about', label: t('navigation.about') }, */
                             ] : (
                                 isDashboardPage || isProfilePage ? [] : [

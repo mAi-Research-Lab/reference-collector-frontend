@@ -10,7 +10,8 @@
     "signin": "Sign In",
     "signup": "Get Started",
     "dashboard": "Dashboard",
-    "profile": "Profile"
+    "profile": "Profile",
+    "howToUse": "How to Use?"
   },
   "buttons": {
     "download": "Download",
