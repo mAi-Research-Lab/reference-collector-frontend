@@ -1,0 +1,61 @@
+{
+  "title": "Privacy Policy",
+  "lastUpdated": "Last Updated",
+  "lastUpdatedDate": "December 24, 2025",
+  "introduction": {
+    "title": "Introduction",
+    "content": "Citext is a citation and reference management system developed for academics and researchers. This Privacy Policy explains what data is collected, for what purposes such data is used, how it is stored, and which security measures are applied within the scope of the Citext Chrome extension, web application, and related services. Citext operates in accordance with the principle of data minimization and processes user data only to the extent strictly necessary for the nature of the services provided."
+  },
+  "dataCollected": {
+    "title": "Data Collected",
+    "userAccountInfo": {
+      "title": "User Account Information",
+      "content": "For the purposes of account creation, account management, and service delivery, Citext may collect the user's full name, email address, payment and billing information, as well as optional institutional, university, or organizational affiliation details. Apart from these, Citext does not collect browser history, visited websites, search queries, passwords, form contents, or any other personal data that falls outside the scope of the service."
+    },
+    "academicDocuments": {
+      "title": "Academic Documents and Content",
+      "content": "Users may voluntarily upload academic materials required for their scholarly work, including PDF-format articles, DOCX-format academic texts, reference lists, and draft manuscripts. Such content is processed exclusively for citation management, reference verification, and the support of academic writing workflows."
+    }
+  },
+  "purposesOfDataProcessing": {
+    "title": "Purposes of Data Processing",
+    "content": "Personal data and academic content collected by Citext are processed solely for the provision of citation and reference management services, the organization and storage of academic documents, user account management and authentication, execution of payment and licensing processes, and the maintenance of system security and technical continuity. Citext does not use user data for advertising, marketing, profiling, or third-party analytics activities."
+  },
+  "storageOfAcademicContent": {
+    "title": "Storage of Academic Content",
+    "storageEnvironments": {
+      "title": "Storage Environments",
+      "content": "Academic documents uploaded by users may be stored, depending on user preference, both on the user's local device (local disk) and within secure cloud infrastructure. The method, scope, and technical configuration of storage are determined entirely by the user."
+    },
+    "retentionPeriod": {
+      "title": "Retention Period",
+      "content": "Academic documents are retained for the duration specified by the user through the system. Users may delete their content at any time. In the event that an account is deleted or the Citext Chrome extension is removed, academic content and related data are permanently deleted unless the user has explicitly requested otherwise. Citext does not retain academic content indefinitely without user consent."
+    }
+  },
+  "dataSharing": {
+    "title": "Data Sharing",
+    "content": "Citext does not sell, rent, or commercially share user data with third parties. Data may be processed solely by trusted service providers that deliver hosting, security, and technical infrastructure services, strictly for the purpose of service operation and under confidentiality obligations. Academic content is not transferred to third parties, is not incorporated into open or closed datasets, and is not shared with other users."
+  },
+  "ownershipAndUse": {
+    "title": "Ownership and Use of Academic Content",
+    "content": "All academic documents uploaded to the Citext system remain the exclusive property of the user. Citext does not claim any ownership rights over such content. Academic materials are not used for the training of artificial intelligence or machine learning models and are not evaluated for any secondary purpose beyond analysis or verification."
+  },
+  "userRights": {
+    "title": "User Rights",
+    "content": "Users have the right to access their personal data within the system, update such data, delete their academic content, request the permanent deletion of all account-related data, and determine or modify data retention periods. These requests are fulfilled within reasonable timeframes and in accordance with applicable legislation."
+  },
+  "dataSecurity": {
+    "title": "Data Security",
+    "content": "Citext implements technical and organizational security measures in line with industry standards to protect the confidentiality and integrity of user data. Security layers designed to prevent unauthorized access, as well as secure data transmission and storage practices, are employed."
+  },
+  "changes": {
+    "title": "Changes to This Policy",
+    "content": "This Privacy Policy may be updated in response to legislative changes or system updates. Significant modifications will be communicated to users in a clear and accessible manner."
+  },
+  "contactUs": {
+    "title": "Contact",
+    "description": "For any questions, requests, or notifications regarding privacy and the protection of personal data, users may contact Citext via the following channel:",
+    "support": "Citext Support",
+    "email": "Email"
+  }
+}

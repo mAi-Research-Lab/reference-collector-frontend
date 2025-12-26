@@ -72,6 +72,11 @@ export default function Footer() {
                   {t('footer.contact')}
                 </Link>
               </li>
+              <li>
+                <Link href="/privacy-policy" className="text-neutral-300 hover:text-white transition-colors">
+                  {t('footer.privacyPolicy')}
+                </Link>
+              </li>
             </ul>
           </div>
         </div>

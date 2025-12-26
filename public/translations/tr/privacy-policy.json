@@ -1,0 +1,61 @@
+{
+  "title": "Gizlilik Politikası",
+  "lastUpdated": "Son Güncelleme Tarihi",
+  "lastUpdatedDate": "24.12.2025",
+  "introduction": {
+    "title": "Giriş",
+    "content": "Citext, akademisyenler ve araştırmacılar için geliştirilmiş bir atıf ve referans yönetim sistemidir. Bu Gizlilik Politikası; Citext Chrome eklentisi, web uygulaması ve ilişkili hizmetler kapsamında hangi verilerin toplandığını, bu verilerin hangi amaçlarla kullanıldığını, nasıl saklandığını ve hangi güvenlik önlemleriyle korunduğunu açıklamaktadır. Citext, asgari veri işleme ilkesi doğrultusunda hareket etmekte ve kullanıcı verilerini yalnızca sunulan hizmetin doğası gereği zorunlu olduğu ölçüde işlemektedir."
+  },
+  "dataCollected": {
+    "title": "Toplanan Veriler",
+    "userAccountInfo": {
+      "title": "Kullanıcı Hesap Bilgileri",
+      "content": "Citext, kullanıcı hesabının oluşturulması, yönetilmesi ve hizmetlerin sağlanabilmesi amacıyla kullanıcıdan ad ve soyad, e-posta adresi, ödeme ve faturalama bilgileri ile isteğe bağlı olarak kurum, üniversite veya organizasyon bilgilerini talep edebilir. Bunun dışında Citext; tarayıcı geçmişi, ziyaret edilen web siteleri, arama sorguları, şifreler veya form içerikleri gibi hizmet kapsamı dışında kalan hiçbir kişisel veriyi kesinlikle toplamaz."
+    },
+    "academicDocuments": {
+      "title": "Akademik Belgeler ve İçerikler",
+      "content": "Kullanıcılar, Citext sistemine tamamen kendi iradeleriyle akademik çalışmaları kapsamında gerekli olan PDF formatındaki makaleleri, DOCX formatındaki akademik metinleri, referans listelerini ve taslak çalışmaları yükleyebilir. Bu içerikler yalnızca atıf yönetimi, referans doğrulama ve akademik yazım süreçlerinin desteklenmesi amacıyla işlenmektedir."
+    }
+  },
+  "purposesOfDataProcessing": {
+    "title": "Verilerin Kullanım Amaçları",
+    "content": "Citext tarafından toplanan kişisel veriler ve akademik içerikler; atıf ve referans yönetimi hizmetlerinin sunulması, akademik belgelerin düzenlenmesi ve saklanması, kullanıcı hesabının yönetilmesi ve doğrulanması, ödeme ve lisans süreçlerinin yürütülmesi ile sistem güvenliği ve teknik sürekliliğin sağlanması amaçlarıyla sınırlı olarak kullanılmaktadır. Citext, kullanıcı verilerini reklamcılık, pazarlama, profil çıkarımı veya üçüncü taraf analiz faaliyetleri için kullanmaz."
+  },
+  "storageOfAcademicContent": {
+    "title": "Akademik İçeriklerin Saklanması",
+    "storageEnvironments": {
+      "title": "Saklama Ortamları",
+      "content": "Kullanıcı tarafından yüklenen akademik belgeler, kullanıcının tercihine bağlı olarak hem kullanıcının yerel cihazında (lokal disk) hem de güvenli bulut altyapısında saklanabilir. Saklama yöntemi, kapsamı ve teknik yapı tamamen kullanıcının seçimine göre belirlenmektedir."
+    },
+    "retentionPeriod": {
+      "title": "Saklama Süresi",
+      "content": "Akademik belgeler, kullanıcının sistem üzerinden belirlediği süre boyunca saklanır. Kullanıcı dilediği anda içeriklerini silebilir. Hesabın silinmesi veya Citext Chrome eklentisinin kaldırılması hâlinde, akademik içerikler ve ilgili veriler kalıcı olarak silinir; kullanıcı tarafından aksi yönde açık bir talep bulunmadıkça veriler sistemde tutulmaz. Citext, kullanıcı onayı olmaksızın akademik içerikleri süresiz şekilde saklamaz."
+    }
+  },
+  "dataSharing": {
+    "title": "Veri Paylaşımı",
+    "content": "Citext, kullanıcı verilerini hiçbir şekilde satmaz, kiralamaz veya ticari amaçlarla üçüncü taraflarla paylaşmaz. Veriler yalnızca sunucu barındırma, güvenlik ve teknik altyapı hizmetleri sunan güvenilir hizmet sağlayıcılar tarafından, yalnızca hizmetin yürütülmesi amacıyla ve gizlilik yükümlülükleri altında işlenebilir. Akademik içerikler üçüncü taraflara aktarılmaz, açık ya da kapalı veri setlerine eklenmez ve başka kullanıcılarla paylaşılmaz."
+  },
+  "ownershipAndUse": {
+    "title": "Akademik İçeriklerin Mülkiyeti ve Kullanımı",
+    "content": "Citext sistemine yüklenen tüm akademik belgelerin mülkiyeti tamamen kullanıcıya aittir. Citext, bu içerikler üzerinde herhangi bir hak iddia etmez. Akademik içerikler, yapay zekâ veya makine öğrenmesi modellerinin eğitimi amacıyla kullanılmaz ve analiz veya doğrulama dışında herhangi bir ikincil kullanım için değerlendirilmez."
+  },
+  "userRights": {
+    "title": "Kullanıcı Hakları",
+    "content": "Kullanıcılar, sistemde yer alan kişisel verilerine erişme, bu verileri güncelleme, akademik içeriklerini silme, tüm hesap verilerinin kalıcı olarak silinmesini talep etme ve saklama süresini belirleme veya değiştirme haklarına sahiptir. Bu talepler, ilgili mevzuat çerçevesinde ve makul süreler içerisinde yerine getirilir."
+  },
+  "dataSecurity": {
+    "title": "Veri Güvenliği",
+    "content": "Citext, kullanıcı verilerinin gizliliğini ve bütünlüğünü korumak amacıyla endüstri standartlarına uygun teknik ve idari güvenlik önlemleri uygulamaktadır. Yetkisiz erişimi önleyici güvenlik katmanları ile güvenli veri iletimi ve saklama yöntemleri kullanılmaktadır."
+  },
+  "changes": {
+    "title": "Politika Değişiklikleri",
+    "content": "Bu Gizlilik Politikası, mevzuat değişiklikleri veya sistem güncellemeleri doğrultusunda güncellenebilir. Politika üzerinde yapılan önemli değişiklikler kullanıcılara açık ve erişilebilir biçimde bildirilecektir."
+  },
+  "contactUs": {
+    "title": "İletişim",
+    "description": "Gizlilik ve kişisel verilerin korunmasına ilişkin her türlü soru, talep veya bildirim için kullanıcılar aşağıdaki iletişim kanalı üzerinden Citext ile iletişime geçebilir:",
+    "support": "Citext Destek",
+    "email": "E-posta"
+  }
+}
