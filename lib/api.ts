@@ -2,7 +2,7 @@ import axios, { AxiosInstance, AxiosResponse, InternalAxiosRequestConfig, AxiosE
 import Cookies from 'js-cookie';
 import { ApiResponse, ApiError } from '@/types';
 
-const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL || 'http://5.133.102.28:8000/api/v1';
+const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL || 'https://citext.net/api/v1';
 
 class ApiClient {
   private client: AxiosInstance;
