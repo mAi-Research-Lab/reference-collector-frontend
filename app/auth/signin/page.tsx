@@ -73,7 +73,17 @@ export default function SignInPage() {
       }, 100);
     } catch (err: any) {
       const apiError = err as ApiError;
-      setError(apiError.message || t('signin.errors.signInFailed', { ns: 'auth' }));
+      const errorMessage = apiError.message || err?.message || t('signin.errors.signInFailed', { ns: 'auth' });
+      
+      // Check if error is about email not verified
+      if (errorMessage.includes('EMAIL_NOT_VERIFIED') || errorMessage.includes('doğrulanmamış') || err?.message === 'EMAIL_NOT_VERIFIED') {
+        setError(t('signin.errors.emailNotVerified', { ns: 'auth' }) || 'Email doğrulanmamış. Lütfen e-posta adresinizi doğrulayın.');
+        setTimeout(() => {
+          router.push('/auth/verify-email');
+        }, 1500);
+      } else {
+        setError(errorMessage);
+      }
     } finally {
       setIsLoading(false);
     }

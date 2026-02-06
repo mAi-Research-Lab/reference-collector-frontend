@@ -22,6 +22,7 @@ class AuthService {
     // Check if response has data property (wrapped) or is direct response
     const authData = response.data || response as any;
     
+    // Only set token if it exists (email verified users get token)
     if (authData.access_token) {
       this.setAuthToken(authData.access_token);
     }

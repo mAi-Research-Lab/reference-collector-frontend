@@ -92,6 +92,13 @@ export function AuthProvider({ children }: AuthProviderProps) {
     try {
       dispatch({ type: 'SET_LOADING', payload: true });
       const response = await authService.signIn({ email, password });
+      
+      // Check if email is verified
+      if (response.user && !response.user.emailVerified) {
+        dispatch({ type: 'SET_LOADING', payload: false });
+        throw new Error('EMAIL_NOT_VERIFIED');
+      }
+      
       dispatch({ type: 'SET_USER', payload: response.user });
       dispatch({ type: 'SET_TOKEN', payload: response.access_token });
     } catch (error) {

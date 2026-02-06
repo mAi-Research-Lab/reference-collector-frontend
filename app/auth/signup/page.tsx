@@ -108,11 +108,14 @@ export default function SignUpPage() {
         }
       };
 
-      await authService.register(registerData);
+      const response = await authService.register(registerData);
       
-      // Redirect to email verification page or dashboard
-      // router.push('/auth/verify-email');
+      // If user is not email verified, redirect to verification page
+      if (!response.user?.emailVerified) {
+        router.push('/auth/verify-email');
+      } else {
         router.push('/dashboard');
+      }
     } catch (err: any) {
       const apiError = err as ApiError;
       setError(apiError.message || t('signup.errors.registrationFailed', { ns: 'auth' }));
