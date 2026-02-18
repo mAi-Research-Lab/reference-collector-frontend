@@ -65,6 +65,37 @@
     "name": "İsim",
     "username": "Kullanıcı Adı"
   },
+  "errors": {
+    "generic": {
+      "unexpectedError": "Beklenmeyen bir hata oluştu. Lütfen daha sonra tekrar deneyin.",
+      "networkError": "Ağ hatası. Lütfen internet bağlantınızı kontrol edin.",
+      "timeout": "İstek zaman aşımına uğradı. Lütfen tekrar deneyin.",
+      "serverError": "Sunucu hatası. Lütfen daha sonra tekrar deneyin."
+    },
+    "auth": {
+      "userNotFound": "Bu e-posta adresi ile kayıtlı bir hesap bulunamadı. Lütfen e-posta adresinizi kontrol edin veya yeni bir hesap oluşturun.",
+      "invalidCredentials": "Girdiğiniz e-posta veya şifre hatalı. Lütfen bilgilerinizi kontrol edip tekrar deneyin.",
+      "unauthorized": "Bu işlemi gerçekleştirmek için yetkiniz yok. Devam etmek için lütfen giriş yapın.",
+      "forbidden": "Bu kaynağa erişim izniniz yok.",
+      "emailNotVerified": "E-posta adresiniz henüz doğrulanmamış. Lütfen gelen kutunuzu kontrol edip doğrulama bağlantısına tıklayın.",
+      "emailAlreadyExists": "Bu e-posta adresi zaten kayıtlı. Lütfen giriş yapın veya farklı bir e-posta adresi kullanın.",
+      "emailAlreadyRegistered": "Bu e-posta adresi zaten kayıtlı. Lütfen giriş yapın veya farklı bir e-posta adresi kullanın.",
+      "emailAlreadyVerified": "E-posta adresiniz zaten doğrulanmış.",
+      "invalidPassword": "Girdiğiniz şifre hatalı. Lütfen tekrar deneyin.",
+      "samePassword": "Yeni şifreniz mevcut şifrenizden farklı olmalıdır.",
+      "invalidResetToken": "Şifre sıfırlama bağlantısı geçersiz veya süresi dolmuş. Lütfen yeni bir tane isteyin.",
+      "invalidVerificationToken": "Doğrulama bağlantısı geçersiz veya süresi dolmuş. Lütfen yeni bir doğrulama e-postası isteyin.",
+      "unauthorizedAccess": "Bu işlemi gerçekleştirmek için yetkiniz yok.",
+      "somethingWentWrong": "Bir şeyler ters gitti. Lütfen daha sonra tekrar deneyin."
+    },
+    "http": {
+      "badRequest": "Gönderdiğiniz istek geçersiz. Lütfen girdiğiniz bilgileri kontrol edip tekrar deneyin.",
+      "notFound": "Aradığınız kaynak bulunamadı.",
+      "conflict": "Bu işlem mevcut verilerle çakışıyor. Lütfen kontrol edip tekrar deneyin.",
+      "validationError": "Sağladığınız bilgiler geçersiz. Lütfen girdiğiniz bilgileri kontrol edip tekrar deneyin.",
+      "internalServerError": "Bir sunucu hatası oluştu. Lütfen daha sonra tekrar deneyin."
+    }
+  },
   "contact": {
     "title": "İletişime Geçin",
     "subtitle": "Sorularınız mı var? Sizden haber almaktan memnuniyet duyarız.",

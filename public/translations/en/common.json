@@ -65,6 +65,37 @@
     "name": "Name",
     "username": "Username"
   },
+  "errors": {
+    "generic": {
+      "unexpectedError": "An unexpected error occurred. Please try again later.",
+      "networkError": "Network error. Please check your internet connection.",
+      "timeout": "Request timeout. Please try again.",
+      "serverError": "Server error. Please try again later."
+    },
+    "auth": {
+      "userNotFound": "No account found with this email address. Please check your email or sign up for a new account.",
+      "invalidCredentials": "The email or password you entered is incorrect. Please check your credentials and try again.",
+      "unauthorized": "You are not authorized to perform this action. Please sign in to continue.",
+      "forbidden": "You don't have permission to access this resource.",
+      "emailNotVerified": "Your email address hasn't been verified yet. Please check your inbox and click the verification link.",
+      "emailAlreadyExists": "This email address is already registered. Please sign in or use a different email address.",
+      "emailAlreadyRegistered": "This email address is already registered. Please sign in or use a different email address.",
+      "emailAlreadyVerified": "Your email address has already been verified.",
+      "invalidPassword": "The password you entered is incorrect. Please try again.",
+      "samePassword": "Your new password must be different from your current password.",
+      "invalidResetToken": "The password reset link is invalid or has expired. Please request a new one.",
+      "invalidVerificationToken": "The verification link is invalid or has expired. Please request a new verification email.",
+      "unauthorizedAccess": "You don't have permission to perform this action.",
+      "somethingWentWrong": "Something went wrong. Please try again later."
+    },
+    "http": {
+      "badRequest": "The request you sent is invalid. Please check your input and try again.",
+      "notFound": "The resource you're looking for doesn't exist.",
+      "conflict": "This action conflicts with existing data. Please check and try again.",
+      "validationError": "The information you provided is invalid. Please check your input and try again.",
+      "internalServerError": "An internal server error occurred. Please try again later."
+    }
+  },
   "contact": {
     "title": "Get in Touch",
     "subtitle": "Have questions? We'd love to hear from you.",
