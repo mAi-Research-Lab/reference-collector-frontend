@@ -67,10 +67,8 @@
   },
   "userTypes": {
     "individual": "Individual User",
-    "researcher": "Researcher",
     "student": "Student",
-    "academic": "Academic",
-    "enterprise": "Enterprise"
+    "academic": "Academic"
   },
   "subscriptionStatus": {
     "active": "Active",

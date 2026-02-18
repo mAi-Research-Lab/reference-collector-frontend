@@ -67,10 +67,8 @@
   },
   "userTypes": {
     "individual": "Bireysel Kullanıcı",
-    "researcher": "Araştırmacı",
     "student": "Öğrenci",
-    "academic": "Akademisyen",
-    "enterprise": "Kurumsal"
+    "academic": "Akademisyen"
   },
   "subscriptionStatus": {
     "active": "Aktif",

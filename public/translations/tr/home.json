@@ -138,8 +138,7 @@
   },
   "howToUse": {
     "title": "Citext Nasıl Kullanılır",
-    "description": "Citext’in referanslarınızı toplamanıza, düzenlemenize, kaynak göstermenize ve not almanıza nasıl yardımcı olduğunu keşfedin — hepsi akıllı otomasyon tarafından desteklenir.",
-
+    "description": "Citext'in referanslarınızı toplamanıza, düzenlemenize, kaynak göstermenize ve not almanıza nasıl yardımcı olduğunu keşfedin — hepsi akıllı otomasyon tarafından desteklenir.",
     "collect": {
       "title": "Tek Tıklamayla Toplayın",
       "description": "Citext, web’de gezinirken akademik içerikleri otomatik olarak algılar ve anında yakalamanıza yardımcı olur. İster bir dergi makalesi, ister bir konferans bildirisi, veri seti veya ön baskı olsun — Citext tek tıklamayla kaydeder ve referanslarınızı düzenli şekilde saklar."

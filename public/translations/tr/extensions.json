@@ -1,0 +1,45 @@
+{
+  "title": "Tarayıcı Eklentileri - Citext",
+  "hero": {
+    "title": "Citext Tarayıcı Eklentileri",
+    "description": "Güçlü tarayıcı eklentilerimizle web'de gezinirken referansları anında yakalayın. Makaleleri, web sayfalarını ve PDF'leri tek tıklamayla doğrudan Citext kütüphanenize kaydedin."
+  },
+  "chrome": {
+    "title": "Chrome için Citext Capture",
+    "subtitle": "Şimdi Mevcut",
+    "description": "Citext Capture, araştırmacılar, öğrenciler ve akademisyenlerin web'de gezinirken referansları, kaynakları ve bibliyografik meta verileri anında yakalamasına yardımcı olan hafif bir tarayıcı eklentisidir. Tek tıklamayla Citext Capture, akademik makaleleri, web sayfalarını, PDF'leri ve çevrimiçi kaynakları algılar, önemli alıntı bilgilerini (başlık, yazarlar, yayın tarihi ve URL gibi) çıkarır ve bunları daha sonra kullanmak üzere doğrudan Citext çalışma alanınıza gönderir.",
+    "features": {
+      "title": "Ana Özellikler",
+      "feature1": "Akademik makaleler ve web sayfalarının tek tıklamayla yakalanması",
+      "feature2": "Bibliyografik meta verilerin otomatik çıkarılması",
+      "feature3": "Citext kütüphanenizle doğrudan entegrasyon",
+      "feature4": "Chrome tarayıcısıyla sorunsuz çalışır"
+    },
+    "button": "Chrome'a Ekle",
+    "status": {
+      "available": "Chrome Web Store'da Mevcut",
+      "version": "Sürüm 0.1.1"
+    }
+  },
+  "otherBrowsers": {
+    "title": "Diğer Tarayıcılara Çok Yakında",
+    "description": "Citext Capture'ı daha fazla tarayıcıya getirmek için çalışıyoruz. Güncellemeler için bizi takip edin!",
+    "edge": {
+      "name": "Microsoft Edge",
+      "status": "Çok yakında"
+    },
+    "safari": {
+      "name": "Safari",
+      "status": "Çok yakında"
+    },
+    "firefox": {
+      "name": "Mozilla Firefox",
+      "status": "Çok yakında"
+    },
+    "comingSoon": "Çok Yakında"
+  },
+  "cta": {
+    "title": "Başlamaya Hazır mısınız?",
+    "description": "Citext Capture'ı yükleyin ve referansları zahmetsizce toplamaya başlayın. Tüm cihazlarınızda yakalamalarınızı senkronize etmek için ücretsiz hesabınızı oluşturun."
+  }
+}

@@ -225,10 +225,8 @@ export default function SignUpPage() {
                   className="w-full px-3 py-2 border border-neutral-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500"
                 >
                   <option value={USER_TYPES.INDIVIDUAL}>{t('signup.userTypes.individual', { ns: 'auth' })}</option>
-                  <option value={USER_TYPES.RESEARCHER}>{t('signup.userTypes.researcher', { ns: 'auth' })}</option>
                   <option value={USER_TYPES.STUDENT}>{t('signup.userTypes.student', { ns: 'auth' })}</option>
                   <option value={USER_TYPES.ACADEMIC}>{t('signup.userTypes.academic', { ns: 'auth' })}</option>
-                  <option value={USER_TYPES.ENTERPRISE}>{t('signup.userTypes.enterprise', { ns: 'auth' })}</option>
                 </select>
               </div>
 

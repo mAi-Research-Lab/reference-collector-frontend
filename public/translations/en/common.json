@@ -11,7 +11,8 @@
     "signup": "Get Started",
     "dashboard": "Dashboard",
     "profile": "Profile",
-    "howToUse": "How to Use?"
+    "howToUse": "How to Use?",
+    "extensions": "Extensions"
   },
   "buttons": {
     "download": "Download",

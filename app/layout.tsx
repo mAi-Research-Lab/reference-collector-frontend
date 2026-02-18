@@ -38,6 +38,11 @@ export const metadata: Metadata = {
       'max-snippet': -1,
     },
   },
+  icons: {
+    icon: '/images/logo.ico',
+    shortcut: '/images/logo.ico',
+    apple: '/images/logo.ico',
+  },
 }
 
 export default function RootLayout({
@@ -58,4 +63,4 @@ export default function RootLayout({
       </body>
     </html>
   )
-} 
+}

@@ -78,14 +78,10 @@ export default function DashboardPage() {
     switch (userType) {
       case USER_TYPES.INDIVIDUAL:
         return t('userTypes.individual');
-      case USER_TYPES.RESEARCHER:
-        return t('userTypes.researcher');
       case USER_TYPES.STUDENT:
         return t('userTypes.student');
       case USER_TYPES.ACADEMIC:
         return t('userTypes.academic');
-      case USER_TYPES.ENTERPRISE:
-        return t('userTypes.enterprise');
       default:
         return userType;
     }

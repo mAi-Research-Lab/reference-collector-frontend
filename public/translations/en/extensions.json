@@ -1,0 +1,45 @@
+{
+  "title": "Browser Extensions - Citext",
+  "hero": {
+    "title": "Citext Browser Extensions",
+    "description": "Capture references instantly while browsing the web with our powerful browser extensions. Save articles, web pages, and PDFs directly to your Citext library with a single click."
+  },
+  "chrome": {
+    "title": "Citext Capture for Chrome",
+    "subtitle": "Available Now",
+    "description": "Citext Capture is a lightweight browser extension that helps researchers, students, and academics instantly capture references, sources, and bibliographic metadata while browsing the web. With a single click, Citext Capture detects academic articles, web pages, PDFs, and online resources, extracts key citation information (such as title, authors, publication date, and URL), and sends them directly to your Citext workspace for later use.",
+    "features": {
+      "title": "Key Features",
+      "feature1": "One-click capture of academic articles and web pages",
+      "feature2": "Automatic extraction of bibliographic metadata",
+      "feature3": "Direct integration with your Citext library",
+      "feature4": "Works seamlessly with Chrome browser"
+    },
+    "button": "Add to Chrome",
+    "status": {
+      "available": "Available in Chrome Web Store",
+      "version": "Version 0.1.1"
+    }
+  },
+  "otherBrowsers": {
+    "title": "Coming Soon to Other Browsers",
+    "description": "We're working hard to bring Citext Capture to more browsers. Stay tuned for updates!",
+    "edge": {
+      "name": "Microsoft Edge",
+      "status": "Coming soon"
+    },
+    "safari": {
+      "name": "Safari",
+      "status": "Coming soon"
+    },
+    "firefox": {
+      "name": "Mozilla Firefox",
+      "status": "Coming soon"
+    },
+    "comingSoon": "Coming Soon"
+  },
+  "cta": {
+    "title": "Ready to Get Started?",
+    "description": "Install Citext Capture and start collecting references effortlessly. Create your free account to sync your captures across all devices."
+  }
+}

@@ -36,34 +36,39 @@ const Header: React.FC = () => {
         setIsMenuOpen(false);
     };
 
+    const isExtensionsPage = pathname === '/extensions';
+    
     const navigationItems: NavItem[] =
         isAuthPage ? [] :
             isContactPage ? [] :
                 isPricingPage ? [] :
-                    isAuthenticated
-                        ? (
-                            isHomePage ? [
-                                { href: '#home', label: t('navigation.home') },
-                                { href: '#features', label: t('navigation.features') },
-                                { href: '#how-to-use', label: t('navigation.howToUse') },
-                                { href: '#download', label: t('navigation.download') }
-                                /* { href: '#about', label: t('navigation.about') }, */
-                            ] : (
-                                isDashboardPage || isProfilePage ? [] : [
-                                    { href: '/dashboard', label: t('navigation.dashboard') || 'Dashboard' },
-                                ]
+                    isExtensionsPage ? [] :
+                        isAuthenticated
+                            ? (
+                                isHomePage ? [
+                                    { href: '#home', label: t('navigation.home') },
+                                    { href: '#features', label: t('navigation.features') },
+                                    { href: '#how-to-use', label: t('navigation.howToUse') },
+                                    { href: '#download', label: t('navigation.download') },
+                                    { href: '/extensions', label: t('navigation.extensions') }
+                                    /* { href: '#about', label: t('navigation.about') }, */
+                                ] : (
+                                    isDashboardPage || isProfilePage ? [] : [
+                                        { href: '/dashboard', label: t('navigation.dashboard') || 'Dashboard' },
+                                    ]
+                                )
                             )
-                        )
-                        : (
-                            isHomePage ? [
-                                { href: '#home', label: t('navigation.home') },
-                                { href: '#features', label: t('navigation.features') },
-                                { href: '#download', label: t('navigation.download') },
-                                /* { href: '#about', label: t('navigation.about') }, */
-                            ] : [
-                                { href: '/', label: t('navigation.home') },
-                            ]
-                        );
+                            : (
+                                isHomePage ? [
+                                    { href: '#home', label: t('navigation.home') },
+                                    { href: '#features', label: t('navigation.features') },
+                                    { href: '#download', label: t('navigation.download') },
+                                    { href: '/extensions', label: t('navigation.extensions') }
+                                    /* { href: '#about', label: t('navigation.about') }, */
+                                ] : [
+                                    { href: '/', label: t('navigation.home') },
+                                ]
+                            );
 
     return (
         <header className="bg-white border-b border-neutral-200 sticky top-0 z-50">
