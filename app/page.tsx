@@ -25,6 +25,8 @@ import ReferenceAnnotationAnimation from "@/components/animations/reference-anno
 export default function HomePage() {
   const { t, i18n } = useTranslation(['home', 'common']);
 
+    const S3_BASE = "https://citext-bucket.s3.us-east-1.amazonaws.com/desktop";
+
     const [downloadLinks, setDownloadLinks] = React.useState({
         windows: null as string | null,
         mac: null as string | null,
@@ -32,38 +34,25 @@ export default function HomePage() {
     });
 
     useEffect(() => {
-        async function loadLatestRelease() {
+        async function parseYml(ymlUrl: string, fileRegex: RegExp): Promise<string | null> {
             try {
-                const res = await fetch(
-                    "https://api.github.com/repos/mAi-Research-Lab/citext-application/releases/latest"
-                );
-                const data = await res.json();
-
-                const windowsAsset = data.assets?.find((a: any) =>
-                    a.name.toLowerCase().includes("win") ||
-                    a.name.toLowerCase().endsWith(".exe")
-                );
-
-                const macAsset = data.assets?.find((a: any) =>
-                    a.name.toLowerCase().includes("mac") ||
-                    a.name.toLowerCase().includes("osx") ||
-                    a.name.toLowerCase().endsWith(".dmg")
-                );
-
-                const linuxAsset = data.assets?.find((a: any) =>
-                    a.name.toLowerCase().includes("linux") ||
-                    a.name.toLowerCase().includes("appimage")
-                );
-
-
-                setDownloadLinks({
-                    windows: windowsAsset?.browser_download_url || null,
-                    mac: macAsset?.browser_download_url || null,
-                    linux: linuxAsset?.browser_download_url || null,
-                });
-            } catch (err) {
-                console.error("Download fetch error:", err);
+                const res = await fetch(ymlUrl);
+                if (!res.ok) return null;
+                const text = await res.text();
+                const match = text.match(fileRegex);
+                return match ? `${S3_BASE}/${match[1].trim()}` : null;
+            } catch {
+                return null;
             }
+        }
+
+        async function loadLatestRelease() {
+            const [windows, mac, linux] = await Promise.all([
+                parseYml(`${S3_BASE}/latest.yml`, /url:\s*(.+\.exe)\s*$/m),
+                parseYml(`${S3_BASE}/latest-mac.yml`, /url:\s*(.+\.(?:dmg|zip))\s*$/m),
+                parseYml(`${S3_BASE}/latest-linux.yml`, /url:\s*(.+\.AppImage)\s*$/m),
+            ]);
+            setDownloadLinks({ windows, mac, linux });
         }
 
         loadLatestRelease();
