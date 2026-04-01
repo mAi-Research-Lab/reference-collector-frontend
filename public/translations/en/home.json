@@ -50,6 +50,14 @@
       "quickCitation": {
         "title": "AutoCite & Translation",
         "description": "Generate direct (quote) or indirect (paraphrase) citations effortlessly using AutoCite. Instantly translate selected material or entire sections into your desired language with the Translate module."
+      },
+      "translateAndCite": {
+        "title": "Translate and Cite",
+        "description": "Translate selected academic text instantly and keep the citation attached in the same flow. Understand foreign-language sources faster and move them into your writing workflow with proper attribution."
+      },
+      "translateAndParaphrase": {
+        "title": "Translate and Paraphrase",
+        "description": "Rephrase content in your target language while preserving the original meaning. Produce clearer notes, summaries, and academic drafts with a more natural writing flow."
       }
     }
   },
@@ -100,7 +108,53 @@
     "version": "Version",
     "downloadFor": "Download for",
     "downloadNow": "Download Now",
-    "comingSoon": "Coming Soon"
+    "comingSoon": "Coming Soon",
+    "capture": {
+      "badge": "Citext Capture",
+      "title": "How to download and install",
+      "summary": "Install the browser extension and start using it with your Citext account in just a few steps.",
+      "browserExtension": "Browser Extension",
+      "installationTitle": "Installation steps",
+      "installation": {
+        "step1": "Open the Chrome Web Store page and select the Citext Capture extension.",
+        "step2": "Click the \"Add to Chrome\" button and confirm the installation.",
+        "step3": "Open the extension from your browser toolbar and sign in with your Citext account to start using it."
+      },
+      "chrome": {
+        "title": "Citext Capture for Chrome",
+        "subtitle": "Available now",
+        "description": "Citext Capture is a lightweight browser extension that helps researchers, students, and academics instantly capture references, sources, and bibliographic metadata while browsing the web. With a single click, it detects academic articles, web pages, PDFs, and online resources, extracts key information such as title, authors, publication date, and URL, and sends everything directly to your Citext workspace.",
+        "featuresTitle": "Key features",
+        "features": {
+          "feature1": "One-click capture of academic articles and web pages",
+          "feature2": "Automatic extraction of bibliographic metadata",
+          "feature3": "Direct integration with your Citext library",
+          "feature4": "Works seamlessly with Chrome browser"
+        },
+        "button": "Add to Chrome",
+        "status": {
+          "available": "Available in Chrome Web Store",
+          "version": "Version 0.1.1"
+        }
+      },
+      "otherBrowsers": {
+        "title": "Other browsers",
+        "description": "We're working to bring Citext Capture to more browsers. Stay tuned for updates.",
+        "edge": {
+          "name": "Microsoft Edge",
+          "status": "Coming soon"
+        },
+        "safari": {
+          "name": "Safari",
+          "status": "Coming soon"
+        },
+        "firefox": {
+          "name": "Mozilla Firefox",
+          "status": "Coming soon"
+        },
+        "comingSoon": "Coming Soon"
+      }
+    }
   },
   "testimonials": {
     "title": "Trusted by researchers worldwide",

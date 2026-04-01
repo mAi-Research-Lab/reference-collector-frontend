@@ -8,6 +8,10 @@ import {
   Users, 
   Zap, 
   CheckCircle,
+  Chrome,
+  ExternalLink,
+  Minus,
+  Plus,
 } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 import Header from '@/components/layout/Header';
@@ -24,6 +28,7 @@ import ReferenceAnnotationAnimation from "@/components/animations/reference-anno
 
 export default function HomePage() {
   const { t, i18n } = useTranslation(['home', 'common']);
+  const [isCaptureGuideOpen, setIsCaptureGuideOpen] = React.useState(false);
 
     const S3_BASE = "https://citext-bucket.s3.us-east-1.amazonaws.com/desktop";
 
@@ -83,6 +88,16 @@ export default function HomePage() {
       icon: Zap,
       title: t('features.items.quickCitation.title', { ns: 'home' }),
       description: t('features.items.quickCitation.description', { ns: 'home' }),
+    },
+    {
+      icon: FileText,
+      title: t('features.items.translateAndCite.title', { ns: 'home' }),
+      description: t('features.items.translateAndCite.description', { ns: 'home' }),
+    },
+    {
+      icon: Search,
+      title: t('features.items.translateAndParaphrase.title', { ns: 'home' }),
+      description: t('features.items.translateAndParaphrase.description', { ns: 'home' }),
     },
   ];
 
@@ -174,7 +189,7 @@ export default function HomePage() {
             </div>
           </ScrollReveal>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-10">
+          <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-10">
             {features.map((feature, index) => (
               <ScrollReveal key={index} delay={index * 100} direction="up">
                 <div className="text-center group px-4 py-6 rounded-2xl bg-white shadow-sm hover:shadow-md transition-all duration-200">
@@ -368,10 +383,101 @@ export default function HomePage() {
               ))}
             </div>
 
-            <ScrollReveal delay={450}>
-              <p className="text-sm text-neutral-500">
-                {t('download.requirements', { ns: 'home' })}
-              </p>
+            <ScrollReveal delay={550}>
+              <div className="">
+                <div className="mb-8 flex justify-center">
+                  <div className="flex h-12 w-12 items-center justify-center rounded-full border border-primary-200 bg-primary-50 text-primary-600 shadow-sm">
+                    <Plus className="h-6 w-6" />
+                  </div>
+                </div>
+
+                <div className="rounded-2xl border border-neutral-200 bg-white text-left shadow-sm overflow-hidden">
+                <div className="px-6 py-6">
+                  <div className="flex flex-col gap-6 lg:flex-row lg:items-center lg:justify-between">
+                    <div className="flex items-start gap-4">
+                      <div>
+                        <h3 className="mt-1 text-2xl font-semibold text-neutral-900">
+                          {t('download.capture.chrome.title', { ns: 'home' })}
+                        </h3>
+                        <p className="mt-1 text-sm text-neutral-500">
+                          {t('download.capture.chrome.status.available', { ns: 'home' })} • {t('download.capture.chrome.status.version', { ns: 'home' })}
+                        </p>
+                      </div>
+                    </div>
+
+                    <div className="flex flex-col gap-3 sm:flex-row sm:items-center">
+                      <Link
+                        href="https://chromewebstore.google.com/detail/citext-capture/naofpiioeaacikfkkecihgfmianccpnp"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        <Button size="lg" className="w-full sm:w-auto">
+                          <Chrome className="w-5 h-5 mr-2" />
+                          {t('download.capture.chrome.button', { ns: 'home' })}
+                          <ExternalLink className="w-4 h-4 ml-2" />
+                        </Button>
+                      </Link>
+
+                      <button
+                        type="button"
+                        onClick={() => setIsCaptureGuideOpen((prev) => !prev)}
+                        className="inline-flex items-center justify-center gap-2 rounded-lg border border-neutral-200 px-4 py-3 text-base font-medium text-neutral-700 transition-colors hover:bg-neutral-50"
+                        aria-expanded={isCaptureGuideOpen}
+                        aria-controls="capture-guide-panel"
+                      >
+                        {isCaptureGuideOpen ? <Minus className="h-4 w-4" /> : <Plus className="h-4 w-4" />}
+                        {t('download.capture.title', { ns: 'home' })}
+                      </button>
+                    </div>
+                  </div>
+                </div>
+
+                {isCaptureGuideOpen && (
+                  <div id="capture-guide-panel" className="border-t border-neutral-200 px-6 py-6">
+                    <div className="grid grid-cols-1 gap-8 lg:grid-cols-[minmax(0,1.4fr)_minmax(280px,0.8fr)]">
+                      <div>
+                        <h4 className="text-xl font-semibold text-neutral-900">
+                          {t('download.capture.installationTitle', { ns: 'home' })}
+                        </h4>
+                        <p className="mt-2 text-sm leading-6 text-neutral-600">
+                          {t('download.capture.chrome.description', { ns: 'home' })}
+                        </p>
+
+                        <ol className="mt-6 space-y-4">
+                          {[1, 2, 3].map((step) => (
+                            <li key={step} className="flex items-start gap-4 rounded-xl border border-neutral-200 bg-neutral-50 px-4 py-4 text-neutral-700">
+                              <div className="mt-0.5 flex h-7 w-7 flex-shrink-0 items-center justify-center rounded-full bg-neutral-900 text-sm font-semibold text-white">
+                                {step}
+                              </div>
+                              <span className="leading-6">{t(`download.capture.installation.step${step}`, { ns: 'home' })}</span>
+                            </li>
+                          ))}
+                        </ol>
+                      </div>
+
+                      <div className="rounded-2xl border border-blue-100 bg-gradient-to-br from-blue-50 to-indigo-50 p-6">
+                        <p className="text-sm font-medium uppercase tracking-wide text-primary-600">
+                          {t('download.capture.browserExtension', { ns: 'home' })}
+                        </p>
+                        <h5 className="mt-2 text-lg font-semibold text-neutral-900">
+                          {t('download.capture.chrome.featuresTitle', { ns: 'home' })}
+                        </h5>
+                        <ul className="mt-4 space-y-3">
+                          {['feature1', 'feature2', 'feature3', 'feature4'].map((featureKey) => (
+                            <li key={featureKey} className="flex items-start gap-3 text-sm text-neutral-700">
+                              <div className="mt-0.5 flex h-5 w-5 flex-shrink-0 items-center justify-center rounded-full bg-primary-500">
+                                <CheckCircle className="h-3 w-3 text-white" />
+                              </div>
+                              <span>{t(`download.capture.chrome.features.${featureKey}`, { ns: 'home' })}</span>
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                )}
+                </div>
+              </div>
             </ScrollReveal>
           </div>
         </div>

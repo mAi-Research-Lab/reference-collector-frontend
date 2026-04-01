@@ -51,6 +51,14 @@
       "quickCitation": {
         "title": "Otomatik Atıf ve Çeviri",
         "description": "AutoCite modülü ile doğrudan (alıntı) veya dolaylı (parafraz) atıfları zahmetsizce oluşturun. Translate modülü ile seçili bölümleri veya tüm içeriği anında istediğiniz dile çevirin."
+      },
+      "translateAndCite": {
+        "title": "Translate and Cite",
+        "description": "Seçtiğiniz akademik metinleri anında çevirin ve aynı akış içinde uygun atıfla birlikte kullanıma hazır hale getirin. Yabancı dildeki kaynakları hızlıca anlayıp kaynakçanızla birlikte yönetin."
+      },
+      "translateAndParaphrase": {
+        "title": "Translate and Paraphrase",
+        "description": "Metinleri hedef dilde anlamını koruyarak yeniden ifade edin. Literatür notları, özetler ve akademik yazım süreçleri için daha akıcı ve özgün içerik üretin."
       }
     }
   },
@@ -80,6 +88,7 @@
   "download": {
     "title": "Tüm platformlarda mevcut",
     "description": "Tercih ettiğiniz işletim sistemi için Citext'i indirin ve referanslarınızı yönetmeye bugün başlayın.",
+    "featuresTitle": "Temel Özellikler",
     "platforms": {
       "windows": "Windows",
       "macos": "macOS",
@@ -100,7 +109,53 @@
     "version": "Sürüm",
     "downloadFor": "İndir:",
     "downloadNow": "Şimdi İndir",
-    "comingSoon": "Çok Yakında"
+    "comingSoon": "Çok Yakında",
+    "capture": {
+      "badge": "Citext Capture",
+      "title": "Nasıl indirilir ve kurulur",
+      "summary": "Tarayıcı eklentisini indirip birkaç adımda Citext hesabınızla kullanmaya başlayın.",
+      "browserExtension": "Tarayıcı Eklentisi",
+      "installationTitle": "Kurulum adımları",
+      "installation": {
+        "step1": "Chrome Web Store sayfasını açın ve Citext Capture eklentisini seçin.",
+        "step2": "\"Chrome'a Ekle\" butonuna tıklayıp kurulumu onaylayın.",
+        "step3": "Tarayıcı araç çubuğundan eklentiyi açın ve Citext hesabınızla giriş yaparak kullanmaya başlayın."
+      },
+      "chrome": {
+        "title": "Chrome için Citext Capture",
+        "subtitle": "Şimdi mevcut",
+        "description": "Citext Capture, araştırmacılar, öğrenciler ve akademisyenlerin web'de gezinirken referansları, kaynakları ve bibliyografik meta verileri anında yakalamasına yardımcı olan hafif bir tarayıcı eklentisidir. Tek tıklamayla akademik makaleleri, web sayfalarını, PDF'leri ve çevrimiçi kaynakları algılar; başlık, yazar, yayın tarihi ve URL gibi temel bilgileri çıkarır ve doğrudan Citext çalışma alanınıza gönderir.",
+        "featuresTitle": "Ana özellikler",
+        "features": {
+          "feature1": "Akademik makaleler ve web sayfalarının tek tıklamayla yakalanması",
+          "feature2": "Bibliyografik meta verilerin otomatik çıkarılması",
+          "feature3": "Citext kütüphanenizle doğrudan entegrasyon",
+          "feature4": "Chrome tarayıcısıyla sorunsuz çalışma"
+        },
+        "button": "Chrome'a Ekle",
+        "status": {
+          "available": "Chrome Web Store'da mevcut",
+          "version": "Sürüm 0.1.1"
+        }
+      },
+      "otherBrowsers": {
+        "title": "Diğer tarayıcılar",
+        "description": "Citext Capture'ı daha fazla tarayıcıya getirmek için çalışıyoruz. Güncellemeler için bizi takip edin.",
+        "edge": {
+          "name": "Microsoft Edge",
+          "status": "Çok yakında"
+        },
+        "safari": {
+          "name": "Safari",
+          "status": "Çok yakında"
+        },
+        "firefox": {
+          "name": "Mozilla Firefox",
+          "status": "Çok yakında"
+        },
+        "comingSoon": "Çok Yakında"
+      }
+    }
   },
   "testimonials": {
     "title": "Dünya çapında araştırmacılar tarafından güvenilir",
