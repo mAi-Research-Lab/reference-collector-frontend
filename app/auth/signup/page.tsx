@@ -11,7 +11,7 @@ import Button from '@/components/ui/Button';
 import Input from '@/components/ui/Input';
 import { setDocumentTitle } from '@/lib/utils';
 import { authService } from '@/lib/services/auth';
-import { SignUpForm, RegisterRequest, ApiError, USER_TYPES } from '@/types';
+import { SignUpForm, RegisterRequest, ApiError, REGISTRATION_ACCOUNT_TYPES } from '@/types';
 
 export default function SignUpPage() {
   const { t, i18n } = useTranslation(['auth', 'common']);
@@ -35,7 +35,8 @@ export default function SignUpPage() {
     confirmPassword: '',
     fieldOfStudy: '',
     orcidId: '',
-    userType: USER_TYPES.INDIVIDUAL, // default value
+    userType: REGISTRATION_ACCOUNT_TYPES.INDIVIDUAL,
+    phoneNumber: '',
     agreeToTerms: false,
   });
 
@@ -100,6 +101,9 @@ export default function SignUpPage() {
         fieldOfStudy: formData.fieldOfStudy || "N/A",
         orcidId: formData.orcidId || "N/A",
         userType: formData.userType,
+        ...(formData.phoneNumber?.trim()
+          ? { phoneNumber: formData.phoneNumber.trim() }
+          : {}),
         preferences: {
           language: i18n.language as 'en' | 'tr',
           theme: 'light',
@@ -224,10 +228,28 @@ export default function SignUpPage() {
                   onChange={handleInputChange}
                   className="w-full px-3 py-2 border border-neutral-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500"
                 >
-                  <option value={USER_TYPES.INDIVIDUAL}>{t('signup.userTypes.individual', { ns: 'auth' })}</option>
-                  <option value={USER_TYPES.STUDENT}>{t('signup.userTypes.student', { ns: 'auth' })}</option>
-                  <option value={USER_TYPES.ACADEMIC}>{t('signup.userTypes.academic', { ns: 'auth' })}</option>
+                  <option value={REGISTRATION_ACCOUNT_TYPES.INDIVIDUAL}>
+                    {t('signup.userTypes.individual', { ns: 'auth' })}
+                  </option>
+                  <option value={REGISTRATION_ACCOUNT_TYPES.CORPORATE}>
+                    {t('signup.userTypes.corporate', { ns: 'auth' })}
+                  </option>
                 </select>
+              </div>
+
+              <div>
+                <label htmlFor="phoneNumber" className="block text-sm font-medium text-neutral-700 mb-2">
+                  {t('signup.phoneLabel', { ns: 'auth' })}
+                </label>
+                <Input
+                  id="phoneNumber"
+                  name="phoneNumber"
+                  type="tel"
+                  autoComplete="tel"
+                  value={formData.phoneNumber ?? ''}
+                  onChange={handleInputChange}
+                  placeholder={t('signup.phonePlaceholder', { ns: 'auth' })}
+                />
               </div>
 
               <div>

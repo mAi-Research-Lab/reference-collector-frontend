@@ -67,6 +67,8 @@
   },
   "userTypes": {
     "individual": "Bireysel Kullanıcı",
+    "institutional": "Kurumsal",
+    "admin": "Yönetici",
     "student": "Öğrenci",
     "academic": "Akademisyen"
   },

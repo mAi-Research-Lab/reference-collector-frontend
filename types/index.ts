@@ -1,15 +1,21 @@
 import React from 'react';
 
-// User Type Constants
-export const USER_TYPES = {
+export const REGISTRATION_ACCOUNT_TYPES = {
   INDIVIDUAL: 'individual',
-  STUDENT: 'student',
-  ACADEMIC: 'academic',
+  CORPORATE: 'corporate',
 } as const;
 
-export type UserType = typeof USER_TYPES[keyof typeof USER_TYPES];
+export type RegistrationAccountType =
+  (typeof REGISTRATION_ACCOUNT_TYPES)[keyof typeof REGISTRATION_ACCOUNT_TYPES];
 
-// API Response Types
+export const USER_TYPES = {
+  INDIVIDUAL: 'individual',
+  CORPORATE: 'corporate',
+  STUDENT: 'student',
+  ACADEMIC: 'academic',
+  INSTITUTIONAL: 'institutional',
+} as const;
+
 export interface ApiResponse<T = any> {
   success: boolean;
   data?: T;
@@ -42,7 +48,9 @@ export interface User {
   id: string;
   email: string;
   fullName: string;
-  userType: UserType;
+  /** Sunucudaki UserType (individual, institutional, …) */
+  userType: string;
+  phoneNumber?: string | null;
   institutionId?: any;
   fieldOfStudy?: any;
   orcidId?: any;
@@ -67,7 +75,8 @@ export interface RegisterRequest {
   orcidId?: string;
   avatarUrl?: string;
   preferences?: UserPreferences;
-  userType: UserType;
+  userType: RegistrationAccountType;
+  phoneNumber?: string;
 }
 
 export interface SignInRequest {
@@ -83,6 +92,7 @@ export interface UpdateUserRequest {
   avatarUrl?: string;
   preferences?: UserPreferences;
   emailVerified?: boolean;
+  phoneNumber?: string | null;
 }
 
 export interface ChangePasswordRequest {
@@ -170,7 +180,8 @@ export interface SignUpForm {
   institutionId?: string;
   fieldOfStudy?: string;
   orcidId?: string;
-  userType: UserType;
+  userType: RegistrationAccountType;
+  phoneNumber?: string;
   agreeToTerms: boolean;
 }
 
