@@ -151,7 +151,7 @@
 
     "cite": {
       "title": "Word’de Kaynak Gösterin",
-      "description": "Citext ile topladığınız referansları Word belgelerinize entegre araç çubuğu üzerinden doğrudan ekleyebilirsiniz. Biçimlendirilmiş kaynak eklemek için <span class='font-semibold text-neutral-800'>Add Citation</span> düğmesini, kaynakça oluşturmak için <span class='font-semibold text-neutral-800'>Add Bibliography</span> düğmesini kullanabilir ve <span class='font-semibold text-neutral-800'>Preferences</span> menüsünden atıf stilinizi kolayca değiştirebilirsiniz."
+      "description": "Citext ile topladığınız referansları Word belgelerinize entegre araç çubuğu üzerinden doğrudan ekleyebilirsiniz. Biçimlendirilmiş kaynak eklemek için <span class='font-semibold text-neutral-800'>Add Citation</span> butonunu, kaynakça oluşturmak için <span class='font-semibold text-neutral-800'>Add Bibliography</span> butonunu kullanabilir ve <span class='font-semibold text-neutral-800'>Preferences</span> menüsünden atıf stilinizi kolayca değiştirebilirsiniz."
     },
 
     "annotation": {
