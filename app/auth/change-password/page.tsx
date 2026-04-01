@@ -3,8 +3,7 @@
 import React, { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 import { Lock, Eye, EyeOff, CheckCircle } from 'lucide-react';
-import Header from '@/components/layout/Header';
-import Footer from '@/components/layout/Footer';
+import AuthLayout from '@/components/layout/AuthLayout';
 import Button from '@/components/ui/Button';
 import Input from '@/components/ui/Input';
 import { setDocumentTitle } from '@/lib/utils';
@@ -34,12 +33,7 @@ export default function ChangePasswordPage() {
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
-    setFormData(prev => ({
-      ...prev,
-      [name]: value,
-    }));
-
-    // Clear error when user starts typing
+    setFormData(prev => ({ ...prev, [name]: value }));
     if (error) setError('');
   };
 
@@ -69,7 +63,6 @@ export default function ChangePasswordPage() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    
     if (!validateForm()) return;
 
     setIsLoading(true);
@@ -91,156 +84,151 @@ export default function ChangePasswordPage() {
 
   if (isSuccess) {
     return (
-      <div className="min-h-screen bg-neutral-50">
-        <Header />
-        <div className="flex items-center justify-center min-h-[calc(100vh-200px)] py-12">
-          <div className="max-w-md w-full">
-            <div className="bg-white p-8 rounded-2xl shadow-sm border border-neutral-100 text-center">
-              <CheckCircle className="w-16 h-16 text-green-500 mx-auto mb-6" />
-              <h1 className="text-3xl font-bold text-neutral-900 mb-4">
-                {t('changePassword.success', { ns: 'auth' })}
-              </h1>
-              <p className="text-lg text-neutral-600 mb-8">
-                {t('changePassword.successDescription', { ns: 'auth' })}
-              </p>
-              <div className="space-y-4">
-                <Button onClick={() => router.push('/dashboard')}>
-                  {t('changePassword.goToDashboard', { ns: 'auth' })}
-                </Button>
-                <div>
-                  <Button onClick={() => setIsSuccess(false)} variant="ghost">
-                    {t('changePassword.changeAnother', { ns: 'auth' })}
-                  </Button>
-                </div>
-              </div>
+      <AuthLayout>
+        <div className="w-full max-w-md">
+          <div className="bg-white/80 backdrop-blur-sm p-10 rounded-2xl shadow-medium border border-white/60 text-center">
+            <div className="w-16 h-16 bg-green-100 rounded-full mx-auto mb-6 flex items-center justify-center">
+              <CheckCircle className="w-8 h-8 text-green-500" />
+            </div>
+            <h1 className="text-2xl font-bold text-neutral-900 mb-3">
+              {t('changePassword.success', { ns: 'auth' })}
+            </h1>
+            <p className="text-neutral-500 text-sm mb-8">
+              {t('changePassword.successDescription', { ns: 'auth' })}
+            </p>
+            <div className="flex flex-col gap-3">
+              <Button onClick={() => router.push('/dashboard')} className="w-full">
+                {t('changePassword.goToDashboard', { ns: 'auth' })}
+              </Button>
+              <Button onClick={() => setIsSuccess(false)} variant="ghost" className="w-full">
+                {t('changePassword.changeAnother', { ns: 'auth' })}
+              </Button>
             </div>
           </div>
         </div>
-        <Footer />
-      </div>
+      </AuthLayout>
     );
   }
 
   return (
-    <div className="min-h-screen bg-neutral-50">
-      <Header />
-      
-      <div className="flex items-center justify-center min-h-[calc(100vh-200px)] py-12">
-        <div className="max-w-md w-full">
-          <div className="bg-white p-8 rounded-2xl shadow-sm border border-neutral-100">
-            <div className="text-center mb-8">
-              <Lock className="w-16 h-16 text-primary-500 mx-auto mb-6" />
-              <h1 className="text-3xl font-bold text-neutral-900 mb-2">
-                {t('changePassword.title', { ns: 'auth' })}
-              </h1>
-              <p className="text-neutral-600">
-                {t('changePassword.subtitle', { ns: 'auth' })}
-              </p>
+    <AuthLayout>
+      <div className="w-full max-w-md">
+        <div className="bg-white/80 backdrop-blur-sm p-8 rounded-2xl shadow-medium border border-white/60">
+          <div className="text-center mb-8">
+            <div className="w-14 h-14 bg-primary-50 rounded-2xl mx-auto mb-5 flex items-center justify-center">
+              <Lock className="w-7 h-7 text-primary-500" />
+            </div>
+            <h1 className="text-2xl font-bold text-neutral-900 mb-2">
+              {t('changePassword.title', { ns: 'auth' })}
+            </h1>
+            <p className="text-sm text-neutral-500">
+              {t('changePassword.subtitle', { ns: 'auth' })}
+            </p>
+          </div>
+
+          {error && (
+            <div className="mb-5 p-3.5 bg-red-50 border border-red-200 rounded-xl text-red-600 text-sm flex items-start gap-2.5">
+              <svg className="w-4 h-4 text-red-400 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+              </svg>
+              <span>{error}</span>
+            </div>
+          )}
+
+          <form onSubmit={handleSubmit} className="space-y-5">
+            <div>
+              <label htmlFor="currentPassword" className="block text-sm font-medium text-neutral-700 mb-1.5">
+                {t('changePassword.currentPasswordLabel', { ns: 'auth' })}
+              </label>
+              <div className="relative">
+                <Lock className="absolute left-3 top-1/2 -translate-y-1/2 text-neutral-400 w-4 h-4" />
+                <Input
+                  id="currentPassword"
+                  name="currentPassword"
+                  type={showCurrentPassword ? 'text' : 'password'}
+                  required
+                  value={formData.currentPassword}
+                  onChange={handleInputChange}
+                  placeholder={t('changePassword.currentPasswordPlaceholder', { ns: 'auth' })}
+                  className="pl-9 pr-10"
+                />
+                <button
+                  type="button"
+                  onClick={() => setShowCurrentPassword(!showCurrentPassword)}
+                  className="absolute right-3 top-1/2 -translate-y-1/2 text-neutral-400 hover:text-neutral-600 transition-colors"
+                >
+                  {showCurrentPassword ? <EyeOff className="w-4 h-4" /> : <Eye className="w-4 h-4" />}
+                </button>
+              </div>
             </div>
 
-            {error && (
-              <div className="mb-6 p-4 bg-red-50 border border-red-200 rounded-lg text-red-600 text-sm">
-                {error}
+            <div>
+              <label htmlFor="newPassword" className="block text-sm font-medium text-neutral-700 mb-1.5">
+                {t('changePassword.newPasswordLabel', { ns: 'auth' })}
+              </label>
+              <div className="relative">
+                <Lock className="absolute left-3 top-1/2 -translate-y-1/2 text-neutral-400 w-4 h-4" />
+                <Input
+                  id="newPassword"
+                  name="newPassword"
+                  type={showNewPassword ? 'text' : 'password'}
+                  required
+                  value={formData.newPassword}
+                  onChange={handleInputChange}
+                  placeholder={t('changePassword.newPasswordPlaceholder', { ns: 'auth' })}
+                  className="pl-9 pr-10"
+                />
+                <button
+                  type="button"
+                  onClick={() => setShowNewPassword(!showNewPassword)}
+                  className="absolute right-3 top-1/2 -translate-y-1/2 text-neutral-400 hover:text-neutral-600 transition-colors"
+                >
+                  {showNewPassword ? <EyeOff className="w-4 h-4" /> : <Eye className="w-4 h-4" />}
+                </button>
               </div>
-            )}
-
-            <form onSubmit={handleSubmit} className="space-y-6">
-              <div>
-                <label htmlFor="currentPassword" className="block text-sm font-medium text-neutral-700 mb-2">
-                  {t('changePassword.currentPasswordLabel', { ns: 'auth' })}
-                </label>
-                <div className="relative">
-                  <Lock className="absolute left-3 top-1/2 transform -translate-y-1/2 text-neutral-400 w-5 h-5" />
-                  <Input
-                    id="currentPassword"
-                    name="currentPassword"
-                    type={showCurrentPassword ? 'text' : 'password'}
-                    required
-                    value={formData.currentPassword}
-                    onChange={handleInputChange}
-                    placeholder={t('changePassword.currentPasswordPlaceholder', { ns: 'auth' })}
-                    className="pl-10 pr-10"
-                  />
-                  <button
-                    type="button"
-                    onClick={() => setShowCurrentPassword(!showCurrentPassword)}
-                    className="absolute right-3 top-1/2 transform -translate-y-1/2 text-neutral-400 hover:text-neutral-600"
-                  >
-                    {showCurrentPassword ? <EyeOff className="w-5 h-5" /> : <Eye className="w-5 h-5" />}
-                  </button>
-                </div>
-              </div>
-
-              <div>
-                <label htmlFor="newPassword" className="block text-sm font-medium text-neutral-700 mb-2">
-                  {t('changePassword.newPasswordLabel', { ns: 'auth' })}
-                </label>
-                <div className="relative">
-                  <Lock className="absolute left-3 top-1/2 transform -translate-y-1/2 text-neutral-400 w-5 h-5" />
-                  <Input
-                    id="newPassword"
-                    name="newPassword"
-                    type={showNewPassword ? 'text' : 'password'}
-                    required
-                    value={formData.newPassword}
-                    onChange={handleInputChange}
-                    placeholder={t('changePassword.newPasswordPlaceholder', { ns: 'auth' })}
-                    className="pl-10 pr-10"
-                  />
-                  <button
-                    type="button"
-                    onClick={() => setShowNewPassword(!showNewPassword)}
-                    className="absolute right-3 top-1/2 transform -translate-y-1/2 text-neutral-400 hover:text-neutral-600"
-                  >
-                    {showNewPassword ? <EyeOff className="w-5 h-5" /> : <Eye className="w-5 h-5" />}
-                  </button>
-                </div>
-              </div>
-
-              <div>
-                <label htmlFor="confirmPassword" className="block text-sm font-medium text-neutral-700 mb-2">
-                  {t('changePassword.confirmPasswordLabel', { ns: 'auth' })}
-                </label>
-                <div className="relative">
-                  <Lock className="absolute left-3 top-1/2 transform -translate-y-1/2 text-neutral-400 w-5 h-5" />
-                  <Input
-                    id="confirmPassword"
-                    name="confirmPassword"
-                    type={showConfirmPassword ? 'text' : 'password'}
-                    required
-                    value={formData.confirmPassword}
-                    onChange={handleInputChange}
-                    placeholder={t('changePassword.confirmPasswordPlaceholder', { ns: 'auth' })}
-                    className="pl-10 pr-10"
-                  />
-                  <button
-                    type="button"
-                    onClick={() => setShowConfirmPassword(!showConfirmPassword)}
-                    className="absolute right-3 top-1/2 transform -translate-y-1/2 text-neutral-400 hover:text-neutral-600"
-                  >
-                    {showConfirmPassword ? <EyeOff className="w-5 h-5" /> : <Eye className="w-5 h-5" />}
-                  </button>
-                </div>
-              </div>
-
-              <Button type="submit" className="w-full" loading={isLoading}>
-                {t('changePassword.changeButton', { ns: 'auth' })}
-              </Button>
-            </form>
-
-            <div className="mt-6 text-center">
-              <button 
-                onClick={() => router.back()}
-                className="text-sm text-neutral-500 hover:text-neutral-700"
-              >
-                {t('changePassword.goBack', { ns: 'auth' })}
-              </button>
             </div>
+
+            <div>
+              <label htmlFor="confirmPassword" className="block text-sm font-medium text-neutral-700 mb-1.5">
+                {t('changePassword.confirmPasswordLabel', { ns: 'auth' })}
+              </label>
+              <div className="relative">
+                <Lock className="absolute left-3 top-1/2 -translate-y-1/2 text-neutral-400 w-4 h-4" />
+                <Input
+                  id="confirmPassword"
+                  name="confirmPassword"
+                  type={showConfirmPassword ? 'text' : 'password'}
+                  required
+                  value={formData.confirmPassword}
+                  onChange={handleInputChange}
+                  placeholder={t('changePassword.confirmPasswordPlaceholder', { ns: 'auth' })}
+                  className="pl-9 pr-10"
+                />
+                <button
+                  type="button"
+                  onClick={() => setShowConfirmPassword(!showConfirmPassword)}
+                  className="absolute right-3 top-1/2 -translate-y-1/2 text-neutral-400 hover:text-neutral-600 transition-colors"
+                >
+                  {showConfirmPassword ? <EyeOff className="w-4 h-4" /> : <Eye className="w-4 h-4" />}
+                </button>
+              </div>
+            </div>
+
+            <Button type="submit" className="w-full" loading={isLoading}>
+              {t('changePassword.changeButton', { ns: 'auth' })}
+            </Button>
+          </form>
+
+          <div className="mt-5 text-center">
+            <button
+              onClick={() => router.back()}
+              className="text-sm text-neutral-500 hover:text-neutral-700 transition-colors"
+            >
+              {t('changePassword.goBack', { ns: 'auth' })}
+            </button>
           </div>
         </div>
       </div>
-
-      <Footer />
-    </div>
+    </AuthLayout>
   );
-} 
+}
