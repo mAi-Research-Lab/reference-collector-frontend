@@ -14,6 +14,8 @@ import {
 } from '@/types';
 import Cookies from 'js-cookie';
 
+const verifyEmailInFlight = new Map<string, Promise<VerifyEmailResponse>>();
+
 class AuthService {
   // Register a new user
   async register(data: RegisterRequest): Promise<AuthResponse> {
@@ -86,16 +88,30 @@ class AuthService {
 
   // Verify email address
   async verifyEmail(token: string): Promise<VerifyEmailResponse> {
-    const response = await apiClient.get<VerifyEmailResponse>(`/auth/verify-email?token=${token}`);
-    
-    // Check if response has data property (wrapped) or is direct response
-    const verifyData = response.data || response as any;
-    
-    if (verifyData.access_token) {
-      this.setAuthToken(verifyData.access_token);
+    const existing = verifyEmailInFlight.get(token);
+    if (existing) {
+      return existing;
     }
-    
-    return verifyData as VerifyEmailResponse;
+
+    const promise = (async () => {
+      const response = await apiClient.get<VerifyEmailResponse>(
+        `/auth/verify-email?token=${encodeURIComponent(token)}`
+      );
+
+      const verifyData = response.data || (response as any);
+      if (verifyData?.access_token) {
+        this.setAuthToken(verifyData.access_token);
+      }
+
+      return verifyData as VerifyEmailResponse;
+    })();
+
+    verifyEmailInFlight.set(token, promise);
+    void promise.finally(() => {
+      verifyEmailInFlight.delete(token);
+    });
+
+    return promise;
   }
 
   // Resend verification email

@@ -3,7 +3,6 @@
 import React, { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 import { Lock, Eye, EyeOff, CheckCircle } from 'lucide-react';
-import { useTranslation } from 'react-i18next';
 import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
 import Button from '@/components/ui/Button';
@@ -11,6 +10,7 @@ import Input from '@/components/ui/Input';
 import { setDocumentTitle } from '@/lib/utils';
 import { authService } from '@/lib/services/auth';
 import { ChangePasswordForm, ApiError } from '@/types';
+import { useTranslation } from 'next-i18next';
 
 export default function ChangePasswordPage() {
   const { t } = useTranslation(['auth', 'common']);
