@@ -101,40 +101,40 @@ export default function HomePage() {
     },
   ];
 
-  const testimonials = [
-    {
-      name: t('testimonials.items.drSarahJohnson.name', { ns: 'home' }),
-      role: t('testimonials.items.drSarahJohnson.role', { ns: 'home' }),
-      institution: t('testimonials.items.drSarahJohnson.institution', { ns: 'home' }),
-      quote: t('testimonials.items.drSarahJohnson.quote', { ns: 'home' }),
-      rating: 5,
-      researchField: t('testimonials.items.drSarahJohnson.field', { ns: 'home' })
-    },
-    {
-      name: t('testimonials.items.profMichaelChen.name', { ns: 'home' }),
-      role: t('testimonials.items.profMichaelChen.role', { ns: 'home' }),
-      institution: t('testimonials.items.profMichaelChen.institution', { ns: 'home' }),
-      quote: t('testimonials.items.profMichaelChen.quote', { ns: 'home' }),
-      rating: 5,
-      researchField: t('testimonials.items.profMichaelChen.field', { ns: 'home' })
-    },
-    {
-      name: t('testimonials.items.emmaRodriguez.name', { ns: 'home' }),
-      role: t('testimonials.items.emmaRodriguez.role', { ns: 'home' }),
-      institution: t('testimonials.items.emmaRodriguez.institution', { ns: 'home' }),
-      quote: t('testimonials.items.emmaRodriguez.quote', { ns: 'home' }),
-      rating: 5,
-      researchField: t('testimonials.items.emmaRodriguez.field', { ns: 'home' })
-    },
-    {
-      name: t('testimonials.items.drJamesThompson.name', { ns: 'home' }),
-      role: t('testimonials.items.drJamesThompson.role', { ns: 'home' }),
-      institution: t('testimonials.items.drJamesThompson.institution', { ns: 'home' }),
-      quote: t('testimonials.items.drJamesThompson.quote', { ns: 'home' }),
-      rating: 5,
-      researchField: t('testimonials.items.drJamesThompson.field', { ns: 'home' })
-    },
-  ];
+  // const testimonials = [
+  //   {
+  //     name: t('testimonials.items.drSarahJohnson.name', { ns: 'home' }),
+  //     role: t('testimonials.items.drSarahJohnson.role', { ns: 'home' }),
+  //     institution: t('testimonials.items.drSarahJohnson.institution', { ns: 'home' }),
+  //     quote: t('testimonials.items.drSarahJohnson.quote', { ns: 'home' }),
+  //     rating: 5,
+  //     researchField: t('testimonials.items.drSarahJohnson.field', { ns: 'home' })
+  //   },
+  //   {
+  //     name: t('testimonials.items.profMichaelChen.name', { ns: 'home' }),
+  //     role: t('testimonials.items.profMichaelChen.role', { ns: 'home' }),
+  //     institution: t('testimonials.items.profMichaelChen.institution', { ns: 'home' }),
+  //     quote: t('testimonials.items.profMichaelChen.quote', { ns: 'home' }),
+  //     rating: 5,
+  //     researchField: t('testimonials.items.profMichaelChen.field', { ns: 'home' })
+  //   },
+  //   {
+  //     name: t('testimonials.items.emmaRodriguez.name', { ns: 'home' }),
+  //     role: t('testimonials.items.emmaRodriguez.role', { ns: 'home' }),
+  //     institution: t('testimonials.items.emmaRodriguez.institution', { ns: 'home' }),
+  //     quote: t('testimonials.items.emmaRodriguez.quote', { ns: 'home' }),
+  //     rating: 5,
+  //     researchField: t('testimonials.items.emmaRodriguez.field', { ns: 'home' })
+  //   },
+  //   {
+  //     name: t('testimonials.items.drJamesThompson.name', { ns: 'home' }),
+  //     role: t('testimonials.items.drJamesThompson.role', { ns: 'home' }),
+  //     institution: t('testimonials.items.drJamesThompson.institution', { ns: 'home' }),
+  //     quote: t('testimonials.items.drJamesThompson.quote', { ns: 'home' }),
+  //     rating: 5,
+  //     researchField: t('testimonials.items.drJamesThompson.field', { ns: 'home' })
+  //   },
+  // ];
 
   const downloadOptions = [
     { 

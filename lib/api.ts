@@ -81,7 +81,7 @@ class ApiClient {
 
   private getLocalizedErrorMessage(errorCode?: string, statusCode?: number, defaultMessage?: string, url?: string): string {
     // Get current language from i18n or localStorage
-    const currentLang = i18n.language || (typeof window !== 'undefined' ? localStorage.getItem('i18nextLng') || 'en' : 'en');
+    // const currentLang = i18n.language || (typeof window !== 'undefined' ? localStorage.getItem('i18nextLng') || 'en' : 'en');
     
     // Ensure i18n is ready
     if (!i18n.isInitialized) {
