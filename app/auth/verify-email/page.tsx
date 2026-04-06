@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState, useEffect, useCallback, Suspense, useMemo } from 'react';
+import React, { useState, useEffect, useCallback, Suspense, useMemo, useRef } from 'react';
 import { useRouter, useSearchParams } from 'next/navigation';
 import { Mail, CheckCircle, XCircle, Loader2 } from 'lucide-react';
 import AuthLayout from '@/components/layout/AuthLayout';
@@ -44,6 +44,7 @@ function VerifyEmailContent() {
   const [isResending, setIsResending] = useState(false);
   const [cooldownUntil, setCooldownUntil] = useState(0);
   const [tick, setTick] = useState(0);
+  const processedTokenRef = useRef<string | null>(null);
 
   useEffect(() => {
     setCooldownUntil(readCooldownEnd());
@@ -86,7 +87,10 @@ function VerifyEmailContent() {
   }, [router, t]);
 
   useEffect(() => {
-    if (token) void verifyEmail(token);
+    if (!token) return;
+    if (processedTokenRef.current === token) return;
+    processedTokenRef.current = token;
+    void verifyEmail(token);
   }, [token, verifyEmail]);
 
   const resendVerificationEmail = async () => {
