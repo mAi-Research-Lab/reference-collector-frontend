@@ -23,17 +23,13 @@ const AuthLayout: React.FC<AuthLayoutProps> = ({ children }) => {
             <header className="relative z-10 flex items-center justify-between px-6 py-4 sm:px-8">
                 <Link href="/" className="flex items-center space-x-2.5 group">
                     <Image
-                        src="/images/logo.jpg"
+                        src="/images/logo.png"
                         alt="Citext Logo"
-                        width={32}
+                        width={120}
                         height={32}
                         className="rounded-lg shadow-sm group-hover:shadow-md transition-shadow duration-200"
                         priority
                     />
-                    <span className="text-lg font-bold tracking-tight">
-                        <span className="text-primary-600">Ci</span>
-                        <span className="text-neutral-900">text</span>
-                    </span>
                 </Link>
 
                 <LanguageSwitcher />

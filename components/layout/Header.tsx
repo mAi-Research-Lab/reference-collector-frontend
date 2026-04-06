@@ -90,18 +90,14 @@ const Header: React.FC = () => {
                         <Link href="/" className="flex items-center space-x-2.5 group">
                             <div className="relative">
                                 <Image
-                                    src="/images/logo.jpg"
+                                    src="/images/logo.png"
                                     alt="Citext Logo"
-                                    width={34}
-                                    height={34}
+                                    width={120}
+                                    height={32}
                                     className="rounded-lg shadow-sm group-hover:shadow-md transition-shadow duration-200"
                                     priority
                                 />
                             </div>
-                            <span className="text-xl font-bold tracking-tight">
-                                <span className="text-primary-600">Ci</span>
-                                <span className="text-neutral-900">text</span>
-                            </span>
                         </Link>
                     </div>
 
