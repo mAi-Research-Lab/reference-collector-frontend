@@ -2,6 +2,7 @@
   "brand": "Citext",
   "navigation": {
     "home": "Home",
+    "backToHome": "Back to home",
     "features": "Features",
     "download": "Download",
     "about": "About",

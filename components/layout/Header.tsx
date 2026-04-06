@@ -163,11 +163,18 @@ const Header: React.FC = () => {
                                     )}
                                 </>
                             ) : (
-                                <Link href="/auth/signup">
-                                    <Button variant="primary" size="sm">
-                                        {t('navigation.signup')}
-                                    </Button>
-                                </Link>
+                                <>
+                                    <Link href="/auth/signin">
+                                        <Button variant="ghost" size="sm">
+                                            {t('navigation.signin')}
+                                        </Button>
+                                    </Link>
+                                    <Link href="/auth/signup">
+                                        <Button variant="primary" size="sm">
+                                            {t('navigation.signup')}
+                                        </Button>
+                                    </Link>
+                                </>
                             )}
                         </div>
 
@@ -247,6 +254,11 @@ const Header: React.FC = () => {
                                         <Link href="/pricing" onClick={() => setIsMenuOpen(false)}>
                                             <Button variant="outline" size="sm" className="w-full">
                                                 {t('navigation.pricing')}
+                                            </Button>
+                                        </Link>
+                                        <Link href="/auth/signin" onClick={() => setIsMenuOpen(false)}>
+                                            <Button variant="ghost" size="sm" className="w-full">
+                                                {t('navigation.signin')}
                                             </Button>
                                         </Link>
                                         <Link href="/auth/signup" onClick={() => setIsMenuOpen(false)}>

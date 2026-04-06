@@ -3,13 +3,25 @@
 import React from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
+import { usePathname } from 'next/navigation';
+import { useTranslation } from 'react-i18next';
 import LanguageSwitcher from '@/components/ui/LanguageSwitcher';
+import Button from '@/components/ui/Button';
 
 interface AuthLayoutProps {
     children: React.ReactNode;
 }
 
 const AuthLayout: React.FC<AuthLayoutProps> = ({ children }) => {
+    const pathname = usePathname();
+    const { t } = useTranslation('common');
+    const isSignInPage = pathname === '/auth/signin';
+    const isSignUpPage = pathname === '/auth/signup';
+    const alternateAuthHref = isSignInPage ? '/auth/signup' : '/auth/signin';
+    const alternateAuthLabel = isSignInPage
+        ? t('navigation.signup')
+        : t('navigation.signin');
+
     return (
         <div className="min-h-screen bg-gradient-to-br from-neutral-50 via-primary-50/40 to-neutral-100 relative overflow-hidden flex flex-col">
             {/* Decorative blobs */}
@@ -32,7 +44,35 @@ const AuthLayout: React.FC<AuthLayoutProps> = ({ children }) => {
                     />
                 </Link>
 
-                <LanguageSwitcher />
+                <div className="flex items-center gap-2">
+                    <Link href="/">
+                        <Button variant="ghost" size="sm">
+                            {t('navigation.backToHome')}
+                        </Button>
+                    </Link>
+                    {!isSignInPage && !isSignUpPage && (
+                        <Link href={alternateAuthHref}>
+                            <Button variant="outline" size="sm">
+                                {alternateAuthLabel}
+                            </Button>
+                        </Link>
+                    )}
+                    {isSignInPage && (
+                        <Link href="/auth/signup">
+                            <Button variant="outline" size="sm">
+                                {t('navigation.signup')}
+                            </Button>
+                        </Link>
+                    )}
+                    {isSignUpPage && (
+                        <Link href="/auth/signin">
+                            <Button variant="outline" size="sm">
+                                {t('navigation.signin')}
+                            </Button>
+                        </Link>
+                    )}
+                    <LanguageSwitcher />
+                </div>
             </header>
 
             {/* Main content */}
